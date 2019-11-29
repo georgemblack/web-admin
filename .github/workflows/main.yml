@@ -1,0 +1,18 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cloud Run Deploy
+      uses: ./.github/actions/cloud-run-deploy
+      with:
+        serviceName: george-web-viz
+        gcloudProjectId: ${{ secrets.GCLOUD_PROJECT_ID }}
+        gcloudServiceAccount: ${{ secrets.GCLOUD_SERVICE_ACCOUNT }}
+        gcloudRuntimeServiceAccount: ${{ secrets.GCLOUD_RUNTIME_SERVICE_ACCOUNT }}
+      env:
+        GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
