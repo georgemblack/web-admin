@@ -5,8 +5,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    ...mapActions(['getAllViews'])
+  },
+  mounted() {
+    this.getAllViews()
+  }
 }
 </script>
 
