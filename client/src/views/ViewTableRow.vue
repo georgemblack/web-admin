@@ -3,7 +3,7 @@
     <td>{{ timestampFormatted }}</td>
     <td>{{ view.timezone }}</td>
     <td>{{ view.pathname }}</td>
-    <td>{{ view.referrer }}</td>
+    <td>{{ referrerFormatted }}</td>
     <td>{{ view.browserName }}</td>
     <td>{{ view.engineName }}</td>
     <td>{{ view.osName }}</td>
@@ -21,6 +21,9 @@ export default {
   computed: {
     timestampFormatted() {
       return moment(this.view.timestamp).format('MMM D, h:mma')
+    },
+    referrerFormatted() {
+      return this.view.referrer.replace('https://', '').replace('georgeblack.me', '')
     }
   }
 }

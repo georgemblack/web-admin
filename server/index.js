@@ -31,14 +31,14 @@ app.get('/api/views', (req, res) => {
           id: documentId,
           timestamp: documentPayload.timestamp,
           pathname: documentPayload.pathname,
-          referrer: documentPayload.referrer || 'None',
+          referrer: documentPayload.referrer || '',
           windowInnerWidth: documentPayload.windowInnerWidth,
           timezone: documentPayload.timezone,
           hostname: documentPayload.hostname,
-          browserName: userAgentData.browser.name || 'Unknown',
-          engineName: userAgentData.engine.name || 'Unknown',
-          osName: userAgentData.os.name || 'Unknown',
-          deviceVendor: userAgentData.device.vendor || 'Unknown'
+          browserName: userAgentData.browser.name || '',
+          engineName: userAgentData.engine.name || '',
+          osName: userAgentData.os.name || '',
+          deviceVendor: userAgentData.device.vendor || ''
         })
       })
       data.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1)
