@@ -22,7 +22,10 @@ export default {
       return moment(this.view.timestamp).format('MMM D, h:mma')
     },
     referrerFormatted() {
-      return this.view.referrer.replace('https://', '').replace('georgeblack.me', '')
+      return this.view.referrer
+        .replace('https://', '')
+        .replace('georgeblack.me', '')
+        .replace(/\/$/, '')
     }
   }
 }

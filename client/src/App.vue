@@ -1,6 +1,6 @@
 <template>
   <div class="my-app">
-    <view-table></view-table>
+    <view-table />
   </div>
 </template>
 
@@ -12,11 +12,11 @@ import ViewTable from './views/ViewTable'
 export default {
   name: 'App',
   components: { ViewTable },
-  methods: {
-    ...mapActions(['getAllViews'])
-  },
   mounted() {
     this.getAllViews()
+  },
+  methods: {
+    ...mapActions(['getAllViews'])
   }
 }
 </script>
