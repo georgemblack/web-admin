@@ -20,7 +20,7 @@ app.get('/api/views', (req, res) => {
 
   const data = []
 
-  db.collection('personal-web-views').orderBy('timestamp', 'desc').limit(2).get()
+  db.collection('personal-web-views').orderBy('timestamp', 'desc').limit(100).get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
         const documentId = doc.id
