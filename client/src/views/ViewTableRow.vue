@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>{{ view.timestamp }}</td>
+    <td>{{ timestampFormatted }}</td>
     <td>{{ view.timezone }}</td>
     <td>{{ view.pathname }}</td>
     <td>{{ view.referrer }}</td>
@@ -13,9 +13,16 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'ViewTableRow',
-  props: ['view']
+  props: ['view'],
+  computed: {
+    timestampFormatted() {
+      return moment(this.view.timestamp).format('MMM D, h:mma')
+    }
+  }
 }
 </script>
 
