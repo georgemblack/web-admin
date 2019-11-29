@@ -1,14 +1,17 @@
 <template>
   <div class="my-app">
-    <router-view />
+    <view-table></view-table>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 
+import ViewTable from './views/ViewTable'
+
 export default {
   name: 'App',
+  components: { ViewTable },
   methods: {
     ...mapActions(['getAllViews'])
   },
