@@ -41,7 +41,7 @@ app.get('/api/views', (req, res) => {
           deviceVendor: userAgentData.device.vendor || ''
         })
       })
-      data.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1)
+      data.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
       res.status(200).send({ data: data })
     })
     .catch((err) => {
