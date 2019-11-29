@@ -20,7 +20,7 @@ app.get('/api/views', (req, res) => {
 
   const data = []
 
-  db.collection('personal-web-views').get()
+  db.collection('personal-web-views').orderBy('timestamp', 'desc').limit(2).get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
         const documentId = doc.id
@@ -41,7 +41,6 @@ app.get('/api/views', (req, res) => {
           deviceVendor: userAgentData.device.vendor || ''
         })
       })
-      data.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
       res.status(200).send({ data: data })
     })
     .catch((err) => {
