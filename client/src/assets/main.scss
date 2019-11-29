@@ -1,12 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  margin: 1em auto;
+  margin: 0 auto;
   padding: 1em;
   background-color: #202020;
   font-family: system-ui;
 }
 
+h1 {
+  color: #f7f7f7;
+}
+
 p {
   color: #f7f7f7;
+}
+
+button {
+  font-size: 1em;
+  color: #f7f7f7;
+  font-weight: 800;
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 0.25em;
+  background-color: #10ac84;
+}
+
+button:hover {
+  background-color: #0e8f6f;
+}
+
+button:active {
+  background-color: #0c755b;
 }
 
 table {

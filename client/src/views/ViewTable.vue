@@ -1,8 +1,5 @@
 <template>
   <div class="view-table">
-    <button @click="getAllViews">
-      Refresh
-    </button>
     <table class="table">
       <thead>
         <tr>

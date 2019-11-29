@@ -1,6 +1,14 @@
 <template>
-  <div class="my-app">
-    <view-table />
+  <div>
+    <h1>Web Dash</h1>
+    <div class="controls">
+      <button @click="getAllViews">
+        Refresh
+      </button>
+    </div>
+    <div class="view-table">
+      <view-table />
+    </div>
   </div>
 </template>
 
@@ -23,4 +31,10 @@ export default {
 
 <!-- WARNING: Not scoped -->
 <style lang="scss">
+.controls {
+  text-align: right;
+}
+.view-table {
+  margin-top: 1em;
+}
 </style>
