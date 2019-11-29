@@ -11,7 +11,6 @@
           <th>Path</th>
           <th>Referrer</th>
           <th>Browser</th>
-          <th>Engine</th>
           <th>OS</th>
           <th>Vendor</th>
           <th>Window</th>
