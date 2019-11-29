@@ -5,7 +5,6 @@
     <td>{{ view.pathname }}</td>
     <td>{{ referrerFormatted }}</td>
     <td>{{ view.browserName }}</td>
-    <td>{{ view.engineName }}</td>
     <td>{{ view.osName }}</td>
     <td>{{ view.deviceVendor }}</td>
     <td>{{ view.windowInnerWidth }} </td>
