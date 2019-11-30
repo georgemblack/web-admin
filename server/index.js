@@ -20,10 +20,10 @@ app.get('/api/views', (req, res) => {
 
   const views = []
   const date = new Date()
-  const startDateMarker = date.setDate(date.getDate() - 30)
+  date.setDate(date.getDate() - 30)
 
   db.collection('personal-web-views')
-    .where('timestamp', '>', startDateMarker)
+    .where('timestamp', '>', date)
     .orderBy('timestamp', 'desc')
     .get()
     .then((snapshot) => {
