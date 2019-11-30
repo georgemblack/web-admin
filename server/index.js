@@ -23,8 +23,7 @@ app.get('/api/views', (req, res) => {
   const startDateMarker = date.setDate(date.getDate() - 30)
 
   db.collection('personal-web-views')
-    .where('timestamp', '>=', startDateMarker)
-    .orderBy('timestamp', 'desc')
+    .where('timestamp', '>', startDateMarker)
     .get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
