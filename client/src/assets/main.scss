@@ -6,6 +6,7 @@
 body {
   margin: 0 auto;
   padding: 1em;
+  max-width: 85em;
   background-color: #202020;
   font-family: system-ui;
 }
@@ -37,9 +38,14 @@ button:active {
 }
 
 table {
+  width: 100%;
+  font-size: 0.85em;
   color: #f7f7f7;
   border-collapse: collapse;
-  width: 100%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 th, td {
