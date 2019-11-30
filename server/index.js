@@ -18,16 +18,21 @@ app.use(express.static('public'))
 app.get('/api/views', (req, res) => {
   res.header('Content-Type', 'application/json')
 
-  const data = []
+  const views = []
+  const date = new Date()
+  const startDateMarker = date.setDate(date.getDate() - 30)
 
-  db.collection('personal-web-views').orderBy('timestamp', 'desc').limit(100).get()
+  db.collection('personal-web-views')
+    .where('timestamp', '>=', startDateMarker.toISOString())
+    .orderBy('timestamp', 'desc')
+    .get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
         const documentId = doc.id
         const documentPayload = doc.data()
         const userAgentData = parser(documentPayload.userAgent)
 
-        data.push({
+        views.push({
           id: documentId,
           timestamp: documentPayload.timestamp,
           pathname: documentPayload.pathname,
@@ -41,7 +46,7 @@ app.get('/api/views', (req, res) => {
           deviceVendor: userAgentData.device.vendor || ''
         })
       })
-      res.status(200).send({ data: data })
+      res.status(200).send({ views: views })
     })
     .catch((err) => {
       console.log(err)
