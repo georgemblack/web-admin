@@ -18,7 +18,7 @@ app.use(express.static('public'))
 app.get('/api/views', (req, res) => {
   res.header('Content-Type', 'application/json')
 
-  const aggregates = {}
+  let aggregates = {}
   const views = []
 
   const date = new Date()
@@ -57,7 +57,7 @@ app.get('/api/views', (req, res) => {
       })
       res.status(200).send({
         aggregates,
-        views 
+        views
       })
     })
     .catch((err) => {
