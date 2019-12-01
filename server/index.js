@@ -38,7 +38,7 @@ app.get('/api/views', (req, res) => {
         // Add view to list
         views.push({
           id: documentId,
-          timestamp: documentPayload.timestamp,
+          timestamp: documentPayload.timestamp['_seconds'],
           pathname: documentPayload.pathname,
           referrer: documentPayload.referrer || '',
           windowInnerWidth: documentPayload.windowInnerWidth,
