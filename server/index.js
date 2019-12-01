@@ -18,10 +18,13 @@ app.use(express.static('public'))
 app.get('/api/views', (req, res) => {
   res.header('Content-Type', 'application/json')
 
+  const aggregates = {}
   const views = []
-  const date = new Date()
-  date.setDate(date.getDate() - 30)
 
+  const date = new Date()
+  date.setDate(date.getDate() - 30) // Previous 30 days
+
+  // Query Firestore for 30 days of views
   db.collection('personal-web-views')
     .where('timestamp', '>', date)
     .orderBy('timestamp', 'desc')
@@ -32,6 +35,7 @@ app.get('/api/views', (req, res) => {
         const documentPayload = doc.data()
         const userAgentData = parser(documentPayload.userAgent)
 
+        // Add view to list
         views.push({
           id: documentId,
           timestamp: documentPayload.timestamp,
@@ -45,8 +49,16 @@ app.get('/api/views', (req, res) => {
           osName: userAgentData.os.name || '',
           deviceVendor: userAgentData.device.vendor || ''
         })
+
+        // Build aggregates
+        aggregates = {
+          total: views.length
+        }
       })
-      res.status(200).send({ views: views })
+      res.status(200).send({
+        aggregates,
+        views 
+      })
     })
     .catch((err) => {
       console.log(err)
