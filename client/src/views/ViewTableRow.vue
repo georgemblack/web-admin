@@ -19,7 +19,7 @@ export default {
   props: ['view'],
   computed: {
     timestampFormatted() {
-      return moment(this.view.timestamp).format('MMM D, h:mma')
+      return moment(this.view.timestamp.toString(), 'X').format('MMM D, h:mma')
     },
     referrerFormatted() {
       return this.view.referrer
