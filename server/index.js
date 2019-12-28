@@ -85,7 +85,7 @@ app.post('/api/links', (req, res) => {
   }
 
   try {
-    const docRef = db.collection('web/links').doc(uuid())
+    const docRef = db.collection('personal-web-links').doc(uuid())
     docRef.set(docPayload)
     res.status(200).send('Done')
   } catch (err) {
