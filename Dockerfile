@@ -1,7 +1,7 @@
 FROM node:13.2 as build-env
 WORKDIR /build
 COPY . .
-RUN && npm i yarn -g \
+RUN npm i yarn -g \
     && cd ./server \
     && yarn \
     && cd ../client \
