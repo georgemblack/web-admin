@@ -1,6 +1,7 @@
 const admin = require('firebase-admin')
 const express = require('express')
 const parser = require('ua-parser-js')
+const uuid = require('uuid/v4')
 
 // Firestore connection
 admin.initializeApp({
@@ -60,10 +61,36 @@ app.get('/api/views', (req, res) => {
         views
       })
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err)
       res.status(500).send('Internal error')
     })
+})
+
+app.post('/api/links', (req, res) => {
+  if (
+    typeof req.body.title !== 'string' ||
+    req.body.title === '' ||
+    typeof req.body.url !== 'string' ||
+    req.body.url === ''
+  ) {
+    res.status(400).send('Validation failed')
+    return
+  }
+
+  const docPayload = {
+    title: req.body.title,
+    url: req.body.url,
+    timestamp: new Date()
+  }
+
+  try {
+    const docRef = db.collection('web/links').doc(uuid())
+    docRef.set(docPayload)
+    res.status(200).send('Done')
+  } catch (err) {
+    res.status(500).send('Internal error')
+  }
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
