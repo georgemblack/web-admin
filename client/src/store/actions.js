@@ -4,10 +4,10 @@ import {
 } from './mutations'
 
 export default {
-  getAllViews: ({ commit, state }) => {
+  getAllViews: ({ commit, getters }) => {
     fetch('/api/views', {
       headers: {
-        'Authorization': `Bearer ${state.authToken}`
+        'Authorization': `Bearer ${getters.authToken}`
       }
     })
       .then(response => {

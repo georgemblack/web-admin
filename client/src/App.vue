@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 import Credentials from './views/Credentials'
 import ViewTable from './views/ViewTable'
@@ -26,6 +26,9 @@ export default {
   components: { Credentials, ViewTable },
   computed: {
     ...mapGetters(['authorized'])
+  },
+  methods: {
+    ...mapActions(['getAllViews'])
   }
 }
 </script>
