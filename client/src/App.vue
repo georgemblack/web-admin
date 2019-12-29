@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>Web Dash</h1>
+    <credentials
+      v-if="!authorized"
+    ></credentials>
     <div class="controls">
       <button @click="getAllViews">
         Refresh
@@ -13,18 +16,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
+import Credentials from './views/Credentials'
 import ViewTable from './views/ViewTable'
 
 export default {
   name: 'App',
-  components: { ViewTable },
-  mounted() {
-    this.getAllViews()
-  },
-  methods: {
-    ...mapActions(['getAllViews'])
+  components: { Credentials, ViewTable },
+  computed: {
+    ...mapGetters(['authorized'])
   }
 }
 </script>

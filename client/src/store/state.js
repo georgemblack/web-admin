@@ -1,3 +1,4 @@
 export default {
+  authToken: '',
   views: []
 }
