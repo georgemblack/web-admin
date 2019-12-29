@@ -2,6 +2,7 @@ const admin = require('firebase-admin')
 const express = require('express')
 const parser = require('ua-parser-js')
 const uuid = require('uuid/v4')
+const auth = require('./auth')
 
 // Firestore connection
 admin.initializeApp({
@@ -16,7 +17,15 @@ const port = process.env.PORT || 8080
 
 app.use(express.static('public'))
 
-app.get('/api/views', (req, res) => {
+app.get('/health', (req, res) => {
+  return res.status(200).send('Alive and well!')
+})
+
+app.post('/auth', auth.validateBasicAuth, (req, res) => {
+  return res.status(200).send({ token: auth.generateToken() })
+})
+
+app.get('/api/views', auth.validateToken, (req, res) => {
   res.header('Content-Type', 'application/json')
 
   let aggregates = {}
@@ -39,7 +48,7 @@ app.get('/api/views', (req, res) => {
         // Add view to list
         views.push({
           id: documentId,
-          timestamp: documentPayload.timestamp['_seconds'],
+          timestamp: documentPayload.timestamp._seconds,
           pathname: documentPayload.pathname,
           referrer: documentPayload.referrer || '',
           windowInnerWidth: documentPayload.windowInnerWidth,
@@ -67,7 +76,7 @@ app.get('/api/views', (req, res) => {
     })
 })
 
-app.post('/api/links', (req, res) => {
+app.post('/api/links', auth.validateToken, (req, res) => {
   if (
     typeof req.body.title !== 'string' ||
     req.body.title === '' ||
