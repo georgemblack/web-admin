@@ -4,6 +4,9 @@ const USERNAME = process.env.USERNAME || 'testuser'
 const PASSWORD = process.env.PASSWORD || 'testpass'
 const TOKEN_SECRET = process.env.TOKEN_SECRET || 'testsecret'
 
+/**
+ * Validate incoming request with basic auth
+ */
 function validateBasicAuth (req, res, next) {
   const header = req.get('Authorization')
   if (!header) {
@@ -31,6 +34,9 @@ function validateBasicAuth (req, res, next) {
   next()
 }
 
+/**
+ * Validate incoming request with JWT
+ */
 function validateToken (req, res, next) {
   const header = req.get('Authorization')
   if (!header) {
@@ -48,6 +54,9 @@ function validateToken (req, res, next) {
   next()
 }
 
+/**
+ * Generate JWT for client
+ */
 function generateToken () {
   return jwt.sign({}, TOKEN_SECRET, { expiresIn: '10m' })
 }
