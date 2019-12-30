@@ -33,6 +33,12 @@ export default {
   computed: {
     ...mapGetters(['authorized'])
   },
+  watch: {
+    authorized: (authorized) => {
+      if (!authorized) return
+      this.getAllViews()
+    }
+  },
   methods: {
     ...mapActions(['getAllViews'])
   }
