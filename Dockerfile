@@ -12,4 +12,4 @@ RUN npm i yarn -g \
 FROM node:13.2-alpine
 WORKDIR /app
 COPY --from=build-env /build/server /app
-CMD ["app.js"]
+CMD ["yarn", "start"]
