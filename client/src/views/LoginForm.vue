@@ -1,5 +1,5 @@
 <template>
-  <div class="credentials">
+  <div class="login-form">
     <input
       v-model="username"
       type="text"
@@ -22,7 +22,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Credentials',
+  name: 'LoginForm',
   data() {
     return {
       username: '',

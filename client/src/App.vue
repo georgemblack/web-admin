@@ -1,9 +1,12 @@
 <template>
   <div>
     <h1>Web Dash</h1>
-    <credentials
+    <login-form
       v-if="!authorized"
-    ></credentials>
+    ></login-form>
+    <link-form
+      v-if="authorized"
+    ></link-form>
     <div
       v-if="authorized"
       class="controls"
@@ -24,17 +27,18 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-import Credentials from './views/Credentials'
+import LinkForm from './views/LinkForm'
+import LoginForm from './views/LoginForm'
 import ViewTable from './views/ViewTable'
 
 export default {
   name: 'App',
-  components: { Credentials, ViewTable },
+  components: { LinkForm, LoginForm, ViewTable },
   computed: {
     ...mapGetters(['authorized'])
   },
   watch: {
-    authorized: (authorized) => {
+    authorized: function(authorized) {
       if (!authorized) return
       this.getAllViews()
     }
