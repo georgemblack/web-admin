@@ -4,12 +4,18 @@
     <credentials
       v-if="!authorized"
     ></credentials>
-    <div class="controls">
+    <div
+      v-if="authorized"
+      class="controls"
+    >
       <button @click="getAllViews">
         Refresh
       </button>
     </div>
-    <div class="view-table">
+    <div
+      v-if="authorized"
+      class="view-table"
+    >
       <view-table />
     </div>
   </div>
