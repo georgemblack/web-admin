@@ -33,7 +33,8 @@ export default {
         title: this.title,
         url: this.url
       })
-      this.title, this.url = ''
+      this.title = ''
+      this.url = ''
     },
     ...mapActions(['postLink'])
   }

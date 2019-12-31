@@ -34,12 +34,10 @@ export default {
     fetch('/api/links', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${getters.authToken}`
+        'Authorization': `Bearer ${getters.authToken}`,
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        title: payload.title,
-        url: payload.url
-      })
+      body: JSON.stringify(payload)
     })
   },
 }
