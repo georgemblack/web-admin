@@ -33,31 +33,4 @@ app.get('/api/views', auth.validateToken, async (req, res) => {
   }
 })
 
-/**
- * Create new link
- */
-app.post('/api/links', auth.validateToken, async (req, res) => {
-  if (
-    typeof req.body.title !== 'string' ||
-    req.body.title === '' ||
-    typeof req.body.url !== 'string' ||
-    req.body.url === ''
-  ) {
-    return res.status(400).send('Validation failed')
-  }
-
-  const docPayload = {
-    title: req.body.title,
-    url: req.body.url,
-    timestamp: new Date()
-  }
-
-  try {
-    await firestore.postLink(docPayload)
-    return res.status(200).send('Done')
-  } catch (err) {
-    return res.status(500).send('Internal error')
-  }
-})
-
 app.listen(port, () => console.log(`Listening on port ${port}`))

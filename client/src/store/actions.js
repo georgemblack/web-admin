@@ -29,15 +29,5 @@ export default {
           commit(SET_AUTH_TOKEN, responseData)
         })
       })
-  },
-  postLink: ({ getters }, payload) => {
-    fetch('/api/links', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${getters.authToken}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-  },
+  }
 }

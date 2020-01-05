@@ -3,7 +3,6 @@ const parser = require('ua-parser-js')
 const uuid = require('uuid/v4')
 
 const VIEW_COLLECTION_NAME = 'personal-web-views'
-const LINK_COLLECTION_NAME = 'personal-web-links'
 
 /**
  * Firestore connection, authorized with service account
@@ -12,14 +11,6 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault()
 })
 const db = admin.firestore()
-
-/**
- * Add new link to Firestore
- */
-async function postLink (payload) {
-  const docRef = db.collection(LINK_COLLECTION_NAME).doc(uuid())
-  docRef.set(payload)
-}
 
 /**
  * Query Firestore for prev 30 days of views, sorted and w/aggregates
@@ -63,6 +54,5 @@ async function getViews () {
 }
 
 module.exports = {
-  postLink,
   getViews
 }

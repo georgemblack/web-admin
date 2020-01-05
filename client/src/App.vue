@@ -4,9 +4,6 @@
     <login-form
       v-if="!authorized"
     ></login-form>
-    <link-form
-      v-if="authorized"
-    ></link-form>
     <div
       v-if="authorized"
       class="controls"
@@ -27,13 +24,12 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-import LinkForm from './views/LinkForm'
 import LoginForm from './views/LoginForm'
 import ViewTable from './views/ViewTable'
 
 export default {
   name: 'App',
-  components: { LinkForm, LoginForm, ViewTable },
+  components: { LoginForm, ViewTable },
   computed: {
     ...mapGetters(['authorized'])
   },
