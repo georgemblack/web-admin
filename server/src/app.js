@@ -7,6 +7,7 @@ const firestore = require('./firestore')
  */
 const app = express()
 app.use(express.json())
+app.disable('x-powered-by')
 const port = process.env.PORT || 8080
 
 /**
