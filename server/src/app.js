@@ -1,12 +1,30 @@
 const express = require('express')
 const auth = require('./auth')
 const firestore = require('./firestore')
+const { RateLimiterMemory } = require('rate-limiter-flexible')
+
+/**
+ * Minimal rate-limiting
+ */
+const rateLimiter = new RateLimiterMemory({
+  points: 10,
+  duration: 60
+})
+const rateLimit = async (req, res, next) => {
+  try {
+    await rateLimiter.consume(req.ip, 1)
+    next()
+  } catch (err) {
+    return res.status(429).send('Too many requests')
+  }
+}
 
 /**
  * Express setup
  */
 const app = express()
 app.use(express.json())
+app.use(rateLimit)
 app.disable('x-powered-by')
 const port = process.env.PORT || 8080
 
