@@ -18,6 +18,7 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "vue/require-prop-types": ["off"]
+    "vue/require-prop-types": ["off"],
+    "vue/html-self-closing": ["off"]
   }
 }
