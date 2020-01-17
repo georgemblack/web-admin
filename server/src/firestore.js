@@ -2,7 +2,7 @@ const admin = require('firebase-admin')
 const parser = require('ua-parser-js')
 const uuid = require('uuid/v4')
 
-const VIEW_COLLECTION_NAME = 'personal-web-views'
+const VIEW_COLLECTION_NAME = 'web-views'
 
 /**
  * Firestore connection, authorized with service account
