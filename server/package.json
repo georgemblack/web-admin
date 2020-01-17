@@ -10,8 +10,7 @@
     "firebase-admin": "^8.8.0",
     "jsonwebtoken": "^8.5.1",
     "rate-limiter-flexible": "^1.2.2",
-    "ua-parser-js": "^0.7.20",
-    "uuid": "^3.3.3"
+    "ua-parser-js": "^0.7.20"
   },
   "devDependencies": {
     "eslint": "^6.7.0",
