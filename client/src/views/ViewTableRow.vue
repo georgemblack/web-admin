@@ -24,8 +24,8 @@ export default {
       let cleaned = this.view.referrer
         .replace('https://', '')
         .replace('georgeblack.me', '')
-      if (cleaned.length > 30) {
-        cleaned = cleaned.substring(0, 27) + '...'
+      if (cleaned.length > 40) {
+        cleaned = cleaned.substring(0, 37) + '...'
       }
       return cleaned
     }
