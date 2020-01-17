@@ -6,7 +6,6 @@
     <td>{{ referrerFormatted }}</td>
     <td>{{ view.browserName }}</td>
     <td>{{ view.osName }}</td>
-    <td>{{ view.deviceVendor }}</td>
     <td>{{ view.windowInnerWidth }} </td>
   </tr>
 </template>
@@ -22,10 +21,13 @@ export default {
       return moment(this.view.timestamp.toString(), 'X').format('MMM D, h:mma')
     },
     referrerFormatted() {
-      return this.view.referrer
+      let cleaned = this.view.referrer
         .replace('https://', '')
         .replace('georgeblack.me', '')
-        .replace(/\/$/, '')
+      if (cleaned.length > 30) {
+        cleaned = cleaned.substring(0, 27) + '...'
+      }
+      return cleaned
     }
   }
 }
