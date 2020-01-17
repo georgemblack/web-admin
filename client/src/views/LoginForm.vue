@@ -1,20 +1,22 @@
 <template>
   <div class="login-form">
-    <input
-      v-model="username"
-      type="text"
-      autocomplete="username"
-      placeholder="username"
-    >
-    <input
-      v-model="password"
-      type="password"
-      autocomplete="current-password"
-      placeholder="password"
-    >
-    <button @click="handleSubmit">
-      Login
-    </button>
+    <form @submit.prevent="handleSubmit">
+      <input
+        v-model="username"
+        type="text"
+        autocomplete="username"
+        placeholder="username"
+      >
+      <input
+        v-model="password"
+        type="password"
+        autocomplete="current-password"
+        placeholder="password"
+      >
+      <button type="submit">
+        Login
+      </button>
+    </form>
   </div>
 </template>
 
