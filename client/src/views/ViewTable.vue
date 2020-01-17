@@ -9,7 +9,6 @@
           <th>Referrer</th>
           <th>Browser</th>
           <th>OS</th>
-          <th>Vendor</th>
           <th>Window</th>
         </tr>
       </thead>
