@@ -30,14 +30,14 @@ rm ./key.json
 
 # Submit build
 gcloud builds submit \
-  --gcs-log-dir gs://georgeblack-meta/cloud-build/logs \
-  --gcs-source-staging-dir gs://georgeblack-meta/cloud-build/source \
+  --gcs-log-dir gs://gmb-meta/cloud-build/logs \
+  --gcs-source-staging-dir gs://gmb-meta/cloud-build/source \
   --tag gcr.io/${INPUT_GCLOUDPROJECTID}/${INPUT_SERVICENAME}:${PACKAGE_VERSION}
 
 # Deploy
 gcloud run deploy ${INPUT_SERVICENAME} \
   --concurrency 20 \
-  --max-instances 10 \
+  --max-instances 2 \
   --memory 256Mi \
   --platform managed \
   --allow-unauthenticated \
