@@ -30,8 +30,8 @@ rm ./key.json
 
 # Submit build
 gcloud builds submit \
-  --gcs-log-dir gs://gmb-meta/cloud-build/logs \
-  --gcs-source-staging-dir gs://gmb-meta/cloud-build/source \
+  --gcs-log-dir gs://artifacts.gmb-personal.appspot.com/logs \
+  --gcs-source-staging-dir gs://artifacts.gmb-personal.appspot.com/source \
   --tag gcr.io/${INPUT_GCLOUDPROJECTID}/${INPUT_SERVICENAME}:${PACKAGE_VERSION}
 
 # Deploy
