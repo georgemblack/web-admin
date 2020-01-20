@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Cloud Run Deploy
-      uses: georgemblack/actions/gcs-artifact-upload@1.0.2
+      uses: georgemblack/actions/cloud-run-deploy@1.0.2
       with:
         serviceName: web-admin
         projectId: ${{ secrets.GCLOUD_PROJECT_ID }}
