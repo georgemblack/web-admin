@@ -17,7 +17,7 @@ export default {
       })
   },
   getAuthToken: ({ commit }, payload) => {
-    const userPassEncoded = btoa(`${payload.username}:${payload.password}`)
+    const userPassEncoded = btoa(`${payload.username.trim()}:${payload.password.trim()}`)
     fetch('/auth', {
       method: 'POST',
       headers: {
