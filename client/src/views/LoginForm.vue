@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    handleSubmit: function() {
+    handleSubmit() {
       this.getAuthToken({
         username: this.username,
         password: this.password
