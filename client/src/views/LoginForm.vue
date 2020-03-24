@@ -6,13 +6,13 @@
         type="text"
         autocomplete="username"
         placeholder="username"
-      >
+      />
       <input
         v-model="password"
         type="password"
         autocomplete="current-password"
         placeholder="password"
-      >
+      />
       <button type="submit">
         Login
       </button>
@@ -21,27 +21,26 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
-  name: 'LoginForm',
+  name: "LoginForm",
   data() {
     return {
-      username: '',
-      password: '',
-    }
+      username: "",
+      password: "",
+    };
   },
   methods: {
     handleSubmit() {
       this.getAuthToken({
         username: this.username,
-        password: this.password
-      })
+        password: this.password,
+      });
     },
-    ...mapActions(['getAuthToken'])
-  }
-}
+    ...mapActions(["getAuthToken"]),
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -6,32 +6,31 @@
     <td>{{ referrerFormatted }}</td>
     <td>{{ view.browserName }}</td>
     <td>{{ view.osName }}</td>
-    <td>{{ view.windowInnerWidth }} </td>
+    <td>{{ view.windowInnerWidth }}</td>
   </tr>
 </template>
 
 <script>
-import moment from 'moment'
+import moment from "moment";
 
 export default {
-  name: 'ViewTableRow',
-  props: ['view'],
+  name: "ViewTableRow",
+  props: ["view"],
   computed: {
     timestampFormatted() {
-      return moment(this.view.timestamp.toString(), 'X').format('MMM D, h:mma')
+      return moment(this.view.timestamp.toString(), "X").format("MMM D, h:mma");
     },
     referrerFormatted() {
       let cleaned = this.view.referrer
-        .replace('https://', '')
-        .replace('georgeblack.me', '')
+        .replace("https://", "")
+        .replace("georgeblack.me", "");
       if (cleaned.length > 40) {
-        cleaned = cleaned.substring(0, 37) + '...'
+        cleaned = cleaned.substring(0, 37) + "...";
       }
-      return cleaned
-    }
-  }
-}
+      return cleaned;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,48 +1,40 @@
 <template>
   <div>
     <h1>Web Dash</h1>
-    <login-form
-      v-if="!authorized"
-    ></login-form>
-    <div
-      v-if="authorized"
-      class="controls"
-    >
+    <login-form v-if="!authorized"></login-form>
+    <div v-if="authorized" class="controls">
       <button @click="getAllViews">
         Refresh
       </button>
     </div>
-    <div
-      v-if="authorized"
-      class="view-table"
-    >
+    <div v-if="authorized" class="view-table">
       <view-table />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
-import LoginForm from './views/LoginForm'
-import ViewTable from './views/ViewTable'
+import LoginForm from "./views/LoginForm";
+import ViewTable from "./views/ViewTable";
 
 export default {
-  name: 'App',
+  name: "App",
   components: { LoginForm, ViewTable },
   computed: {
-    ...mapGetters(['authorized'])
+    ...mapGetters(["authorized"]),
   },
   watch: {
-    authorized: function(authorized) {
-      if (!authorized) return
-      this.getAllViews()
-    }
+    authorized: function (authorized) {
+      if (!authorized) return;
+      this.getAllViews();
+    },
   },
   methods: {
-    ...mapActions(['getAllViews'])
-  }
-}
+    ...mapActions(["getAllViews"]),
+  },
+};
 </script>
 
 <!-- WARNING: Not scoped -->

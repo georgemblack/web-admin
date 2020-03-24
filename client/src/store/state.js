@@ -1,4 +1,4 @@
 export default {
-  authToken: '',
-  views: []
-}
+  authToken: "",
+  views: [],
+};

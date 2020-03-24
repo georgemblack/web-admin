@@ -13,32 +13,27 @@
         </tr>
       </thead>
       <tbody>
-        <view-table-row
-          v-for="view in allViews"
-          :key="view.id"
-          :view="view"
-        />
+        <view-table-row v-for="view in allViews" :key="view.id" :view="view" />
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
-import ViewTableRow from './ViewTableRow'
+import ViewTableRow from "./ViewTableRow";
 
 export default {
-  name: 'ViewTable',
+  name: "ViewTable",
   components: { ViewTableRow },
   computed: {
-    ...mapGetters(['allViews']),
+    ...mapGetters(["allViews"]),
   },
   methods: {
-    ...mapActions(['getAllViews'])
-  }
-}
+    ...mapActions(["getAllViews"]),
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
