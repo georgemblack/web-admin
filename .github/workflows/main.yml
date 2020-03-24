@@ -7,6 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Lint Client
+      uses: georgemblack/actions/yarn-command@1.0.4
+      with:
+        command: lint
+        directory: ./client
+      env:
+        GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
     - name: Lint Server
       uses: georgemblack/actions/yarn-command@1.0.4
       with:
