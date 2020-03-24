@@ -1,7 +1,9 @@
 const admin = require('firebase-admin')
 const parser = require('ua-parser-js')
+const uuid = require('uuid/v4')
 
 const VIEW_COLLECTION_NAME = 'web-views'
+const BOOKMARK_COLLECTION_NAME = 'web-bookmarks'
 
 /**
  * Firestore connection, authorized with service account
@@ -12,7 +14,7 @@ admin.initializeApp({
 const db = admin.firestore()
 
 /**
- * Query Firestore for prev 30 days of views, sorted and w/aggregates
+ * Query Firestore for previous 30 days of views, sorted and w/aggregates
  */
 async function getViews () {
   const date = new Date()
@@ -52,6 +54,15 @@ async function getViews () {
   }
 }
 
+/**
+ * Add new bookmark to Firestore
+ */
+async function postBookmark (payload) {
+  const docRef = db.collection(BOOKMARK_COLLECTION_NAME).doc(uuid())
+  docRef.set(payload)
+}
+
 module.exports = {
-  getViews
+  getViews,
+  postBookmark
 }

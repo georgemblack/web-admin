@@ -17,7 +17,7 @@ function validateBasicAuth (req, res, next) {
   let user, pass
   try {
     const userPassEncoded = header.split(/\s+/).pop()
-    const userPass = new Buffer.from(userPassEncoded, 'base64').toString()
+    const userPass = new Buffer.from(userPassEncoded, 'base64').toString() // eslint-disable-line
     user = userPass.split(/:/)[0]
     pass = userPass.split(/:/)[1]
   } catch (err) {
