@@ -27,4 +27,14 @@ export default {
       });
     });
   },
+  postBookmark: ({ getters }, payload) => {
+    fetch("/api/bookmarks", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${getters.authToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  },
 };

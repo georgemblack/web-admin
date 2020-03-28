@@ -2,6 +2,7 @@
   <div>
     <h1>Web Dash</h1>
     <login-form v-if="!authorized"></login-form>
+    <bookmark-form v-if="authorized"></bookmark-form>
     <div v-if="authorized" class="controls">
       <button @click="getAllViews">
         Refresh
@@ -18,10 +19,11 @@ import { mapActions, mapGetters } from "vuex";
 
 import LoginForm from "./views/LoginForm";
 import ViewTable from "./views/ViewTable";
+import BookmarkForm from "./views/BookmarkForm";
 
 export default {
   name: "App",
-  components: { LoginForm, ViewTable },
+  components: { LoginForm, ViewTable, BookmarkForm },
   computed: {
     ...mapGetters(["authorized"]),
   },
