@@ -12,15 +12,11 @@ jobs:
       with:
         command: lint
         directory: ./client
-      env:
-        GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
     - name: Lint Server
       uses: georgemblack/actions/yarn-command@1.0.4
       with:
         command: lint
         directory: ./server
-      env:
-        GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
     - name: Cloud Run Deploy
       uses: georgemblack/actions/cloud-run-deploy@1.0.4
       with:
