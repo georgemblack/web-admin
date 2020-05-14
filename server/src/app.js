@@ -7,7 +7,7 @@ const { RateLimiterMemory } = require("rate-limiter-flexible");
  * Minimal rate-limiting
  */
 const rateLimiter = new RateLimiterMemory({
-  points: 10,
+  points: 30,
   duration: 60,
 });
 const rateLimit = async (req, res, next) => {
