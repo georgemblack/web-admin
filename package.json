@@ -1,7 +1,24 @@
 {
-    "name": "web-admin",
-    "repository": "git@github.com:georgemblack/web-admin.git",
-    "author": "georgemblack <contact@georgeblack.me>",
-    "license": "MIT"
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production",
+    "format": "prettier --write ./src"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "prettier": "^2.0.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
-  
+}
