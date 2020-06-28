@@ -5,6 +5,7 @@ import { getUserIsAuthenticated } from "../store/Selectors";
 import LikeForm from "../components/LikeForm.jsx";
 import PostsTable from "../components/PostsTable.jsx";
 import LoginForm from "../components/LoginForm.jsx";
+import LikesTable from "../components/LikesTable.jsx";
 
 function Main(props) {
   const userIsAuthenticated = useSelector(getUserIsAuthenticated);
@@ -15,6 +16,7 @@ function Main(props) {
       <div>
         <LikeForm />
         <PostsTable />
+        <LikesTable />
       </div>
     );
   else page = <LoginForm />;

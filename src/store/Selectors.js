@@ -9,3 +9,7 @@ export function getAuthToken(state) {
 export function getPosts(state) {
   return state.posts;
 }
+
+export function getLikesSelector(state) {
+  return state.likes;
+}
