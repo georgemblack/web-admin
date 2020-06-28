@@ -9,6 +9,7 @@ export function fetchAuthToken(username, password) {
     const userPassEncoded = btoa(`${username.trim()}:${password.trim()}`);
     let response = await fetch(`${API_URL}/auth`, {
       method: "POST",
+      mode: "cors",
       headers: {
         Authorization: `Bearer ${userPassEncoded}`,
         "Content-Type": "application/json",

@@ -9,6 +9,7 @@ export function postLike(payload) {
     const { authToken } = getState();
     await fetch(`${API_URL}/likes`, {
       method: "POST",
+      mode: "cors",
       headers: {
         Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
