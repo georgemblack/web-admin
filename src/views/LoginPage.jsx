@@ -8,10 +8,10 @@ function LoginPage(props) {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (event => {
-    dispatch(fetchAuthToken(username, password))
-    event.preventDefault()
-  })
+  const handleSubmit = (event) => {
+    dispatch(fetchAuthToken(username, password));
+    event.preventDefault();
+  };
 
   return (
     <>

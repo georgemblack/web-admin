@@ -3,16 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../store/Selectors";
 import { fetchPosts } from "../store/Actions";
 
-import {
-  Table,
-  TableContainer,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Paper,
-} from "@material-ui/core";
-
 function PostsTable(props) {
   const dispatch = useDispatch();
   const posts = useSelector(getPosts);
@@ -23,25 +13,23 @@ function PostsTable(props) {
 
   return (
     <>
-      <h1>Posts</h1>
-      <TableContainer component={Paper}>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell>Title</TableCell>
-              <TableCell>Published</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {posts.map((post) => (
-              <TableRow key={post.id}>
-                <TableCell>{post.metadata.title}</TableCell>
-                <TableCell>{post.published}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <h2>Posts</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Published</th>
+          </tr>
+        </thead>
+        <tbody>
+          {posts.map((post) => (
+            <tr>
+              <td>{post.metadata.title}</td>
+              <td>{post.published}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }

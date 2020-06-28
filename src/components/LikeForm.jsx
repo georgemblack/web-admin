@@ -7,9 +7,9 @@ function PostsTable(props) {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     dispatch(postLike({ title, url }));
-    event.preventDefault()
+    event.preventDefault();
   };
 
   return (
