@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { TextField, Button } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 
 import { fetchAuthToken } from "../store/actions/Auth";
 
@@ -9,31 +8,30 @@ function LoginPage(props) {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
+  const handleSubmit = (event => {
+    dispatch(fetchAuthToken(username, password))
+    event.preventDefault()
+  })
+
   return (
     <>
       <p>Login</p>
-      <form>
-        <TextField
-          size="small"
-          label="Username"
-          variant="outlined"
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          autoComplete="username"
+          placeholder="username"
+          value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
-        <TextField
-          size="small"
-          label="Password"
+        <input
           type="password"
-          autoComplete="current-password"
-          variant="outlined"
+          autoComplete="password"
+          placeholder="password"
+          value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => dispatch(fetchAuthToken(username, password))}
-        >
-          Go
-        </Button>
+        <button type="submit">Login</button>
       </form>
     </>
   );
