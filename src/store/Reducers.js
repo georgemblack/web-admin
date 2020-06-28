@@ -1,17 +1,27 @@
 import { combineReducers } from "redux";
-import { UPDATE_MESSAGE } from "./Actions";
+import { FETCH_POSTS_SUCCESS } from "./Actions";
 import initialState from "./State";
+import { FETCH_AUTH_TOKEN_SUCCESS } from "./actions/Auth";
 
-function message(message = initialState.message, action) {
+function authToken(authToken = initialState.authToken, action) {
   switch (action.type) {
-    case UPDATE_MESSAGE:
-      return action.text;
+    case FETCH_AUTH_TOKEN_SUCCESS:
+      return action.token;
   }
-  return message;
+  return authToken;
+}
+
+function posts(posts = initialState.posts, action) {
+  switch (action.type) {
+    case FETCH_POSTS_SUCCESS:
+      return action.posts;
+  }
+  return posts;
 }
 
 const rootReducer = combineReducers({
-  message,
+  authToken,
+  posts,
 });
 
 export default rootReducer;

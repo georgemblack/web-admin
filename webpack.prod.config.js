@@ -2,7 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "app.bundle.js",
@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "API_URL": JSON.stringify("http://localhost:8080"),
+      "API_URL": JSON.stringify(process.env.API_URL),
     })
   ]
 }

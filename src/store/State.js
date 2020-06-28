@@ -1,5 +1,6 @@
 const initialState = {
-  message: "Hello",
+  authToken: "",
+  posts: [],
 };
 
 export default initialState;
