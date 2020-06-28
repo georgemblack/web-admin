@@ -1,5 +1,74 @@
-main {
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+   :root {
+    /* defined widths */
+    --page-max-width: 80rem;
+  
+    /* primary fonts */
+    --primary-font: -apple-system, system-ui, sans-serif;
+  
+    /* font weights */
+    --font-weight-bold: 900;
+    --font-weight-normal: 400;
+  
+    /* general purpose colors */
+    --background-color: #202020;
+    --input-background-color: #109aac;
+    --button-background-color: #10ac84;
+    --button-hover-background-color: #0e8f6f;
+    --button-active-background-color: #0c755b;
+    --font-color: #f7f7f7;
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-font);
+}
+
+body {
   max-width: 80rem;
   margin: 2em auto;
   padding: 0 1em;
+  background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 1em;
+  color: var(--font-color);
+}
+
+form, table {
+  margin-top: 1em;
+}
+
+form input,
+form button {
+  margin-right: 0.25em;
+}
+
+input {
+  background-color: var(--input-background-color);
+}
+
+input,
+button {
+  font-size: 1em;
+  color: var(--font-color);
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 0.25em;
+}
+
+button {
+  background-color: #10ac84;
+}
+
+button:hover {
+  background-color: #0e8f6f;
+}
+
+button:active {
+  background-color: #0c755b;
 }
