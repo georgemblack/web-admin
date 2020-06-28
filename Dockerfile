@@ -1,15 +1,10 @@
-FROM node:13.2 as build-env
+FROM node:13-stretch AS build-env
+ADD . /build
 WORKDIR /build
-COPY . .
-RUN npm i yarn -g \
-    && cd ./server \
-    && yarn \
-    && cd ../client \
-    && yarn \
-    && yarn build \
-    && cp ./dist/* ../server/public/
+RUN yarn && yarn build:prod
 
-FROM node:13.2-alpine
+FROM nginx:1.18
+ENV API_URL=https://api.georgeblack.me
 WORKDIR /app
-COPY --from=build-env /build/server /app
-CMD ["yarn", "start"]
+COPY --from=build-env ./build/public /app/public
+COPY ./image/nginx.conf /etc/nginx/conf.d/default.conf
