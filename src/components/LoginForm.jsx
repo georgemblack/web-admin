@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { fetchAuthToken } from "../store/actions/Auth";
 
-function LoginPage(props) {
+function LoginForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -37,4 +37,4 @@ function LoginPage(props) {
   );
 }
 
-export default LoginPage;
+export default LoginForm;

@@ -23,7 +23,7 @@ function PostsTable(props) {
         </thead>
         <tbody>
           {posts.map((post) => (
-            <tr>
+            <tr key={post.id}>
               <td>{post.metadata.title}</td>
               <td>{post.published}</td>
             </tr>

@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "build:dev": "webpack",
     "build:prod": "webpack --config=webpack.prod.config",
     "format": "prettier --write ./src"

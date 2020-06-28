@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserIsAuthenticated } from "../store/Selectors";
 import LikeForm from "../components/LikeForm.jsx";
 import PostsTable from "../components/PostsTable.jsx";
-import LoginPage from "./LoginPage.jsx";
+import LoginForm from "../components/LoginForm.jsx";
 
 function Main(props) {
   const userIsAuthenticated = useSelector(getUserIsAuthenticated);
@@ -17,7 +17,7 @@ function Main(props) {
         <PostsTable />
       </div>
     );
-  else page = <LoginPage />;
+  else page = <LoginForm />;
 
   return <div>{page}</div>;
 }
