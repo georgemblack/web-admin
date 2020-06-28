@@ -7,25 +7,29 @@ function PostsTable(props) {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
 
-  const handleSumbit = () => {
+  const handleSubmit = event => {
     dispatch(postLike({ title, url }));
+    event.preventDefault()
   };
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="title"
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="url"
-        value={url}
-        onChange={(event) => setUrl(event.target.value)}
-      />
-      <button onClick={handleSumbit}>Post</button>
+      <h2>Add Like</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="title"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="url"
+          value={url}
+          onChange={(event) => setUrl(event.target.value)}
+        />
+        <button type="submit">Post</button>
+      </form>
     </>
   );
 }

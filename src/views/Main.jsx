@@ -13,8 +13,8 @@ function Main(props) {
   if (userIsAuthenticated)
     page = (
       <div>
-        <PostsTable />
         <LikeForm />
+        <PostsTable />
       </div>
     );
   else page = <LoginPage />;

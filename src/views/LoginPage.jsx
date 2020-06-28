@@ -15,7 +15,7 @@ function LoginPage(props) {
 
   return (
     <>
-      <p>Login</p>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
