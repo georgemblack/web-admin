@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getLikesSelector } from "../store/Selectors";
 import { getLikes, deleteLike } from "../store/actions/Likes";
 
-function LikesTable(props) {
+function LikeTable(props) {
   const dispatch = useDispatch();
   const likes = useSelector(getLikesSelector);
 
@@ -42,4 +42,4 @@ function LikesTable(props) {
   );
 }
 
-export default LikesTable;
+export default LikeTable;
