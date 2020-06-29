@@ -21,16 +21,22 @@
     --font-color: #f7f7f7;
   }
 
+/* ==========================================================================
+  CSS reset
+  ========================================================================== */
 * {
   margin: 0;
   padding: 0;
-  font-family: var(--primary-font);
 }
 
+/* ==========================================================================
+  Primary components
+  ========================================================================== */
 body {
   max-width: 80rem;
   margin: 2em auto;
   padding: 0 1em;
+  font-family: var(--primary-font);
   background-color: var(--background-color);
 }
 
@@ -39,7 +45,32 @@ h1, h2, h3, h4, h5, h6, p {
   color: var(--font-color);
 }
 
-form, table {
+table {
+  margin-top: 1em;
+}
+
+table {
+  width: 100%;
+  font-size: 0.85em;
+  color: var(--font-color);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.35em 0.25em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+form {
   margin-top: 1em;
 }
 
@@ -73,23 +104,18 @@ button:active {
   background-color: #0c755b;
 }
 
-table {
-  width: 100%;
-  font-size: 0.85em;
-  color: var(--font-color);
-  border-collapse: collapse;
+/* ==========================================================================
+  Buttons
+  ========================================================================== */
+
+.button-delete {
+  background-color: #f0105b;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
+.button-delete:hover {
+  background-color: #d41051;
 }
 
-th,
-td {
-  padding: 0.35em 0.25em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-th {
-  text-align: left;
+.button-delete:hover {
+  background-color: #af0e44;
 }
