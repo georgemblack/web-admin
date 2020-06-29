@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../store/Selectors";
 import { fetchPosts } from "../store/Actions";
 
-function PostsTable(props) {
+function PostTable(props) {
   const dispatch = useDispatch();
   const posts = useSelector(getPosts);
 
@@ -34,4 +34,4 @@ function PostsTable(props) {
   );
 }
 
-export default PostsTable;
+export default PostTable;
