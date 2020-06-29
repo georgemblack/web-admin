@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function LikeForm(props) {
   const [activated, setActivated] = useState(false);
-  const message = activated ? "Confirm?" : "Delete"
+  const message = activated ? "Confirm?" : "Delete";
 
   const handleClick = () => {
     if (activated) props.handleDelete();

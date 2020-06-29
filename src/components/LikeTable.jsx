@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getLikesSelector } from "../store/Selectors";
 import { getLikes, deleteLike } from "../store/actions/Likes";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
+import DomainName from "./DomainName.jsx";
+import Time from "./Time.jsx";
 
 function LikeTable(props) {
   const dispatch = useDispatch();
@@ -24,7 +26,8 @@ function LikeTable(props) {
         <thead>
           <tr>
             <th>Title</th>
-            <th>URL</th>
+            <th>Domain</th>
+            <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -32,8 +35,13 @@ function LikeTable(props) {
           {likes.map((like) => (
             <tr key={like.id}>
               <td>{like.title}</td>
-              <td>{like.url}</td>
-              <td style={{width: "6em"}}>
+              <td>
+                <DomainName url={like.url} />
+              </td>
+              <td>
+                <Time timestamp={like.timestamp} />
+              </td>
+              <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(like)}
                 />
