@@ -33,7 +33,7 @@ function LikeTable(props) {
             <tr key={like.id}>
               <td>{like.title}</td>
               <td>{like.url}</td>
-              <td>
+              <td style={{width: "6em"}}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(like)}
                 />

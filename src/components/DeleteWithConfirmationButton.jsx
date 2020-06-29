@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function LikeForm(props) {
-  const [text, setText] = useState("Delete");
   const [activated, setActivated] = useState(false);
+  const message = activated ? "Confirm?" : "Delete"
 
   const handleClick = () => {
     if (activated) props.handleDelete();
     else setActivated(true);
   };
 
-  useEffect(() => {
-    if (activated) setText("Are you sure?");
-    else setText("Delete");
-  }, [activated]);
-
   return (
     <button className="button-delete" onClick={handleClick}>
-      {text}
+      {message}
     </button>
   );
 }
