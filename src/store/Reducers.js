@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import { FETCH_POSTS_SUCCESS } from "./Actions";
 import initialState from "./State";
-import { FETCH_AUTH_TOKEN_SUCCESS } from "./actions/Auth";
+import { POST_AUTH_TOKEN_SUCCESS } from "./actions/Auth";
 import { GET_LIKES_SUCCESS } from "./actions/Likes";
 
 function authToken(authToken = initialState.authToken, action) {
   switch (action.type) {
-    case FETCH_AUTH_TOKEN_SUCCESS:
+    case POST_AUTH_TOKEN_SUCCESS:
       return action.token;
   }
   return authToken;

@@ -1,10 +1,10 @@
-export const FETCH_AUTH_TOKEN_SUCCESS = "FETCH_AUTH_TOKEN_SUCCESS";
+export const POST_AUTH_TOKEN_SUCCESS = "POST_AUTH_TOKEN_SUCCESS";
 
-function success(token) {
-  return { type: FETCH_AUTH_TOKEN_SUCCESS, token };
+function postAuthTokenSuccess(token) {
+  return { type: POST_AUTH_TOKEN_SUCCESS, token };
 }
 
-export function fetchAuthToken(username, password) {
+export function postAuthToken(username, password) {
   return async (dispatch) => {
     const userPassEncoded = btoa(`${username.trim()}:${password.trim()}`);
     let response = await fetch(`${API_URL}/auth`, {
@@ -16,6 +16,6 @@ export function fetchAuthToken(username, password) {
       },
     });
     let responseBody = await response.json();
-    dispatch(success(responseBody.token));
+    dispatch(postAuthTokenSuccess(responseBody.token));
   };
 }

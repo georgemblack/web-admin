@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchAuthToken } from "../store/actions/Auth";
+import { postAuthToken } from "../store/actions/Auth";
 
 function LoginForm(props) {
   const [username, setUsername] = useState("");
@@ -9,7 +9,7 @@ function LoginForm(props) {
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
-    dispatch(fetchAuthToken(username, password));
+    dispatch(postAuthToken(username, password));
     event.preventDefault();
   };
 
