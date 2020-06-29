@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { getLikesSelector } from "../store/Selectors";
 import { getLikes, deleteLike } from "../store/actions/Likes";
+import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 
 function LikeTable(props) {
   const dispatch = useDispatch();
@@ -32,7 +34,9 @@ function LikeTable(props) {
               <td>{like.title}</td>
               <td>{like.url}</td>
               <td>
-                <button onClick={() => handleDelete(like)}>Delete</button>
+                <DeleteWithConfirmationButton
+                  handleDelete={() => handleDelete(like)}
+                />
               </td>
             </tr>
           ))}
