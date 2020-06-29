@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postLike } from "../store/actions/Likes";
 
-function PostsTable(props) {
+function LikeForm(props) {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -40,4 +40,4 @@ function PostsTable(props) {
   );
 }
 
-export default PostsTable;
+export default LikeForm;
