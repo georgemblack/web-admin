@@ -36,7 +36,7 @@ function ViewTable(props) {
         <thead>
           <tr>
             <th>Date</th>
-            <th>UA</th>
+            <th>Browser</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -46,7 +46,7 @@ function ViewTable(props) {
               <td>
                 <Time timestamp={view.timestamp} />
               </td>
-              <td>{view.userAgent}</td>
+              <td>{view.browser}</td>
               <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(view)}
