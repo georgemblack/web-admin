@@ -6,7 +6,7 @@ export function fetchPostsSuccess(posts) {
 
 export function fetchPosts() {
   return async (dispatch) => {
-    let response = await fetch(`${API_URL}/posts`);
+    let response = await fetch(`${API_URL}/admin/posts`);
     let responseBody = await response.json();
     dispatch(fetchPostsSuccess(responseBody.posts));
   };

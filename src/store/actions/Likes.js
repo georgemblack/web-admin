@@ -17,7 +17,7 @@ function deleteLikeSuccess() {
 export function getLikes() {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    let response = await fetch(`${API_URL}/likes`, {
+    let response = await fetch(`${API_URL}/admin/likes`, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -30,7 +30,7 @@ export function getLikes() {
 export function postLike(payload) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/likes`, {
+    await fetch(`${API_URL}/admin/likes`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -47,7 +47,7 @@ export function postLike(payload) {
 export function deleteLike(id) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/likes/${id}`, {
+    await fetch(`${API_URL}/admin/likes/${id}`, {
       method: "DELETE",
       mode: "cors",
       headers: {
