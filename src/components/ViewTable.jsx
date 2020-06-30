@@ -37,6 +37,9 @@ function ViewTable(props) {
           <tr>
             <th>Date</th>
             <th>Browser</th>
+            <th>Timezone</th>
+            <th>Path</th>
+            <th>Referrer</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -47,6 +50,9 @@ function ViewTable(props) {
                 <Time timestamp={view.timestamp} />
               </td>
               <td>{view.browser}</td>
+              <td>{view.timezone}</td>
+              <td>{view.pathname}</td>
+              <td>{view.referrer}</td>
               <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(view)}
