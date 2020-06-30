@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../store/Selectors";
 import { fetchPosts } from "../store/Actions";
+import Time from "./Time.jsx";
 
 function PostTable(props) {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function PostTable(props) {
           {posts.map((post) => (
             <tr key={post.id}>
               <td>{post.metadata.title}</td>
-              <td>{post.published}</td>
+              <td><Time timestamp={post.published} /></td>
             </tr>
           ))}
         </tbody>
