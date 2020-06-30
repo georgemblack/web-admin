@@ -20,7 +20,16 @@ function ViewTable(props) {
 
   return (
     <>
-      <h2>Views</h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+        }}
+      >
+        <h2>Views</h2>
+        <button onClick={() => dispatch(getViews())}>Refresh</button>
+      </div>
       <table>
         <thead>
           <tr>
