@@ -10,15 +10,23 @@ function ViewTable(props) {
   const dispatch = useDispatch();
   const views = useSelector(getViewsSelector);
 
-  const viewCount = views.length;
+  useEffect(() => {
+    dispatch(getViews());
+  }, []);
 
   const handleDelete = (view) => {
     dispatch(deleteView(view.id));
   };
 
-  useEffect(() => {
-    dispatch(getViews());
-  }, []);
+  const formatReferrer = (referrer) => {
+    let cleaned = referrer
+      .replace("https://", "")
+      .replace("georgeblack.me", "");
+    if (cleaned.length > 40) {
+      cleaned = cleaned.substring(0, 37) + "...";
+    }
+    return cleaned;
+  };
 
   return (
     <>
@@ -29,7 +37,7 @@ function ViewTable(props) {
           alignItems: "flex-end",
         }}
       >
-        <h2>Views: {viewCount}</h2>
+        <h2>Views: {views.length}</h2>
         <button onClick={() => dispatch(getViews())}>Refresh</button>
       </div>
       <table>
@@ -52,7 +60,7 @@ function ViewTable(props) {
               <td>{view.browser}</td>
               <td>{view.timezone}</td>
               <td>{view.pathname}</td>
-              <td>{view.referrer}</td>
+              <td>{formatReferrer(view.referrer)}</td>
               <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(view)}
