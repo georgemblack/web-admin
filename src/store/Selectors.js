@@ -13,3 +13,7 @@ export function getPosts(state) {
 export function getLikesSelector(state) {
   return state.likes;
 }
+
+export function getViewsSelector(state) {
+  return state.views;
+}

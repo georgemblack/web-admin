@@ -6,12 +6,13 @@ import LikeForm from "../components/LikeForm.jsx";
 import PostTable from "../components/PostTable.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import LikeTable from "../components/LikeTable.jsx";
+import ViewTable from "../components/ViewTable.jsx";
 
 const pages = {
   HOME: 0,
   VIEWS: 1,
-  POSTS: 2
-}
+  POSTS: 2,
+};
 
 function Main(props) {
   const [page, setPage] = useState(pages.HOME);
@@ -25,15 +26,15 @@ function Main(props) {
       return (
         <>
           <LikeForm />
-          <PostTable />
           <LikeTable />
+          <PostTable />
         </>
-      )
+      );
     }
     if (page === pages.VIEWS) {
-      return <LikeTable />
+      return <ViewTable />;
     }
-  }
+  };
 
   return (
     <>
