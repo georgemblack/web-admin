@@ -10,6 +10,8 @@ function ViewTable(props) {
   const dispatch = useDispatch();
   const views = useSelector(getViewsSelector);
 
+  const viewCount = views.length;
+
   const handleDelete = (view) => {
     dispatch(deleteView(view.id));
   };
@@ -27,7 +29,7 @@ function ViewTable(props) {
           alignItems: "flex-end",
         }}
       >
-        <h2>Views</h2>
+        <h2>Views: {viewCount}</h2>
         <button onClick={() => dispatch(getViews())}>Refresh</button>
       </div>
       <table>
