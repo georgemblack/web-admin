@@ -34,10 +34,19 @@
   ========================================================================== */
 body {
   max-width: 80rem;
-  margin: 2em auto;
+  margin: 1em auto;
   padding: 0 1em;
   font-family: var(--primary-font);
   background-color: var(--background-color);
+}
+
+nav {
+  display: flex;
+}
+
+nav p {
+  margin: 0 0.5em 0 0;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6, p {
