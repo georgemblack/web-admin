@@ -48,6 +48,7 @@ function ViewTable(props) {
             <th>Timezone</th>
             <th>Path</th>
             <th>Referrer</th>
+            <th>Width</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -61,6 +62,7 @@ function ViewTable(props) {
               <td>{view.timezone}</td>
               <td>{view.pathname}</td>
               <td>{formatReferrer(view.referrer)}</td>
+              <td>{view.windowInnerWidth}</td>
               <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(view)}
