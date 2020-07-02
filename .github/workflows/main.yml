@@ -14,6 +14,7 @@ jobs:
       uses: georgemblack/actions/cloud-run-deploy@1.0.11
       with:
         serviceName: web-admin
+        projectId: ${{ secrets.GCLOUD_PROJECT_ID }}
         runtimeServiceAccount: ${{ secrets.GCLOUD_RUNTIME_SERVICE_ACCOUNT }}
         region: us-east1
         concurrency: 50
