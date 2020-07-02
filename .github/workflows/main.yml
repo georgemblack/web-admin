@@ -11,11 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Cloud Run Deploy
-      uses: georgemblack/actions/cloud-run-deploy@1.0.12
+      uses: georgemblack/actions/cloud-run-deploy@1.0.13
       with:
         serviceName: web-admin
         projectId: ${{ secrets.GCLOUD_PROJECT_ID }}
         runtimeServiceAccount: ${{ secrets.GCLOUD_RUNTIME_SERVICE_ACCOUNT }}
+        cloudBuildBucket: cloudbuild.georgeblack.me
         region: us-east1
         concurrency: 50
         maxInstances: 1
