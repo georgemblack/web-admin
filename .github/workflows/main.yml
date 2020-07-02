@@ -11,12 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Cloud Run Deploy
-      uses: georgemblack/actions/cloud-run-deploy@1.0.10
+      uses: georgemblack/actions/cloud-run-deploy@1.0.11
       with:
         serviceName: web-admin
-        projectId: ${{ secrets.GCLOUD_PROJECT_ID }}
         runtimeServiceAccount: ${{ secrets.GCLOUD_RUNTIME_SERVICE_ACCOUNT }}
-        cloudBuildBucket: artifacts.oceanblue.appspot.com
         region: us-east1
         concurrency: 50
         maxInstances: 1
