@@ -26,7 +26,9 @@ function PostTable(props) {
           {posts.map((post) => (
             <tr key={post.id}>
               <td>{post.metadata.title}</td>
-              <td><Time timestamp={post.published} /></td>
+              <td>
+                <Time timestamp={post.published} />
+              </td>
             </tr>
           ))}
         </tbody>

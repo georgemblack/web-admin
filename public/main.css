@@ -88,12 +88,14 @@ form button {
   margin-right: 0.25em;
 }
 
-input {
+input,
+textarea {
   background-color: var(--input-background-color);
 }
 
 input,
-button {
+button,
+textarea {
   font-size: 1em;
   color: var(--font-color);
   padding: 0.25em 0.5em;

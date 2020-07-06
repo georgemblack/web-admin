@@ -7,11 +7,12 @@ import PostTable from "../components/PostTable.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import LikeTable from "../components/LikeTable.jsx";
 import ViewTable from "../components/ViewTable.jsx";
+import NewPostPage from "./NewPostPage.jsx";
 
 const pages = {
   HOME: 0,
   VIEWS: 1,
-  POSTS: 2,
+  NEW_POST: 2,
 };
 
 function Main(props) {
@@ -34,6 +35,9 @@ function Main(props) {
     if (page === pages.VIEWS) {
       return <ViewTable />;
     }
+    if (page === pages.NEW_POST) {
+      return <NewPostPage />;
+    }
   };
 
   return (
@@ -43,6 +47,7 @@ function Main(props) {
         <nav>
           <p onClick={() => setPage(pages.HOME)}>Home</p>
           <p onClick={() => setPage(pages.VIEWS)}>Views</p>
+          <p onClick={() => setPage(pages.NEW_POST)}>New Post</p>
         </nav>
       </header>
       <main>{getPage()}</main>
