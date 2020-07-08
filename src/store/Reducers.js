@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { FETCH_POSTS_SUCCESS } from "./Actions";
 import initialState from "./State";
 import { POST_AUTH_TOKEN_SUCCESS } from "./actions/Auth";
 import { GET_LIKES_SUCCESS } from "./actions/Likes";
 import { GET_VIEWS_SUCCESS } from "./actions/Views";
+import { GET_POSTS_SUCCESS } from "./actions/Posts";
 
 function authToken(authToken = initialState.authToken, action) {
   switch (action.type) {
@@ -15,7 +15,7 @@ function authToken(authToken = initialState.authToken, action) {
 
 function posts(posts = initialState.posts, action) {
   switch (action.type) {
-    case FETCH_POSTS_SUCCESS:
+    case GET_POSTS_SUCCESS:
       return action.posts;
   }
   return posts;

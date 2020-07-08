@@ -6,7 +6,7 @@ export function getAuthToken(state) {
   return state.authToken;
 }
 
-export function getPosts(state) {
+export function getPostsSelector(state) {
   return state.posts;
 }
 
