@@ -34,7 +34,7 @@ function PostTable(props) {
             <tr key={post.id}>
               <td>{post.metadata.title}</td>
               <td>
-                <Time timestamp={post.published} />
+                <Time timestamp={post.published._seconds} />
               </td>
               <td style={{ width: "6em" }}>
                 <DeleteWithConfirmationButton
