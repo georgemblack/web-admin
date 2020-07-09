@@ -46,13 +46,18 @@ nav {
   display: flex;
 }
 
-nav p {
+nav a {
   margin: 0 0.5em 0 0;
   cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6, p {
   margin-top: 1em;
+  color: var(--font-color);
+}
+
+a {
+  text-decoration: none;
   color: var(--font-color);
 }
 
