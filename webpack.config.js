@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "public"),
     compress: true,
-    port: 8000,
+    port: 9002,
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "API_URL": JSON.stringify("http://localhost:8080"),
+      "API_URL": JSON.stringify("http://localhost:9000"),
     })
   ]
 }
