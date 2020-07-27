@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function LikeForm(props) {
   const [activated, setActivated] = useState(false);
-  const message = activated ? "Confirm?" : "Delete";
+  const message = activated ? "🔥" : "🗑";
 
   const handleClick = () => {
     if (activated) props.handleDelete();
@@ -10,9 +10,9 @@ function LikeForm(props) {
   };
 
   return (
-    <button className="button-delete" onClick={handleClick}>
+    <span style={{ cursor: "pointer" }} onClick={handleClick}>
       {message}
-    </button>
+    </span>
   );
 }
 

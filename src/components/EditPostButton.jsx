@@ -9,13 +9,9 @@ function EditPostButton(props) {
   };
 
   return (
-    <button
-      className="button-action"
-      style={{ marginRight: "0.25em" }}
-      onClick={handleClick}
-    >
-      Edit
-    </button>
+    <span style={{ cursor: "pointer" }} onClick={handleClick}>
+      📝
+    </span>
   );
 }
 

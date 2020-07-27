@@ -27,7 +27,7 @@ function PostTable(props) {
           <tr>
             <th>Title</th>
             <th>Published</th>
-            <th>Actions</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@ function PostTable(props) {
               <td>
                 <Time timestamp={post.published._seconds} />
               </td>
-              <td style={{ width: "8em" }}>
+              <td style={{ width: "3em" }}>
                 <EditPostButton id={post.id} />
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(post)}
