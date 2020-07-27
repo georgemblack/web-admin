@@ -7,6 +7,7 @@ import HomePage from "./views/HomePage.jsx";
 import LoginPage from "./views/LoginPage.jsx";
 import ViewTable from "./components/ViewTable.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
+import EditPostPage from "./views/EditPostPage.jsx";
 
 function App(props) {
   const userIsAuthenticated = useSelector(getUserIsAuthenticated);
@@ -26,7 +27,7 @@ function App(props) {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/views">Views</Link>
-            <Link to="/new-post">New Post</Link>
+            <Link to="/posts/new">New Post</Link>
           </nav>
         )}
       </header>
@@ -41,8 +42,11 @@ function App(props) {
           <Route path="/views">
             <ViewTable />
           </Route>
-          <Route path="/new-post">
+          <Route path="/posts/new">
             <NewPostPage />
+          </Route>
+          <Route path="/posts/:id/edit">
+            <EditPostPage />
           </Route>
         </Switch>
       </main>

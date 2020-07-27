@@ -1,5 +1,6 @@
 export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
 export const POST_POST_SUCCESS = "POST_POST_SUCCESS";
+export const PUT_POST_SUCCESS = "PUT_POST_SUCCESS";
 export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
 
 function getPostsSuccess(posts) {
@@ -8,6 +9,10 @@ function getPostsSuccess(posts) {
 
 function postPostSuccess() {
   return { type: POST_POST_SUCCESS };
+}
+
+function putPostSuccess() {
+  return { type: PUT_POST_SUCCESS };
 }
 
 function deletePostSuccess() {
@@ -40,6 +45,22 @@ export function postPost(payload) {
       body: JSON.stringify(payload),
     });
     await dispatch(postPostSuccess());
+  };
+}
+
+export function putPost(id, payload) {
+  return async (dispatch, getState) => {
+    const { authToken } = getState();
+    await fetch(`${API_URL}/admin/posts/${id}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    await dispatch(putPostSuccess());
   };
 }
 

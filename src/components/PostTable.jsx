@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getPostsSelector } from "../store/Selectors";
 import { getPosts, deletePost } from "../store/actions/Posts";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
+import EditPostButton from "./EditPostButton.jsx";
 import Time from "./Time.jsx";
 
 function PostTable(props) {
@@ -36,7 +37,8 @@ function PostTable(props) {
               <td>
                 <Time timestamp={post.published._seconds} />
               </td>
-              <td style={{ width: "6em" }}>
+              <td style={{ width: "8em" }}>
+                <EditPostButton id={post.id} />
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(post)}
                 />
