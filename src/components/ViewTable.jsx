@@ -49,7 +49,7 @@ function ViewTable(props) {
             <th>Path</th>
             <th>Referrer</th>
             <th>Width</th>
-            <th>Actions</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
