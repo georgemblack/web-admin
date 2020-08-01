@@ -28,6 +28,7 @@ function PostTable(props) {
             <th>Title</th>
             <th>Published</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ function PostTable(props) {
               <td>
                 <Time timestamp={post.published._seconds} />
               </td>
+              <td>{post.metadata.draft ? "Draft" : ""}</td>
               <td style={{ width: "3em" }}>
                 <EditPostButton id={post.id} />
                 <DeleteWithConfirmationButton
