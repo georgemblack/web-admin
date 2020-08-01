@@ -9,8 +9,8 @@ function LoginForm(props) {
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
-    dispatch(postAuthToken(username, password));
     event.preventDefault();
+    dispatch(postAuthToken(username, password));
   };
 
   return (
