@@ -63,7 +63,7 @@ function ViewTable(props) {
               <td>{view.pathname}</td>
               <td>{formatReferrer(view.referrer)}</td>
               <td>{view.windowInnerWidth}</td>
-              <td style={{ width: "6em" }}>
+              <td>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(view)}
                 />

@@ -11,6 +11,8 @@ function PostTable(props) {
   const dispatch = useDispatch();
   const posts = useSelector(getPostsSelector);
 
+  const draftTag = <span className="tag-yellow">Draft</span>;
+
   const handleDelete = (post) => {
     dispatch(deletePost(post.id));
   };
@@ -38,8 +40,8 @@ function PostTable(props) {
               <td>
                 <Time timestamp={post.published._seconds} />
               </td>
-              <td>{post.metadata.draft ? "Draft" : ""}</td>
-              <td style={{ width: "3em" }}>
+              <td>{post.metadata.draft ? draftTag : ""}</td>
+              <td>
                 <EditPostButton id={post.id} />
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(post)}

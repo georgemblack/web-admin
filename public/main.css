@@ -21,6 +21,10 @@
     --button-hover-background-color: #0e8f6f;
     --button-active-background-color: #0c755b;
     --font-color: #f7f7f7;
+    --font-color-inverted: #272727;
+
+    /* tag colors */
+    --tag-yellow: #d7fc03;
   }
 
 /* ==========================================================================
@@ -107,10 +111,6 @@ textarea {
   box-sizing: border-box;
 }
 
-input[type=checkbox] {
-  margin-right: 0.5em;
-}
-
 button {
   background-color: #10ac84;
 }
@@ -141,6 +141,17 @@ label {
 
 .button-delete:hover {
   background-color: #af0e44;
+}
+
+/* ==========================================================================
+  Tags
+  ========================================================================== */
+.tag-yellow {
+  padding: 0.25em 0.35em;
+  font-size: 0.85em;
+  color: var(--font-color-inverted);
+  background-color: var(--tag-yellow);
+  border-radius: 0.25em;
 }
 
 /* ==========================================================================

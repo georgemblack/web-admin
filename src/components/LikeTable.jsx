@@ -41,7 +41,7 @@ function LikeTable(props) {
               <td>
                 <Time timestamp={like.timestamp} />
               </td>
-              <td style={{ width: "3em" }}>
+              <td>
                 <DeleteWithConfirmationButton
                   handleDelete={() => handleDelete(like)}
                 />
