@@ -39,7 +39,7 @@ function LikeTable(props) {
                 <DomainName url={like.url} />
               </td>
               <td>
-                <Time timestamp={like.timestamp} />
+                <Time timestamp={like.timestamp._seconds} />
               </td>
               <td>
                 <DeleteWithConfirmationButton
