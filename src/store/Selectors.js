@@ -17,3 +17,8 @@ export function getLikesSelector(state) {
 export function getViewsSelector(state) {
   return state.views;
 }
+
+export function getBuildIDSelector(state) {
+  if (state.build.buildID) return state.build.buildID;
+  return "";
+}

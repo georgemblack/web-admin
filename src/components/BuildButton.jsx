@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { postBuild } from "../store/actions/Build";
+import { getBuildIDSelector } from "../store/Selectors";
 
 function BuildButton(props) {
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const latestBuildID = useSelector(getBuildIDSelector);
+
+  const [loading, setLoading] = useState(false);
   const message = loading ? "Building..." : "Start Build";
 
   const handleClick = async (event) => {
@@ -17,6 +20,9 @@ function BuildButton(props) {
 
   return (
     <div>
+      {latestBuildID && (
+        <span style={{ marginRight: "0.5em" }}>{latestBuildID}</span>
+      )}
       <button className="button-build" onClick={handleClick}>
         {message}
       </button>

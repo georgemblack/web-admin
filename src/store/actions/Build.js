@@ -1,19 +1,20 @@
 export const POST_BUILD_SUCCESS = "POST_BUILD_SUCCESS";
 
-function postBuildSuccess() {
-  return { type: POST_BUILD_SUCCESS };
+function postBuildSuccess(build) {
+  return { type: POST_BUILD_SUCCESS, build };
 }
 
 export function postBuild(payload) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/admin/builds`, {
+    let response = await fetch(`${API_URL}/admin/builds`, {
       method: "POST",
       mode: "cors",
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
     });
-    await dispatch(postBuildSuccess());
+    let responseBody = await response.json();
+    await dispatch(postBuildSuccess(responseBody));
   };
 }

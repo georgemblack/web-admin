@@ -65,6 +65,10 @@ a {
   color: var(--font-color);
 }
 
+span {
+  color: var(--font-color);
+}
+
 table {
   margin-top: 1em;
 }
