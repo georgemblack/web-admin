@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function LikeForm(props) {
+function DeleteWithConfirmationButton(props) {
   const [activated, setActivated] = useState(false);
   const message = activated ? "🔥" : "🗑";
 
@@ -16,4 +16,4 @@ function LikeForm(props) {
   );
 }
 
-export default LikeForm;
+export default DeleteWithConfirmationButton;

@@ -19,7 +19,7 @@ function LikeForm(props) {
   };
 
   return (
-    <>
+    <div>
       <h2>Add Like</h2>
       <form className="inline-form" onSubmit={handleSubmit}>
         <input
@@ -36,7 +36,7 @@ function LikeForm(props) {
         />
         <button type="submit">Post</button>
       </form>
-    </>
+    </div>
   );
 }
 

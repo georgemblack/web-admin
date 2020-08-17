@@ -131,16 +131,16 @@ label {
   Buttons
   ========================================================================== */
 
-.button-delete {
-  background-color: #f0105b;
+.button-build {
+  background-color: #f36943;
 }
 
-.button-delete:hover {
-  background-color: #d41051;
+.button-build:hover {
+  background-color: #ca5737;
 }
 
-.button-delete:hover {
-  background-color: #af0e44;
+.button-build:active {
+  background-color: #ad4b30;
 }
 
 /* ==========================================================================
