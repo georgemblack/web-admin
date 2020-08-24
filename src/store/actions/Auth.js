@@ -7,7 +7,7 @@ function postAuthTokenSuccess(token) {
 export function postAuthToken(username, password) {
   return async (dispatch) => {
     const userPassEncoded = btoa(`${username.trim()}:${password.trim()}`);
-    let response = await fetch(`${API_URL}/admin/auth`, {
+    let response = await fetch(`${API_URL}/auth`, {
       method: "POST",
       mode: "cors",
       headers: {

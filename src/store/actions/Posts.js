@@ -22,7 +22,7 @@ function deletePostSuccess() {
 export function getPosts() {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    let response = await fetch(`${API_URL}/admin/posts`, {
+    let response = await fetch(`${API_URL}/posts`, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -35,7 +35,7 @@ export function getPosts() {
 export function postPost(payload) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/admin/posts`, {
+    await fetch(`${API_URL}/posts`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -51,7 +51,7 @@ export function postPost(payload) {
 export function putPost(id, payload) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/admin/posts/${id}`, {
+    await fetch(`${API_URL}/posts/${id}`, {
       method: "PUT",
       mode: "cors",
       headers: {
@@ -67,7 +67,7 @@ export function putPost(id, payload) {
 export function deletePost(id) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    await fetch(`${API_URL}/admin/posts/${id}`, {
+    await fetch(`${API_URL}/posts/${id}`, {
       method: "DELETE",
       mode: "cors",
       headers: {

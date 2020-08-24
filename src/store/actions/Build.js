@@ -7,7 +7,7 @@ function postBuildSuccess(build) {
 export function postBuild(payload) {
   return async (dispatch, getState) => {
     const { authToken } = getState();
-    let response = await fetch(`${API_URL}/admin/builds`, {
+    let response = await fetch(`${API_URL}/builds`, {
       method: "POST",
       mode: "cors",
       headers: {
