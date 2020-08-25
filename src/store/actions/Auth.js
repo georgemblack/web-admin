@@ -1,7 +1,7 @@
-export const POST_AUTH_TOKEN_SUCCESS = "POST_AUTH_TOKEN_SUCCESS";
+export const AUTH_TOKEN_SUCCESS = "AUTH_TOKEN_SUCCESS";
 
-function postAuthTokenSuccess(token) {
-  return { type: POST_AUTH_TOKEN_SUCCESS, token };
+function authTokenSuccess(token) {
+  return { type: AUTH_TOKEN_SUCCESS, token };
 }
 
 export function postAuthToken(username, password) {
@@ -16,6 +16,16 @@ export function postAuthToken(username, password) {
       },
     });
     let responseBody = await response.json();
-    dispatch(postAuthTokenSuccess(responseBody.token));
+
+    // set token in local storage
+    window.localStorage.setItem("token", responseBody.token);
+
+    dispatch(authTokenSuccess(responseBody.token));
+  };
+}
+
+export function setAuthToken(token) {
+  return async (dispatch) => {
+    dispatch(authTokenSuccess(token));
   };
 }

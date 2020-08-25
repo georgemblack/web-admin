@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import initialState from "./State";
-import { POST_AUTH_TOKEN_SUCCESS } from "./actions/Auth";
+import { AUTH_TOKEN_SUCCESS } from "./actions/Auth";
 import { GET_LIKES_SUCCESS } from "./actions/Likes";
 import { GET_VIEWS_SUCCESS } from "./actions/Views";
 import { GET_POSTS_SUCCESS } from "./actions/Posts";
@@ -8,7 +8,7 @@ import { POST_BUILD_SUCCESS } from "./actions/Build";
 
 function authToken(authToken = initialState.authToken, action) {
   switch (action.type) {
-    case POST_AUTH_TOKEN_SUCCESS:
+    case AUTH_TOKEN_SUCCESS:
       return action.token;
   }
   return authToken;

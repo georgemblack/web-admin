@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
+import decode from "jwt-decode";
 
 import { getUserIsAuthenticated } from "./store/Selectors";
 import HomePage from "./views/HomePage.jsx";
@@ -8,10 +9,25 @@ import LoginPage from "./views/LoginPage.jsx";
 import ViewTable from "./components/ViewTable.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
 import EditPostPage from "./views/EditPostPage.jsx";
+import { setAuthToken } from "./store/actions/Auth";
 
 function App(props) {
   const userIsAuthenticated = useSelector(getUserIsAuthenticated);
   let history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return;
+    }
+    const decoded = decode(token);
+    if (decoded.exp > Date.now() / 1000) {
+      dispatch(setAuthToken(token));
+    } else {
+      window.localStorage.clear();
+    }
+  }, []);
 
   useEffect(() => {
     if (userIsAuthenticated) {
