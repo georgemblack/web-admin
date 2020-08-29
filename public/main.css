@@ -4,7 +4,6 @@
 :root {
   /* defined widths */
   --page-max-width: 80rem;
-  --reading-max-width: 54rem;
 
   /* primary fonts */
   --primary-font: system-ui, sans-serif;
@@ -214,28 +213,23 @@ label {
 /* ==========================================================================
   Post editor page
   ========================================================================== */
-.post-editor input,
-.post-editor textarea,
-.post-editor button {
-  margin-top: 1em;
+.post-editor .title,
+.post-editor .content,
+.post-editor .actions {
+  margin: 0.65em 0 0 0;
 }
 
-.post-editor input[type="text"],
-.post-editor textarea {
-  display: block;
-}
-
-.post-editor button[type="button"] {
+.post-editor .metadata button {
   margin-right: 0.5em;
 }
 
-.post-editor input[type="text"] {
+.post-editor .title input {
   width: 100%;
   max-width: 24em;
 }
 
 .post-editor textarea {
   width: 100%;
-  height: 15em;
-  max-width: var(--reading-max-width);
+  height: 20em;
+  max-width: 54em;
 }

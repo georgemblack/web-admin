@@ -48,7 +48,7 @@ function PostEditor(props) {
     <div className="post-editor">
       <h2>{post ? "Edit Post" : "Create Post"}</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="metadata">
           <button
             type="button"
             name="draft"
@@ -56,32 +56,40 @@ function PostEditor(props) {
               formDispatch({ metadata: { draft: !formState.metadata.draft } })
             }
           >
-            {formState.metadata.draft ? "Draft" : "Not a Draft"}
+            {formState.metadata.draft ? "Draft" : "Published"}
           </button>
           <button
             type="button"
             name="date"
             onClick={() => formDispatch({ published: new Date() })}
           >
-            Now
+            ⏱
           </button>
           <label htmlFor="date">{formState.published.toLocaleString()}</label>
         </div>
-        <input
-          type="text"
-          value={formState.metadata.title}
-          placeholder="Title"
-          onChange={(event) =>
-            formDispatch({ metadata: { title: event.target.value } })
-          }
-        ></input>
-        <textarea
-          type="text"
-          value={formState.content}
-          onChange={(event) => formDispatch({ content: event.target.value })}
-        ></textarea>
-        <div>
-          <button type="submit">{post ? "Update Post" : "Submit Post"}</button>
+        <div className="title">
+          <input
+            type="text"
+            value={formState.metadata.title}
+            placeholder="Title"
+            onChange={(event) =>
+              formDispatch({ metadata: { title: event.target.value } })
+            }
+          ></input>
+        </div>
+        <div className="content">
+          <textarea
+            type="text"
+            value={formState.content}
+            onChange={(event) => formDispatch({ content: event.target.value })}
+          ></textarea>
+        </div>
+        <div className="actions">
+          <div>
+            <button type="submit">
+              {post ? "Update Post" : "Submit Post"}
+            </button>
+          </div>
         </div>
       </form>
     </div>
