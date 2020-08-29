@@ -21,7 +21,7 @@ function LikeForm(props) {
   return (
     <div>
       <h2>Add Like</h2>
-      <form className="inline-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="title"

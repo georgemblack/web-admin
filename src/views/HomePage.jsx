@@ -8,13 +8,7 @@ import BuildButton from "../components/BuildButton.jsx";
 function HomePage(props) {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-        }}
-      >
+      <div>
         <LikeForm />
         <BuildButton />
       </div>
