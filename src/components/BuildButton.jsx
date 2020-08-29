@@ -24,7 +24,7 @@ function BuildButton(props) {
         {message}
       </button>
       {latestBuildID && (
-        <span style={{ marginRight: "0.5em" }}>{latestBuildID}</span>
+        <p>{latestBuildID}</p>
       )}
     </div>
   );
