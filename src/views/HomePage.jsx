@@ -3,15 +3,13 @@ import React from "react";
 import LikeForm from "../components/LikeForm.jsx";
 import LikeTable from "../components/LikeTable.jsx";
 import PostTable from "../components/PostTable.jsx";
-import BuildButton from "../components/BuildButton.jsx";
+import BuildForm from "../components/BuildForm.jsx";
 
 function HomePage(props) {
   return (
     <>
-      <div>
-        <LikeForm />
-        <BuildButton />
-      </div>
+      <BuildForm />
+      <LikeForm />
       <LikeTable />
       <PostTable />
     </>

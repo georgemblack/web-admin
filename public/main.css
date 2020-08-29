@@ -16,12 +16,7 @@
 
   /* general purpose colors */
   --background-color: #202020;
-  --input-background-color: #109aac;
-  --button-background-color: #10ac84;
-  --button-hover-background-color: #0e8f6f;
-  --button-active-background-color: #0c755b;
-  --font-color: #f7f7f7;
-  --font-color-inverted: #272727;
+  --primary-font-color: #f7f7f7;
 
   /* tag colors */
   --tag-yellow: #d7fc03;
@@ -63,16 +58,16 @@ h5,
 h6,
 p {
   margin-top: 0.85em;
-  color: var(--font-color);
+  color: var(--primary-font-color);
 }
 
 a {
   text-decoration: none;
-  color: var(--font-color);
+  color: var(--primary-font-color);
 }
 
 span {
-  color: var(--font-color);
+  color: var(--primary-font-color);
 }
 
 table {
@@ -82,7 +77,7 @@ table {
 table {
   width: 100%;
   font-size: 0.85em;
-  color: var(--font-color);
+  color: var(--primary-font-color);
   border-collapse: collapse;
 }
 
@@ -106,7 +101,7 @@ form {
 
 input,
 textarea {
-  background-color: var(--input-background-color);
+  background-color: var(--background-color);
 }
 
 input,
@@ -114,42 +109,54 @@ button,
 textarea {
   font-size: 1em;
   font-family: var(--primary-font);
-  color: var(--font-color);
+  color: var(--primary-font-color);
   padding: 0.25em 0.5em;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.25em;
   box-sizing: border-box;
 }
 
+input:hover,
+button:hover,
+textarea:hover {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+input:active,
+button:active,
+textarea:active {
+  border: 1px solid var(--primary-font-color);
+}
+
 button {
-  background-color: #10ac84;
+  background-color: var(--background-color);
 }
 
 button:hover {
-  background-color: #0e8f6f;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 button:active {
-  background-color: #0c755b;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 label {
-  color: var(--font-color);
+  color: var(--primary-font-color);
 }
 
 /* ==========================================================================
   Buttons
   ========================================================================== */
 
-.button-build {
+.button-orange {
   background-color: #f36943;
 }
 
-.button-build:hover {
+.button-orange:hover {
   background-color: #ca5737;
 }
 
-.button-build:active {
+.button-orange:active {
   background-color: #ad4b30;
 }
 
@@ -192,7 +199,7 @@ label {
 .tag-yellow {
   padding: 0.25em 0.35em;
   font-size: 0.85em;
-  color: var(--font-color-inverted);
+  color: var(--primary-font-color-inverted);
   background-color: var(--tag-yellow);
   border-radius: 0.25em;
 }

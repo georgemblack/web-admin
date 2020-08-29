@@ -20,12 +20,12 @@ function BuildButton(props) {
 
   return (
     <div>
+      <button className="button-orange" onClick={handleClick}>
+        {message}
+      </button>
       {latestBuildID && (
         <span style={{ marginRight: "0.5em" }}>{latestBuildID}</span>
       )}
-      <button className="button-build" onClick={handleClick}>
-        {message}
-      </button>
     </div>
   );
 }
