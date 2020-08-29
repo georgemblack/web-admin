@@ -37,16 +37,16 @@ function App(props) {
 
   return (
     <>
-      <header>
-        <h1>Web Admin</h1>
-        {userIsAuthenticated && (
+      {userIsAuthenticated && (
+        <header>
+          <h1>Web Admin</h1>
           <nav>
             <Link to="/">Home</Link>
             <Link to="/views">Views</Link>
             <Link to="/posts/new">New Post</Link>
           </nav>
-        )}
-      </header>
+        </header>
+      )}
       <main>
         <Switch>
           <Route exact path="/">

@@ -14,9 +14,9 @@ function LoginForm(props) {
   };
 
   return (
-    <>
-      <h2>Login</h2>
-      <form className="inline-form" onSubmit={handleSubmit}>
+    <div className="login">
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="username"
@@ -33,7 +33,7 @@ function LoginForm(props) {
         />
         <button type="submit">Login</button>
       </form>
-    </>
+    </div>
   );
 }
 
