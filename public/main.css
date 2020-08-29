@@ -74,7 +74,7 @@ table {
 
 table {
   width: 100%;
-  min-width: 36em;
+  min-width: 50em;
   font-size: 0.85em;
   color: var(--primary-font-color);
   border-collapse: collapse;
