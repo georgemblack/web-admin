@@ -5,7 +5,6 @@
   /* defined widths */
   --page-max-width: 80rem;
   --reading-max-width: 54rem;
-  --narrow-max-width: 24em;
 
   /* primary fonts */
   --primary-font: system-ui, sans-serif;
@@ -76,6 +75,7 @@ table {
 
 table {
   width: 100%;
+  min-width: 36em;
   font-size: 0.85em;
   color: var(--primary-font-color);
   border-collapse: collapse;
@@ -145,7 +145,14 @@ label {
 }
 
 /* ==========================================================================
-  Buttons
+  Custom Classes
+  ========================================================================== */
+.table-wrapper {
+  overflow-x: scroll;
+}
+
+/* ==========================================================================
+  Button Colors
   ========================================================================== */
 
 .button-orange {
@@ -224,7 +231,7 @@ label {
 
 .post-editor input[type="text"] {
   width: 100%;
-  max-width: var(--narrow-max-width);
+  max-width: 24em;
 }
 
 .post-editor textarea {

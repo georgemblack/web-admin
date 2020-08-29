@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 function Time(props) {
-  const time = moment.unix(props.timestamp).format("MMMM D, h:mm a");
+  const time = moment.unix(props.timestamp).format("MMM D, h:mma");
 
   return <>{time}</>;
 }

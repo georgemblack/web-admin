@@ -22,34 +22,36 @@ function LikeTable(props) {
   return (
     <>
       <h2>Likes</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Domain</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {likes.map((like) => (
-            <tr key={like.id}>
-              <td>{like.title}</td>
-              <td>
-                <DomainName url={like.url} />
-              </td>
-              <td>
-                <Time timestamp={like.timestamp._seconds} />
-              </td>
-              <td>
-                <DeleteWithConfirmationButton
-                  handleDelete={() => handleDelete(like)}
-                />
-              </td>
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Domain</th>
+              <th>Date</th>
+              <th></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {likes.map((like) => (
+              <tr key={like.id}>
+                <td>{like.title}</td>
+                <td>
+                  <DomainName url={like.url} />
+                </td>
+                <td>
+                  <Time timestamp={like.timestamp._seconds} />
+                </td>
+                <td>
+                  <DeleteWithConfirmationButton
+                    handleDelete={() => handleDelete(like)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

@@ -24,33 +24,35 @@ function PostTable(props) {
   return (
     <>
       <h2>Posts</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Published</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {posts.map((post) => (
-            <tr key={post.id}>
-              <td>{post.metadata.title}</td>
-              <td>
-                <Time timestamp={post.published._seconds} />
-              </td>
-              <td>{post.metadata.draft ? draftTag : ""}</td>
-              <td>
-                <EditPostButton id={post.id} />
-                <DeleteWithConfirmationButton
-                  handleDelete={() => handleDelete(post)}
-                />
-              </td>
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Published</th>
+              <th></th>
+              <th></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {posts.map((post) => (
+              <tr key={post.id}>
+                <td>{post.metadata.title}</td>
+                <td>
+                  <Time timestamp={post.published._seconds} />
+                </td>
+                <td>{post.metadata.draft ? draftTag : ""}</td>
+                <td>
+                  <EditPostButton id={post.id} />
+                  <DeleteWithConfirmationButton
+                    handleDelete={() => handleDelete(post)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
