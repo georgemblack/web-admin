@@ -23,9 +23,7 @@ function BuildButton(props) {
       <button className="button-orange" onClick={handleClick}>
         {message}
       </button>
-      {latestBuildID && (
-        <p>{latestBuildID}</p>
-      )}
+      {latestBuildID && <p>{latestBuildID}</p>}
     </div>
   );
 }
