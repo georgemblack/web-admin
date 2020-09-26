@@ -92,6 +92,13 @@ function PostEditor(props) {
           </div>
         </div>
       </form>
+      <pre>
+        <code>
+          {"<!--more-->\n"}
+          {'{{< image webp="image" >}}\n'}
+          {"“Hello? That’s it.”"}
+        </code>
+      </pre>
     </div>
   );
 }

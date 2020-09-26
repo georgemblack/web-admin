@@ -7,6 +7,7 @@
 
   /* primary fonts */
   --primary-font: system-ui, sans-serif;
+  --primary-font-mono: system-ui-mono, monospace;
 
   /* font weights */
   --font-weight-bold: 900;
@@ -15,6 +16,7 @@
   /* general purpose colors */
   --background-color: #202020;
   --primary-font-color: #f7f7f7;
+  --primary-font-color-faded: #a0a0a0;
 
   /* tag colors */
   --tag-yellow: #d7fc03;
@@ -66,6 +68,13 @@ a {
 
 span {
   color: var(--primary-font-color);
+}
+
+pre code {
+  display: block;
+  margin-top: 1em;
+  font-family: var(--primary-font-mono);
+  color: var(--primary-font-color-faded);
 }
 
 table {
