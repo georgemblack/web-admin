@@ -1,10 +1,9 @@
 import React from "react";
-import moment from "moment";
+import { format, fromUnixTime } from "date-fns";
 
 function Time(props) {
-  const time = moment.unix(props.timestamp).format("MMM D, h:mma");
-
-  return <>{time}</>;
+  const time = fromUnixTime(props.timestamp);
+  return <>{format(time, "LLL d, h:mm a")}</>;
 }
 
 export default Time;

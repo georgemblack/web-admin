@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import moment from "moment";
+import { fromUnixTime } from "date-fns";
 import merge from "lodash.merge";
 
 import { postPost, putPost } from "../store/actions/Posts";
@@ -26,7 +26,7 @@ function PostEditor(props) {
     initialState = {
       metadata: post.metadata,
       content: post.content,
-      published: moment.unix(post.published._seconds).toDate(),
+      published: fromUnixTime(post.published._seconds),
     };
   }
 
