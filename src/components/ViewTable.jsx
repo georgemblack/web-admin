@@ -21,7 +21,7 @@ function ViewTable(props) {
   const formatReferrer = (referrer) => {
     let cleaned = referrer
       .replace("https://", "")
-      .replace("georgeblack.me", "");
+      .replace("george.black", "");
     if (cleaned.length > 40) {
       cleaned = cleaned.substring(0, 37) + "...";
     }

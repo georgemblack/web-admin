@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "API_URL": JSON.stringify("https://api.georgeblack.me"),
+      "API_URL": JSON.stringify("https://api.george.black"),
     })
   ]
 }
