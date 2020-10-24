@@ -46,8 +46,7 @@ function ViewTable(props) {
             <tr>
               <th>Date</th>
               <th>Browser</th>
-              <th>Country</th>
-              <th>Data Center</th>
+              <th>Location</th>
               <th>Timezone</th>
               <th>Path</th>
               <th>Referrer</th>
@@ -62,8 +61,7 @@ function ViewTable(props) {
                   <Time timestamp={view.timestamp} />
                 </td>
                 <td>{view.browser}</td>
-                <td>{view.countryCode}</td>
-                <td>{view.dataCenterCode}</td>
+                <td>{view.countryCode} - {view.dataCenterCode}</td>
                 <td>{view.timezone}</td>
                 <td>{view.pathname}</td>
                 <td>{formatReferrer(view.referrer)}</td>
