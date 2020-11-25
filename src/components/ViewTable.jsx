@@ -19,9 +19,7 @@ function ViewTable(props) {
   };
 
   const formatReferrer = (referrer) => {
-    let cleaned = referrer
-      .replace("https://", "")
-      .replace("george.black", "");
+    let cleaned = referrer.replace("https://", "").replace("george.black", "");
     if (cleaned.length > 40) {
       cleaned = cleaned.substring(0, 37) + "...";
     }
@@ -61,7 +59,9 @@ function ViewTable(props) {
                   <Time timestamp={view.timestamp} />
                 </td>
                 <td>{view.browser}</td>
-                <td>{view.countryCode} - {view.dataCenterCode}</td>
+                <td>
+                  {view.countryCode} - {view.dataCenterCode}
+                </td>
                 <td>{view.timezone}</td>
                 <td>{view.pathname}</td>
                 <td>{formatReferrer(view.referrer)}</td>

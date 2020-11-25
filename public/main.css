@@ -223,6 +223,7 @@ label {
   Post editor page
   ========================================================================== */
 .post-editor .title,
+.post-editor .tags,
 .post-editor .content,
 .post-editor .actions {
   margin: 0.65em 0 0 0;
@@ -232,7 +233,8 @@ label {
   margin-right: 0.5em;
 }
 
-.post-editor .title input {
+.post-editor .title input,
+.post-editor .tags input {
   width: 100%;
   max-width: 24em;
 }

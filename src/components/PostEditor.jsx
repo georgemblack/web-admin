@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
 import merge from "lodash.merge";
 
+import TextListInput from "./TextListInput.jsx";
 import { postPost, putPost } from "../store/actions/Posts";
 
 function reducer(state, data) {
@@ -17,6 +18,7 @@ function PostEditor(props) {
     metadata: {
       title: "",
       draft: true,
+      tags: [],
     },
     content: "",
     published: new Date(),
@@ -76,6 +78,14 @@ function PostEditor(props) {
               formDispatch({ metadata: { title: event.target.value } })
             }
           ></input>
+        </div>
+        <div className="tags">
+          <TextListInput
+            type="text"
+            value={formState.metadata.tags}
+            placeholder="Tags"
+            onChange={(tags) => formDispatch({ metadata: { tags } })}
+          ></TextListInput>
         </div>
         <div className="content">
           <textarea
