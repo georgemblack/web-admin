@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
 import decode from "jwt-decode";

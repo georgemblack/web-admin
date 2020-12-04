@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import PostEditor from "../components/PostEditor.jsx";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { format, fromUnixTime } from "date-fns";
 
 function Time(props) {

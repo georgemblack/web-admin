@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function DeleteWithConfirmationButton(props) {
   const [activated, setActivated] = useState(false);

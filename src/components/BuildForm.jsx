@@ -1,5 +1,3 @@
-import React from "react";
-
 import BuildButton from "./BuildButton.jsx";
 
 function BuildForm(props) {

@@ -1,5 +1,3 @@
-import React from "react";
-
 function DomainName(props) {
   const time = props.url
     .replace("http://", "")
