@@ -1,4 +1,4 @@
-FROM node:14-stretch AS build-env
+FROM node:15-stretch AS build-env
 ADD . /build
 WORKDIR /build
 RUN yarn && yarn build:prod
