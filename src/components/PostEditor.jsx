@@ -52,7 +52,7 @@ function PostEditor(props) {
     <div className="post-editor">
       <h2>{post ? "Edit Post" : "Create Post"}</h2>
       <form onSubmit={handleSubmit}>
-        <div className="metadata">
+        <div className="meta-controls">
           <button
             type="button"
             name="draft"
@@ -71,7 +71,7 @@ function PostEditor(props) {
           </button>
           <label htmlFor="date">{formState.published.toLocaleString()}</label>
         </div>
-        <div className="title">
+        <div className="title-controls">
           <input
             type="text"
             value={formState.metadata.title}
@@ -104,7 +104,7 @@ function PostEditor(props) {
             🐌
           </button>
         </div>
-        <div className="tags">
+        <div className="tag-controls">
           <TextListInput
             type="text"
             value={formState.metadata.tags}

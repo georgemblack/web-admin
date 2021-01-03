@@ -223,40 +223,35 @@ label {
 /* ==========================================================================
   Post editor page
   ========================================================================== */
-.post-editor .title,
-.post-editor .tags,
+.post-editor .title-controls,
+.post-editor .slug-controls,
+.post-editor .tag-controls,
 .post-editor .content,
 .post-editor .actions {
   margin: 0.65em 0 0 0;
 }
 
-.post-editor .metadata button {
-  margin-right: 0.5em;
-}
-
-.post-editor .title input,
-.post-editor .slug input,
-.post-editor .tags input {
-  width: 100%;
+.post-editor .meta-controls,
+.post-editor .slug-controls {
+  display: flex;
+  align-items: center;
   max-width: 24em;
 }
 
-.post-editor .slug-controls {
-  margin: 0.65em 0 0 0;
-  display: flex;
+.post-editor .meta-controls button,
+.post-editor .slug-controls .slug {
+  margin: 0 0.5em 0 0;
+}
+
+.post-editor .title-controls input,
+.post-editor .tag-controls input,
+.post-editor .slug-controls input {
+  width: 100%;
   max-width: 24em;
 }
 
 .post-editor .slug {
   flex-grow: 1;
-}
-
-.post-editor .slug input {
-  width: 100%;
-}
-
-.post-editor .slug-controls button {
-  margin: 0 0 0 0.5em;
 }
 
 .post-editor textarea {
