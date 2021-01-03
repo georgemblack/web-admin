@@ -6,6 +6,7 @@ import merge from "lodash.merge";
 
 import TextListInput from "./TextListInput.jsx";
 import { postPost, putPost } from "../store/actions/Posts";
+import { slugify } from "../utils";
 
 function reducer(state, data) {
   return merge({}, state, data);
@@ -17,6 +18,7 @@ function PostEditor(props) {
   let initialState = {
     metadata: {
       title: "",
+      slug: "",
       draft: true,
       tags: [],
     },
@@ -79,6 +81,29 @@ function PostEditor(props) {
             }
           ></input>
         </div>
+        <div className="slug-controls">
+          <div className="slug">
+            <input
+              type="text"
+              value={formState.metadata.slug}
+              placeholder="Slug"
+              onChange={(event) =>
+                formDispatch({ metadata: { slug: event.target.value } })
+              }
+            ></input>
+          </div>
+          <button
+            type="button"
+            name="slug-suggest"
+            onClick={() =>
+              formDispatch({
+                metadata: { slug: slugify(formState.metadata.title) },
+              })
+            }
+          >
+            🐌
+          </button>
+        </div>
         <div className="tags">
           <TextListInput
             type="text"
@@ -105,7 +130,7 @@ function PostEditor(props) {
       <pre>
         <code>
           {"<!--more-->\n"}
-          {'{{< image webp="image" >}}\n'}
+          {'{{- image webp="image" -}}\n'}
           {"“Hello? That’s it.”"}
         </code>
       </pre>

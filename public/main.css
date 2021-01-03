@@ -28,6 +28,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -234,9 +235,28 @@ label {
 }
 
 .post-editor .title input,
+.post-editor .slug input,
 .post-editor .tags input {
   width: 100%;
   max-width: 24em;
+}
+
+.post-editor .slug-controls {
+  margin: 0.65em 0 0 0;
+  display: flex;
+  max-width: 24em;
+}
+
+.post-editor .slug {
+  flex-grow: 1;
+}
+
+.post-editor .slug input {
+  width: 100%;
+}
+
+.post-editor .slug-controls button {
+  margin: 0 0 0 0.5em;
 }
 
 .post-editor textarea {
