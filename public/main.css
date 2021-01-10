@@ -176,6 +176,18 @@ label {
   background-color: #ad4b30;
 }
 
+.button-blue {
+  background-color: #36bfc9;
+}
+
+.button-blue:hover {
+  background-color: #31b0b9;
+}
+
+.button-blue:active {
+  background-color: #2da3ac;
+}
+
 /* ==========================================================================
   Login Form
   ========================================================================== */

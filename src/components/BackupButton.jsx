@@ -20,7 +20,7 @@ function BackupButton(props) {
 
   return (
     <div>
-      <button className="button-green" onClick={handleClick}>
+      <button className="button-blue" onClick={handleClick}>
         {message}
       </button>
       {latestBackupID && <p>{latestBackupID}</p>}
