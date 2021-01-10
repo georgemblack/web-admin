@@ -4,7 +4,7 @@ function postBuildSuccess(build) {
   return { type: POST_BUILD_SUCCESS, build };
 }
 
-export function postBuild(payload) {
+export function postBuild() {
   return async (dispatch, getState) => {
     const { authToken } = getState();
     let response = await fetch(`${API_URL}/builds`, {

@@ -5,6 +5,7 @@ import { GET_LIKES_SUCCESS } from "./actions/Likes";
 import { GET_VIEWS_SUCCESS } from "./actions/Views";
 import { GET_POSTS_SUCCESS } from "./actions/Posts";
 import { POST_BUILD_SUCCESS } from "./actions/Build";
+import { POST_BACKUP_SUCCESS } from "./actions/Backup";
 
 function authToken(authToken = initialState.authToken, action) {
   switch (action.type) {
@@ -46,12 +47,21 @@ function build(build = initialState.build, action) {
   return build;
 }
 
+function backup(backup = initialState.backup, action) {
+  switch (action.type) {
+    case POST_BACKUP_SUCCESS:
+      return action.backup;
+  }
+  return backup;
+}
+
 const rootReducer = combineReducers({
   authToken,
   posts,
   likes,
   views,
   build,
+  backup,
 });
 
 export default rootReducer;
