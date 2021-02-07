@@ -9,6 +9,7 @@ import LoginPage from "./views/LoginPage.jsx";
 import ViewTable from "./components/ViewTable.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
 import EditPostPage from "./views/EditPostPage.jsx";
+import BinPage from "./views/BinPage.jsx";
 import { setAuthToken } from "./store/actions/Auth";
 
 function App(props) {
@@ -43,6 +44,7 @@ function App(props) {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/views">Views</Link>
+            <Link to="/bin">Bin</Link>
             <Link to="/posts/new">New Post</Link>
           </nav>
         </header>
@@ -57,6 +59,9 @@ function App(props) {
           </Route>
           <Route path="/views">
             <ViewTable />
+          </Route>
+          <Route path="/bin">
+            <BinPage />
           </Route>
           <Route path="/posts/new">
             <NewPostPage />

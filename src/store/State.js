@@ -5,6 +5,9 @@ const initialState = {
   views: [],
   build: {},
   backup: {},
+  bin: {
+    links: [],
+  },
 };
 
 export default initialState;

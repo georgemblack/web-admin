@@ -18,6 +18,10 @@ export function getViewsSelector(state) {
   return state.views;
 }
 
+export function getBinSelector(state) {
+  return state.bin;
+}
+
 export function getBuildIDSelector(state) {
   if (state.build.buildID) return state.build.buildID;
   return "";
