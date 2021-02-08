@@ -5,6 +5,10 @@ import { getBinSelector } from "../store/Selectors";
 import { getBinLinks } from "../store/actions/Bin";
 import Time from "./Time.jsx";
 
+function trimURL(url) {
+  return url.replace("https://", "");
+}
+
 function BinLinkTable(props) {
   const dispatch = useDispatch();
   const bin = useSelector(getBinSelector);
@@ -28,7 +32,7 @@ function BinLinkTable(props) {
             {bin.links.map((link) => (
               <tr key={link.id}>
                 <td>
-                  <a href={link.url}>{link.url}</a>
+                  <a href={link.url}>{trimURL(link.url)}</a>
                 </td>
                 <td>
                   <Time timestamp={link.timestamp._seconds} />
