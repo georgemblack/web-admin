@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getBinSelector } from "../store/Selectors";
-import { getBinLinks } from "../store/actions/Bin";
+import { getBinLinks, deleteBinLink } from "../store/actions/Bin";
+import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import Time from "./Time.jsx";
 
 function trimURL(url) {
@@ -12,6 +13,10 @@ function trimURL(url) {
 function BinLinkTable(props) {
   const dispatch = useDispatch();
   const bin = useSelector(getBinSelector);
+
+  const handleDelete = (link) => {
+    dispatch(deleteBinLink(link.id));
+  };
 
   useEffect(() => {
     dispatch(getBinLinks());
@@ -26,6 +31,7 @@ function BinLinkTable(props) {
             <tr>
               <th>URL</th>
               <th>Date</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +42,11 @@ function BinLinkTable(props) {
                 </td>
                 <td>
                   <Time timestamp={link.timestamp._seconds} />
+                </td>
+                <td>
+                  <DeleteWithConfirmationButton
+                    handleDelete={() => handleDelete(link)}
+                  />
                 </td>
               </tr>
             ))}
