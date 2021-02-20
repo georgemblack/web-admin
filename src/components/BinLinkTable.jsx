@@ -7,7 +7,13 @@ import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import Time from "./Time.jsx";
 
 function trimURL(url) {
-  return url.replace("http://", "").replace("https://", "").replace("www.", "");
+  const cleaned = url
+    .replace("http://", "")
+    .replace("https://", "")
+    .replace("www.", "");
+  const trimmed =
+    cleaned.length > 35 ? cleaned.substring(0, 32) + "..." : cleaned;
+  return trimmed;
 }
 
 function BinLinkTable(props) {
