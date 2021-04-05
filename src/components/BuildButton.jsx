@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { postBuild } from "../data/Api";
+import { postBuildAPI } from "../data/Api";
 
 function BuildButton(props) {
   const [buildID, setBuildID] = useState("");
@@ -11,7 +11,7 @@ function BuildButton(props) {
   const handleClick = async (event) => {
     event.preventDefault();
     setLoading(true);
-    const response = await postBuild();
+    const response = await postBuildAPI();
     setBuildID(response.build.buildID);
     setLoading(false);
   };

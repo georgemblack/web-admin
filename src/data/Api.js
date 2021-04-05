@@ -1,6 +1,6 @@
 import { getAuthToken } from "../utils";
 
-export async function postAuthToken(username, password) {
+export async function postAuthTokenAPI(username, password) {
   const userPassEncoded = btoa(`${username.trim()}:${password.trim()}`);
   const response = await fetch(`${API_URL}/auth`, {
     method: "POST",
@@ -14,7 +14,7 @@ export async function postAuthToken(username, password) {
   return responseBody.token;
 }
 
-export async function postBackup() {
+export async function postBackupAPI() {
   const authToken = getAuthToken();
   const response = await fetch(`${API_URL}/backups`, {
     method: "POST",
@@ -27,7 +27,7 @@ export async function postBackup() {
   return responseBody;
 }
 
-export async function postBuild() {
+export async function postBuildAPI() {
   const authToken = getAuthToken();
   let response = await fetch(`${API_URL}/builds`, {
     method: "POST",

@@ -3,14 +3,20 @@ import { useState } from "react";
 import { getViewsAPI, deleteViewAPI } from "../data/Api";
 
 export default function useGlobalContext() {
+  /**
+   * User authentication
+   */
   const [authToken, setAuthToken] = useState("");
-  const [views, setViews] = useState([]);
-
   const userIsAuthenticated = authToken !== "";
 
   const authenticateUser = (authToken) => {
     setAuthToken(authToken);
   };
+
+  /**
+   * Web views
+   */
+  const [views, setViews] = useState([]);
 
   const getViews = async () => {
     const response = await getViewsAPI();
@@ -21,6 +27,10 @@ export default function useGlobalContext() {
     await deleteViewAPI(id);
     await getViews();
   };
+
+  /**
+   * Web Likes
+   */
 
   return {
     authToken,

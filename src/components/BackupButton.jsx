@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { postBackup } from "../data/Api";
+import { postBackupAPI } from "../data/Api";
 
 function BackupButton(props) {
   const [backupID, setBackupID] = useState("");
@@ -11,7 +11,7 @@ function BackupButton(props) {
   const handleClick = async (event) => {
     event.preventDefault();
     setLoading(true);
-    const response = await postBackup();
+    const response = await postBackupAPI();
     setBackupID(response.backupID);
     setLoading(false);
   };

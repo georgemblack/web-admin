@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
 import GlobalContext from "../context/GlobalContext";
-import { postAuthToken } from "../data/Api";
+import { postAuthTokenAPI } from "../data/Api";
 
 function LoginForm(props) {
   const context = useContext(GlobalContext);
@@ -10,7 +10,7 @@ function LoginForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const token = await postAuthToken(username, password);
+    const token = await postAuthTokenAPI(username, password);
 
     // set token in local storage
     window.localStorage.setItem("token", token);
