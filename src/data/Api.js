@@ -39,3 +39,26 @@ export async function postBuild() {
   let responseBody = await response.json();
   return responseBody;
 }
+
+export async function getViewsAPI() {
+  const authToken = getAuthToken();
+  let response = await fetch(`${API_URL}/views`, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  let responseBody = await response.json();
+  return responseBody;
+}
+
+export async function deleteViewAPI(id) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/views/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+}

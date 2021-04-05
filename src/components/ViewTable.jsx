@@ -1,21 +1,18 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useContext, useEffect } from "react";
 
-import { getViewsSelector } from "../store/Selectors";
-import { getViews, deleteView } from "../store/actions/Views";
+import GlobalContext from "../context/GlobalContext";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import Time from "./Time.jsx";
 
 function ViewTable(props) {
-  const dispatch = useDispatch();
-  const views = useSelector(getViewsSelector);
+  const { views, getViews, deleteView } = useContext(GlobalContext);
 
   useEffect(() => {
-    dispatch(getViews());
+    getViews();
   }, []);
 
   const handleDelete = (view) => {
-    dispatch(deleteView(view.id));
+    deleteView(view.id);
   };
 
   const formatReferrer = (referrer) => {
@@ -36,7 +33,7 @@ function ViewTable(props) {
         }}
       >
         <h2>Views: {views.length}</h2>
-        <button onClick={() => dispatch(getViews())}>Refresh</button>
+        <button onClick={() => getViews()}>Refresh</button>
       </div>
       <div className="table-wrapper">
         <table>
