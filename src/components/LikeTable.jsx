@@ -1,22 +1,19 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useContext, useEffect } from "react";
 
-import { getLikesSelector } from "../store/Selectors";
-import { getLikes, deleteLike } from "../store/actions/Likes";
+import GlobalContext from "../context/GlobalContext";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import DomainName from "./DomainName.jsx";
 import Time from "./Time.jsx";
 
 function LikeTable(props) {
-  const dispatch = useDispatch();
-  const likes = useSelector(getLikesSelector);
+  const { likes, getLikes, deleteLike } = useContext(GlobalContext);
 
   const handleDelete = (like) => {
-    dispatch(deleteLike(like.id));
+    deleteLike(like.id);
   };
 
   useEffect(() => {
-    dispatch(getLikes());
+    getLikes();
   }, []);
 
   return (

@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postLike } from "../store/actions/Likes";
+import { useState, useContext } from "react";
+
+import GlobalContext from "../context/GlobalContext";
 
 function LikeForm(props) {
-  const dispatch = useDispatch();
+  const { postLike } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
 
@@ -14,7 +14,7 @@ function LikeForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await dispatch(postLike({ title, url }));
+    await postLike({ title, url });
     clearInputs();
   };
 

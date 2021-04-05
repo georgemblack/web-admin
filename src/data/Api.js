@@ -62,3 +62,39 @@ export async function deleteViewAPI(id) {
     },
   });
 }
+
+export async function getLikesAPI() {
+  const authToken = getAuthToken();
+  let response = await fetch(`${API_URL}/likes`, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  let responseBody = await response.json();
+  return responseBody;
+}
+
+export async function postLikeAPI(payload) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/likes`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function deleteLikeAPI(id) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/likes/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+}

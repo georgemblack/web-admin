@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-import { getViewsAPI, deleteViewAPI } from "../data/Api";
+import {
+  getViewsAPI,
+  deleteViewAPI,
+  getLikesAPI,
+  postLikeAPI,
+  deleteLikeAPI,
+} from "../data/Api";
 
 export default function useGlobalContext() {
   /**
@@ -31,6 +37,22 @@ export default function useGlobalContext() {
   /**
    * Web Likes
    */
+  const [likes, setLikes] = useState([]);
+
+  const getLikes = async () => {
+    const response = await getLikesAPI();
+    setLikes(response.likes);
+  };
+
+  const postLike = async (payload) => {
+    await postLikeAPI(payload);
+    await getLikes();
+  };
+
+  const deleteLike = async (id) => {
+    await deleteLikeAPI(id);
+    await getLikes();
+  };
 
   return {
     authToken,
@@ -39,5 +61,9 @@ export default function useGlobalContext() {
     views,
     getViews,
     deleteView,
+    likes,
+    getLikes,
+    postLike,
+    deleteLike,
   };
 }

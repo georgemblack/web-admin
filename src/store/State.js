@@ -1,6 +1,5 @@
 const initialState = {
   posts: [],
-  likes: [],
   bin: {
     links: [],
   },
