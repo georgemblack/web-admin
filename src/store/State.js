@@ -2,7 +2,6 @@ const initialState = {
   posts: [],
   likes: [],
   views: [],
-  build: {},
   bin: {
     links: [],
   },

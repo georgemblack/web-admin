@@ -26,3 +26,16 @@ export async function postBackup() {
   const responseBody = await response.json();
   return responseBody;
 }
+
+export async function postBuild() {
+  const authToken = getAuthToken();
+  let response = await fetch(`${API_URL}/builds`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  let responseBody = await response.json();
+  return responseBody;
+}

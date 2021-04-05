@@ -4,7 +4,6 @@ import { GET_LIKES_SUCCESS } from "./actions/Likes";
 import { GET_BIN_LINKS_SUCCESS } from "./actions/Bin";
 import { GET_VIEWS_SUCCESS } from "./actions/Views";
 import { GET_POSTS_SUCCESS } from "./actions/Posts";
-import { POST_BUILD_SUCCESS } from "./actions/Build";
 
 function posts(posts = initialState.posts, action) {
   switch (action.type) {
@@ -30,14 +29,6 @@ function views(views = initialState.views, action) {
   return views;
 }
 
-function build(build = initialState.build, action) {
-  switch (action.type) {
-    case POST_BUILD_SUCCESS:
-      return action.build;
-  }
-  return build;
-}
-
 function bin(bin = initialState.bin, action) {
   switch (action.type) {
     case GET_BIN_LINKS_SUCCESS:
@@ -52,7 +43,6 @@ const rootReducer = combineReducers({
   posts,
   likes,
   views,
-  build,
   bin,
 });
 

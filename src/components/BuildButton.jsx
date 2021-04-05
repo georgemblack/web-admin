@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
-import { postBuild } from "../store/actions/Build";
-import { getBuildIDSelector } from "../store/Selectors";
+import { postBuild } from "../data/Api";
 
 function BuildButton(props) {
-  const dispatch = useDispatch();
-  const latestBuildID = useSelector(getBuildIDSelector);
-
+  const [buildID, setBuildID] = useState("");
   const [loading, setLoading] = useState(false);
+
   const message = loading ? "Building..." : "Start Build";
 
   const handleClick = async (event) => {
     event.preventDefault();
     setLoading(true);
-    await dispatch(postBuild());
+    const response = await postBuild();
+    setBuildID(response.build.buildID);
     setLoading(false);
   };
 
@@ -23,7 +21,7 @@ function BuildButton(props) {
       <button className="button-orange" onClick={handleClick}>
         {message}
       </button>
-      {latestBuildID && <p>{latestBuildID}</p>}
+      {buildID && <p>{buildID}</p>}
     </div>
   );
 }
