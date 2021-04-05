@@ -3,7 +3,6 @@ const initialState = {
   likes: [],
   views: [],
   build: {},
-  backup: {},
   bin: {
     links: [],
   },

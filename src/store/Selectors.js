@@ -18,8 +18,3 @@ export function getBuildIDSelector(state) {
   if (state.build.buildID) return state.build.buildID;
   return "";
 }
-
-export function getBackupPrefixSelector(state) {
-  if (state.backup.backupPrefix) return state.backup.backupPrefix;
-  return "";
-}

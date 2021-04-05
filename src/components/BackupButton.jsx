@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
-import { postBackup } from "../store/actions/Backup";
-import { getBackupPrefixSelector } from "../store/Selectors";
+import { postBackup } from "../data/Api";
 
 function BackupButton(props) {
-  const dispatch = useDispatch();
-  const latestBackupID = useSelector(getBackupPrefixSelector);
-
+  const [backupID, setBackupID] = useState("");
   const [loading, setLoading] = useState(false);
+
   const message = loading ? "Creating backup..." : "Start Backup";
 
   const handleClick = async (event) => {
     event.preventDefault();
     setLoading(true);
-    await dispatch(postBackup());
+    const response = await postBackup();
+    setBackupID(response.backupID);
     setLoading(false);
   };
 
@@ -23,7 +21,7 @@ function BackupButton(props) {
       <button className="button-blue" onClick={handleClick}>
         {message}
       </button>
-      {latestBackupID && <p>{latestBackupID}</p>}
+      {backupID && <p>{setBackupID}</p>}
     </div>
   );
 }
