@@ -1,20 +1,11 @@
 import { combineReducers } from "redux";
 import initialState from "./State";
-import { AUTH_TOKEN_SUCCESS } from "./actions/Auth";
 import { GET_LIKES_SUCCESS } from "./actions/Likes";
 import { GET_BIN_LINKS_SUCCESS } from "./actions/Bin";
 import { GET_VIEWS_SUCCESS } from "./actions/Views";
 import { GET_POSTS_SUCCESS } from "./actions/Posts";
 import { POST_BUILD_SUCCESS } from "./actions/Build";
 import { POST_BACKUP_SUCCESS } from "./actions/Backup";
-
-function authToken(authToken = initialState.authToken, action) {
-  switch (action.type) {
-    case AUTH_TOKEN_SUCCESS:
-      return action.token;
-  }
-  return authToken;
-}
 
 function posts(posts = initialState.posts, action) {
   switch (action.type) {
@@ -67,7 +58,6 @@ function bin(bin = initialState.bin, action) {
 }
 
 const rootReducer = combineReducers({
-  authToken,
   posts,
   likes,
   views,

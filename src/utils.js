@@ -5,3 +5,7 @@ export function slugify(text) {
   slug = slug.replaceAll(" ", "-");
   return slug;
 }
+
+export function getAuthToken() {
+  return window.localStorage.getItem("token");
+}

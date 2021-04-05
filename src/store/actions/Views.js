@@ -1,3 +1,5 @@
+import { getAuthToken } from "../../utils";
+
 export const GET_VIEWS_SUCCESS = "GET_VIEWS_SUCCESS";
 export const DELETE_VIEW_SUCCESS = "DELETE_VIEW_SUCCESS";
 
@@ -11,7 +13,7 @@ function deleteViewSuccess() {
 
 export function getViews() {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     let response = await fetch(`${API_URL}/views`, {
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -24,7 +26,7 @@ export function getViews() {
 
 export function deleteView(id) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/views/${id}`, {
       method: "DELETE",
       mode: "cors",

@@ -1,3 +1,5 @@
+import { getAuthToken } from "../../utils";
+
 export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
 export const POST_POST_SUCCESS = "POST_POST_SUCCESS";
 export const PUT_POST_SUCCESS = "PUT_POST_SUCCESS";
@@ -21,7 +23,7 @@ function deletePostSuccess() {
 
 export function getPosts() {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     let response = await fetch(`${API_URL}/posts`, {
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -34,7 +36,7 @@ export function getPosts() {
 
 export function postPost(payload) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/posts`, {
       method: "POST",
       mode: "cors",
@@ -50,7 +52,7 @@ export function postPost(payload) {
 
 export function putPost(id, payload) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/posts/${id}`, {
       method: "PUT",
       mode: "cors",
@@ -66,7 +68,7 @@ export function putPost(id, payload) {
 
 export function deletePost(id) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/posts/${id}`, {
       method: "DELETE",
       mode: "cors",

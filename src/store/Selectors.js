@@ -1,11 +1,3 @@
-export function getUserIsAuthenticated(state) {
-  return state.authToken != "";
-}
-
-export function getAuthToken(state) {
-  return state.authToken;
-}
-
 export function getPostsSelector(state) {
   return state.posts;
 }

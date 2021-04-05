@@ -1,3 +1,5 @@
+import { getAuthToken } from "../../utils";
+
 export const POST_BUILD_SUCCESS = "POST_BUILD_SUCCESS";
 
 function postBuildSuccess(build) {
@@ -6,7 +8,7 @@ function postBuildSuccess(build) {
 
 export function postBuild() {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     let response = await fetch(`${API_URL}/builds`, {
       method: "POST",
       mode: "cors",

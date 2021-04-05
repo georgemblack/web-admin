@@ -1,19 +1,19 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
 import decode from "jwt-decode";
 
-import { getUserIsAuthenticated } from "./store/Selectors";
+import GlobalContext from "./context/GlobalContext.js";
+import useGlobalContext from "./context/GlobalContextHook.js";
 import HomePage from "./views/HomePage.jsx";
 import LoginPage from "./views/LoginPage.jsx";
 import ViewTable from "./components/ViewTable.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
 import EditPostPage from "./views/EditPostPage.jsx";
 import BinPage from "./views/BinPage.jsx";
-import { setAuthToken } from "./store/actions/Auth";
 
 function App(props) {
-  const userIsAuthenticated = useSelector(getUserIsAuthenticated);
+  const context = useGlobalContext();
   let history = useHistory();
   const dispatch = useDispatch();
 
@@ -24,21 +24,21 @@ function App(props) {
     }
     const decoded = decode(token);
     if (decoded.exp > Date.now() / 1000) {
-      dispatch(setAuthToken(token));
+      context.authenticateUser(token);
     } else {
       window.localStorage.clear();
     }
   }, []);
 
   useEffect(() => {
-    if (userIsAuthenticated) {
+    if (context.userIsAuthenticated) {
       history.push("/");
     }
-  }, [userIsAuthenticated]);
+  }, [context.userIsAuthenticated]);
 
   return (
-    <>
-      {userIsAuthenticated && (
+    <GlobalContext.Provider value={context}>
+      {context.userIsAuthenticated && (
         <header>
           <h1>Web Admin</h1>
           <nav>
@@ -52,7 +52,11 @@ function App(props) {
       <main>
         <Switch>
           <Route exact path="/">
-            {userIsAuthenticated ? <HomePage /> : <Redirect to="/login" />}
+            {context.userIsAuthenticated ? (
+              <HomePage />
+            ) : (
+              <Redirect to="/login" />
+            )}
           </Route>
           <Route exact path="/login">
             <LoginPage />
@@ -71,7 +75,7 @@ function App(props) {
           </Route>
         </Switch>
       </main>
-    </>
+    </GlobalContext.Provider>
   );
 }
 

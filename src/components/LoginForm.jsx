@@ -1,16 +1,22 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useContext, useState } from "react";
 
-import { postAuthToken } from "../store/actions/Auth";
+import GlobalContext from "../context/GlobalContext";
+import { postAuthToken } from "../data/Api";
 
 function LoginForm(props) {
+  const context = useContext(GlobalContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(postAuthToken(username, password));
+    const token = await postAuthToken(username, password);
+
+    // set token in local storage
+    window.localStorage.setItem("token", token);
+
+    // set token in global context
+    context.authenticateUser(token);
   };
 
   return (

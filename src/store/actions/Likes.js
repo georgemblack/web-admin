@@ -1,3 +1,5 @@
+import { getAuthToken } from "../../utils";
+
 export const GET_LIKES_SUCCESS = "GET_LIKES_SUCCESS";
 export const POST_LIKE_SUCCESS = "POST_LIKE_SUCCESS";
 export const DELETE_LIKE_SUCCESS = "DELETE_LIKE_SUCCESS";
@@ -16,7 +18,7 @@ function deleteLikeSuccess() {
 
 export function getLikes() {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     let response = await fetch(`${API_URL}/likes`, {
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -29,7 +31,7 @@ export function getLikes() {
 
 export function postLike(payload) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/likes`, {
       method: "POST",
       mode: "cors",
@@ -46,7 +48,7 @@ export function postLike(payload) {
 
 export function deleteLike(id) {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     await fetch(`${API_URL}/likes/${id}`, {
       method: "DELETE",
       mode: "cors",

@@ -1,3 +1,5 @@
+import { getAuthToken } from "../../utils";
+
 export const POST_BACKUP_SUCCESS = "POST_BACKUP_SUCCESS";
 
 function postBackupSuccess(backup) {
@@ -6,7 +8,7 @@ function postBackupSuccess(backup) {
 
 export function postBackup() {
   return async (dispatch, getState) => {
-    const { authToken } = getState();
+    const authToken = getAuthToken();
     let response = await fetch(`${API_URL}/backups`, {
       method: "POST",
       mode: "cors",
