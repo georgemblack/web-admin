@@ -26,41 +26,6 @@ export default function useGlobalContext() {
   };
 
   /**
-   * Web views
-   */
-  const [views, setViews] = useState([]);
-
-  const getViews = async () => {
-    const response = await getViewsAPI();
-    setViews(response.views);
-  };
-
-  const deleteView = async (id) => {
-    await deleteViewAPI(id);
-    await getViews();
-  };
-
-  /**
-   * Web likes
-   */
-  const [likes, setLikes] = useState([]);
-
-  const getLikes = async () => {
-    const response = await getLikesAPI();
-    setLikes(response.likes);
-  };
-
-  const postLike = async (payload) => {
-    await postLikeAPI(payload);
-    await getLikes();
-  };
-
-  const deleteLike = async (id) => {
-    await deleteLikeAPI(id);
-    await getLikes();
-  };
-
-  /**
    * Web posts
    */
   const [posts, setPosts] = useState([]);
@@ -86,6 +51,41 @@ export default function useGlobalContext() {
   };
 
   /**
+   * Web likes
+   */
+  const [likes, setLikes] = useState([]);
+
+  const getLikes = async () => {
+    const response = await getLikesAPI();
+    setLikes(response.likes);
+  };
+
+  const postLike = async (payload) => {
+    await postLikeAPI(payload);
+    await getLikes();
+  };
+
+  const deleteLike = async (id) => {
+    await deleteLikeAPI(id);
+    await getLikes();
+  };
+
+  /**
+   * Web views
+   */
+  const [views, setViews] = useState([]);
+
+  const getViews = async () => {
+    const response = await getViewsAPI();
+    setViews(response.views);
+  };
+
+  const deleteView = async (id) => {
+    await deleteViewAPI(id);
+    await getViews();
+  };
+
+  /**
    * Bin links
    */
   const [binLinks, setBinLinks] = useState([]);
@@ -104,18 +104,18 @@ export default function useGlobalContext() {
     authToken,
     userIsAuthenticated,
     authenticateUser,
-    views,
-    getViews,
-    deleteView,
-    likes,
-    getLikes,
-    postLike,
-    deleteLike,
     posts,
     getPosts,
     postPost,
     putPost,
     deletePost,
+    likes,
+    getLikes,
+    postLike,
+    deleteLike,
+    views,
+    getViews,
+    deleteView,
     binLinks,
     getBinLinks,
     deleteBinLink,
