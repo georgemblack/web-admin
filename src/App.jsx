@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
 import decode from "jwt-decode";
 
@@ -15,7 +14,6 @@ import BinPage from "./views/BinPage.jsx";
 function App(props) {
   const context = useGlobalContext();
   let history = useHistory();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const token = localStorage.getItem("token");

@@ -98,3 +98,75 @@ export async function deleteLikeAPI(id) {
     },
   });
 }
+
+export async function getPostsAPI() {
+  const authToken = getAuthToken();
+  let response = await fetch(`${API_URL}/posts`, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  let responseBody = await response.json();
+  return responseBody;
+}
+
+export async function postPostAPI(payload) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/posts`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function putPostAPI(id, payload) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/posts/${id}`, {
+    method: "PUT",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function deletePostAPI(id) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/posts/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+export async function getBinLinksAPI() {
+  const authToken = getAuthToken();
+  let response = await fetch(`${API_URL}/bin/links`, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  let responseBody = await response.json();
+  return responseBody;
+}
+
+export async function deleteBinLinkAPI(id) {
+  const authToken = getAuthToken();
+  await fetch(`${API_URL}/bin/links/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+}

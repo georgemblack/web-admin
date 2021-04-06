@@ -1,16 +1,13 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useContext, seEffect } from "react";
+import GlobalContext from "../context/GlobalContext.js";
 
-import { getBinSelector } from "../store/Selectors";
-import { getBinLinks } from "../store/actions/Bin";
 import BinLinkRow from "./BinLinkRow.jsx";
 
 function BinLinkTable(props) {
-  const dispatch = useDispatch();
-  const bin = useSelector(getBinSelector);
+  const { binLinks, getBinLinks } = useContext(GlobalContext);
 
   useEffect(() => {
-    dispatch(getBinLinks());
+    getBinLinks();
   }, []);
 
   return (
@@ -26,7 +23,7 @@ function BinLinkTable(props) {
             </tr>
           </thead>
           <tbody>
-            {bin.links.map((link) => (
+            {binLinks.map((link) => (
               <BinLinkRow key={link.id} link={link} />
             ))}
           </tbody>

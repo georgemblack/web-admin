@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { getPostsSelector } from "../store/Selectors";
 import PostEditor from "../components/PostEditor.jsx";
+import GlobalContext from "../context/GlobalContext.js";
 
 function EditPostPage(props) {
+  const { posts } = useContext(GlobalContext);
   const { id } = useParams();
-  const posts = useSelector(getPostsSelector);
   const post = posts.find((post) => post.id === id);
 
   return <PostEditor post={post} />;

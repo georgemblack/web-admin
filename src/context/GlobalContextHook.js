@@ -6,6 +6,12 @@ import {
   getLikesAPI,
   postLikeAPI,
   deleteLikeAPI,
+  getPostsAPI,
+  postPostAPI,
+  deletePostAPI,
+  putPostAPI,
+  getBinLinksAPI,
+  deleteBinLinkAPI,
 } from "../data/Api";
 
 export default function useGlobalContext() {
@@ -35,7 +41,7 @@ export default function useGlobalContext() {
   };
 
   /**
-   * Web Likes
+   * Web likes
    */
   const [likes, setLikes] = useState([]);
 
@@ -54,6 +60,46 @@ export default function useGlobalContext() {
     await getLikes();
   };
 
+  /**
+   * Web posts
+   */
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    const response = await getPostsAPI();
+    setPosts(response.posts);
+  };
+
+  const postPost = async (payload) => {
+    await postPostAPI(payload);
+    await getPosts();
+  };
+
+  const putPost = async (id, payload) => {
+    await putPostAPI(id, payload);
+    await getPosts();
+  };
+
+  const deletePost = async (id) => {
+    await deletePostAPI(id);
+    await getPosts();
+  };
+
+  /**
+   * Bin links
+   */
+  const [binLinks, setBinLinks] = useState([]);
+
+  const getBinLinks = async () => {
+    const response = await getBinLinksAPI();
+    setBinLinks(response.links);
+  };
+
+  const deleteBinLink = async (id) => {
+    await deleteBinLinkAPI(id);
+    await getBinLinks();
+  };
+
   return {
     authToken,
     userIsAuthenticated,
@@ -65,5 +111,13 @@ export default function useGlobalContext() {
     getLikes,
     postLike,
     deleteLike,
+    posts,
+    getPosts,
+    postPost,
+    putPost,
+    deletePost,
+    binLinks,
+    getBinLinks,
+    deleteBinLink,
   };
 }

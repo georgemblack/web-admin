@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import { deleteBinLink } from "../store/actions/Bin";
+import { useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import Time from "./Time.jsx";
@@ -15,10 +15,10 @@ function trimURL(url) {
 }
 
 function BinLinkRow(props) {
-  const dispatch = useDispatch();
+  const { deleteBinLink } = useContext(GlobalContext);
 
   const handleDelete = (link) => {
-    dispatch(deleteBinLink(link.id));
+    deleteBinLink(link.id);
   };
 
   return (

@@ -1,18 +1,18 @@
-import { useReducer } from "react";
-import { useDispatch } from "react-redux";
+import { useContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
 import merge from "lodash.merge";
 
-import TextListInput from "./TextListInput.jsx";
-import { postPost, putPost } from "../store/actions/Posts";
 import { slugify } from "../utils";
+import GlobalContext from "../context/GlobalContext.js";
+import TextListInput from "./TextListInput.jsx";
 
 function reducer(state, data) {
   return merge({}, state, data);
 }
 
 function PostEditor(props) {
+  const { putPost, postPost } = useContext(GlobalContext);
   const post = props.post;
 
   let initialState = {
@@ -34,16 +34,15 @@ function PostEditor(props) {
     };
   }
 
-  const dispatch = useDispatch();
   const history = useHistory();
   const [formState, formDispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (post) {
-      await dispatch(putPost(post.id, formState));
+      await putPost(post.id, formState);
     } else {
-      await dispatch(postPost(formState));
+      await postPost(formState);
     }
     history.push("/");
   };

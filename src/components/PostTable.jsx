@@ -1,24 +1,21 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useContext, useEffect } from "react";
+import GlobalContext from "../context/GlobalContext.js";
 
-import { getPostsSelector } from "../store/Selectors";
-import { getPosts, deletePost } from "../store/actions/Posts";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import EditPostButton from "./EditPostButton.jsx";
 import Time from "./Time.jsx";
 
 function PostTable(props) {
-  const dispatch = useDispatch();
-  const posts = useSelector(getPostsSelector);
+  const { posts, deletePost, getPosts } = useContext(GlobalContext);
 
   const draftTag = <span className="tag-yellow">Draft</span>;
 
   const handleDelete = (post) => {
-    dispatch(deletePost(post.id));
+    deletePost(post.id);
   };
 
   useEffect(() => {
-    dispatch(getPosts());
+    getPosts();
   }, []);
 
   return (
