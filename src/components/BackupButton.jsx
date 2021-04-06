@@ -12,7 +12,7 @@ function BackupButton(props) {
     event.preventDefault();
     setLoading(true);
     const response = await postBackupAPI();
-    setBackupID(response.backupID);
+    setBackupID(response.backupPrefix);
     setLoading(false);
   };
 
@@ -21,7 +21,7 @@ function BackupButton(props) {
       <button className="button-blue" onClick={handleClick}>
         {message}
       </button>
-      {backupID && <p>{setBackupID}</p>}
+      {backupID && <p>{backupID}</p>}
     </div>
   );
 }
