@@ -12,7 +12,7 @@ function BuildButton(props) {
     event.preventDefault();
     setLoading(true);
     const response = await postBuildAPI();
-    setBuildID(response.build.buildID);
+    setBuildID(response.buildID);
     setLoading(false);
   };
 
