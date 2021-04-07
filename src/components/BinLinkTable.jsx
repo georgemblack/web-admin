@@ -1,4 +1,4 @@
-import { useContext, seEffect } from "react";
+import { useContext, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext.js";
 
 import BinLinkRow from "./BinLinkRow.jsx";
