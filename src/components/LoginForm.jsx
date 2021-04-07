@@ -10,13 +10,13 @@ function LoginForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const token = await postAuthTokenAPI(username, password);
+    const response = await postAuthTokenAPI(username, password);
 
     // set token in local storage
-    window.localStorage.setItem("token", token);
+    window.localStorage.setItem("token", response.token);
 
     // set token in global context
-    context.authenticateUser(token);
+    context.authenticateUser(response.token);
   };
 
   return (
