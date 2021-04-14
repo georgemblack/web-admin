@@ -23,6 +23,13 @@ function ViewTable(props) {
     return cleaned;
   };
 
+  const formatLocation = (view) => {
+    if (view.cityName && view.regionName && view.countryCode) {
+      return `${view.cityName}, ${view.regionName} ${view.countryCode}`;
+    }
+    return view.dataCenterCode;
+  };
+
   return (
     <>
       <div
@@ -56,9 +63,7 @@ function ViewTable(props) {
                   <Time timestamp={view.timestamp} />
                 </td>
                 <td>{view.browser}</td>
-                <td>
-                  {view.countryCode} - {view.dataCenterCode}
-                </td>
+                <td>{formatLocation(view)}</td>
                 <td>{view.timezone}</td>
                 <td>{view.pathname}</td>
                 <td>{formatReferrer(view.referrer)}</td>
