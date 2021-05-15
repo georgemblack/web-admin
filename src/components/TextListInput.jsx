@@ -1,25 +1,52 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function TextListInput(props) {
-  let initialText = "";
-  if (props.value && props.value.length > 0) {
-    initialText = props.value.join(" ");
-  }
-  const [text, setText] = useState(initialText);
+  const list = props.value ? props.value : [];
+  const [activeItem, setActiveItem] = useState("");
 
-  useEffect(() => {
-    if (props.onChange) {
-      props.onChange(text.trim().split(" "));
+  const addActiveItemToList = () => {
+    if (activeItem == "") {
+      return;
     }
-  }, [text]);
+    if (props.onChange) {
+      props.onChange([...list, activeItem]);
+    }
+    setActiveItem("");
+  };
+
+  const removeItemFromList = (event) => {
+    if (props.onChange) {
+      let newList = [...list];
+      newList.splice(list.indexOf(event.target.innerText), 1);
+      props.onChange(newList);
+    }
+  };
+
+  const display = list.map((item, index) => {
+    return (
+      <span
+        className="interactive-list-item"
+        key={index}
+        onClick={removeItemFromList}
+      >
+        {item}
+      </span>
+    );
+  });
 
   return (
-    <input
-      type="text"
-      value={text}
-      placeholder={props.placeholder}
-      onChange={(event) => setText(event.target.value)}
-    ></input>
+    <div className="text-list-input">
+      <input
+        type="text"
+        value={activeItem}
+        placeholder={props.placeholder}
+        onChange={(event) => setActiveItem(event.target.value)}
+      ></input>
+      <button type="button" name="text-list-add" onClick={addActiveItemToList}>
+        ▶️
+      </button>
+      <div className="display">{list.length != 0 && <p>{display}</p>}</div>
+    </div>
   );
 }
 

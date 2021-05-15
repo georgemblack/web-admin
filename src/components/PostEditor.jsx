@@ -1,14 +1,22 @@
 import { useContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
-import merge from "lodash.merge";
+import mergeWith from "lodash.mergewith";
 
 import { slugify } from "../utils";
 import GlobalContext from "../context/GlobalContext.js";
 import TextListInput from "./TextListInput.jsx";
 
+function mergeCustomizer(objValue, srcValue) {
+  // Don't merge the values in two arrays.
+  // Instead, let the new one overwrite the old one.
+  if (Array.isArray(objValue) && Array.isArray(srcValue)) {
+    return srcValue;
+  }
+}
+
 function reducer(state, data) {
-  return merge({}, state, data);
+  return mergeWith({}, state, data, mergeCustomizer);
 }
 
 function PostEditor(props) {

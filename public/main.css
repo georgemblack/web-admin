@@ -266,3 +266,31 @@ label {
   height: 20em;
   max-width: 54em;
 }
+
+/* ==========================================================================
+  Form controls
+  ========================================================================== */
+.text-list-input {
+  display: flex;
+  align-items: center;
+  max-width: 24em;
+}
+
+.text-list-input input {
+  margin: 0 0.5em 0 0;
+}
+
+.text-list-input .display {
+  white-space: nowrap;
+}
+
+.text-list-input .display span {
+  padding: 0 0.25em;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.text-list-input p {
+  margin: 0 0 0 0.5em;
+}
+
+
