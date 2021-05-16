@@ -10,8 +10,8 @@ function HomePage(props) {
       <BuildForm />
       <BackupForm />
       <LikeForm />
-      <LikeTable />
       <PostTable />
+      <LikeTable />
     </>
   );
 }
