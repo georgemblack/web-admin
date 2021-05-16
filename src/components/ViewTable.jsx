@@ -49,7 +49,6 @@ function ViewTable(props) {
               <th>Date</th>
               <th>Browser</th>
               <th>Location</th>
-              <th>Timezone</th>
               <th>Path</th>
               <th>Referrer</th>
               <th>Width</th>
@@ -64,7 +63,6 @@ function ViewTable(props) {
                 </td>
                 <td>{view.browser}</td>
                 <td>{formatLocation(view)}</td>
-                <td>{view.timezone}</td>
                 <td>{view.pathname}</td>
                 <td>{formatReferrer(view.referrer)}</td>
                 <td>{view.windowInnerWidth}</td>
