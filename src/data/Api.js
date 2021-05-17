@@ -122,7 +122,7 @@ export async function deleteLikeAPI(id) {
 
 export async function getViewsAPI() {
   const authToken = getAuthToken();
-  let response = await fetch(`${API_URL}/views`, {
+  let response = await fetch(`${API_URL}/stats/views`, {
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
@@ -132,7 +132,7 @@ export async function getViewsAPI() {
 
 export async function deleteViewAPI(id) {
   const authToken = getAuthToken();
-  await fetch(`${API_URL}/views/${id}`, {
+  await fetch(`${API_URL}/stats/views/${id}`, {
     method: "DELETE",
     mode: "cors",
     headers: {
