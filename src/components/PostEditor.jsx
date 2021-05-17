@@ -2,6 +2,7 @@ import { useContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
 import mergeWith from "lodash.mergewith";
+import has from "lodash.has";
 
 import { slugify } from "../utils";
 import GlobalContext from "../context/GlobalContext.js";
@@ -17,7 +18,23 @@ function mergeCustomizer(objValue, srcValue) {
 }
 
 function reducer(state, data) {
-  return mergeWith({}, state, data, mergeCustomizer);
+  let merged = mergeWith({}, state, data, mergeCustomizer);
+
+  // Delete location if empty
+  if (has(merged, "metadata.location")) {
+    if (merged.metadata.location.every((item) => item === "")) {
+      delete merged.metadata.location;
+    }
+  }
+
+  // Delete tags if empty
+  if (has(merged, "metadata.tags")) {
+    if (merged.metadata.tags.length === 0) {
+      delete merged.metadata.tags;
+    }
+  }
+
+  return merged;
 }
 
 function PostEditor(props) {
@@ -29,7 +46,6 @@ function PostEditor(props) {
       title: "",
       slug: "",
       draft: true,
-      tags: [],
     },
     content: "",
     published: new Date(),
