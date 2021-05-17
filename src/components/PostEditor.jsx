@@ -6,6 +6,7 @@ import mergeWith from "lodash.mergewith";
 import { slugify } from "../utils";
 import GlobalContext from "../context/GlobalContext.js";
 import TextListInput from "./TextListInput.jsx";
+import LocationInput from "./LocationInput.jsx";
 
 function mergeCustomizer(objValue, srcValue) {
   // Don't merge the values in two arrays.
@@ -113,11 +114,16 @@ function PostEditor(props) {
         </div>
         <div className="tag-controls">
           <TextListInput
-            type="text"
             value={formState.metadata.tags}
             placeholder="Tags"
             onChange={(tags) => formDispatch({ metadata: { tags } })}
           ></TextListInput>
+        </div>
+        <div className="location-controls">
+          <LocationInput
+            value={formState.metadata.location}
+            onChange={(location) => formDispatch({ metadata: { location } })}
+          ></LocationInput>
         </div>
         <div className="content">
           <textarea

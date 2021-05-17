@@ -233,13 +233,15 @@ label {
 .post-editor .title-controls,
 .post-editor .slug-controls,
 .post-editor .tag-controls,
+.post-editor .location-controls,
 .post-editor .content,
 .post-editor .actions {
   margin: 0.65em 0 0 0;
 }
 
 .post-editor .meta-controls,
-.post-editor .slug-controls {
+.post-editor .slug-controls,
+.post-editor .location-controls {
   display: flex;
   align-items: center;
   max-width: 24em;
@@ -293,4 +295,15 @@ label {
   margin: 0 0 0 0.5em;
 }
 
+.location-input {
+  display: flex;
+  align-items: center;
+  max-width: 24em;
+  box-sizing: border-box;
+}
 
+.location-input input {
+  margin: 0 0.5em 0 0;
+  min-width: none;
+  flex-grow: 1;
+}
