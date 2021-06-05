@@ -2,6 +2,8 @@
    CSS Variables
    ========================================================================== */
 :root {
+  color-scheme: dark light;
+
   /* defined widths */
   --page-max-width: 80rem;
 
@@ -12,11 +14,6 @@
   /* font weights */
   --font-weight-bold: 900;
   --font-weight-normal: 400;
-
-  /* general purpose colors */
-  --background-color: #202020;
-  --primary-font-color: #f7f7f7;
-  --primary-font-color-faded: #a0a0a0;
 
   /* tag colors */
   --tag-yellow: #d7fc03;
@@ -39,7 +36,6 @@ body {
   margin: 1em auto;
   padding: 0 1em;
   font-family: var(--primary-font);
-  background-color: var(--background-color);
 }
 
 nav {
@@ -59,23 +55,17 @@ h5,
 h6,
 p {
   margin-top: 0.85em;
-  color: var(--primary-font-color);
 }
 
 a {
   text-decoration: none;
-  color: var(--primary-font-color);
 }
 
-span {
-  color: var(--primary-font-color);
-}
 
 pre code {
   display: block;
   margin-top: 1em;
   font-family: var(--primary-font-mono);
-  color: var(--primary-font-color-faded);
 }
 
 table {
@@ -86,7 +76,6 @@ table {
   width: 100%;
   min-width: 50em;
   font-size: 0.85em;
-  color: var(--primary-font-color);
   border-collapse: collapse;
 }
 
@@ -109,43 +98,13 @@ form {
 }
 
 input,
-textarea {
-  background-color: var(--background-color);
-}
-
-input,
 button,
 textarea {
   font-size: 1em;
   font-family: var(--primary-font);
-  color: var(--primary-font-color);
   padding: 0.25em 0.5em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.25em;
   box-sizing: border-box;
-}
-
-input:hover,
-button:hover,
-textarea:hover {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-button {
-  background-color: var(--background-color);
-}
-
-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-button:active {
-  background-color: rgba(255, 255, 255, 0.25);
-  border: 1px solid var(--primary-font-color);
-}
-
-label {
-  color: var(--primary-font-color);
 }
 
 /* ==========================================================================
@@ -222,7 +181,6 @@ label {
 .tag-yellow {
   padding: 0.25em 0.35em;
   font-size: 0.85em;
-  color: var(--primary-font-color-inverted);
   background-color: var(--tag-yellow);
   border-radius: 0.25em;
 }
