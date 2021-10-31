@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { postBackupAPI } from "../data/Api";
+import Button from "./Button.jsx";
 
 function BackupButton(props) {
   const [backupID, setBackupID] = useState("");
@@ -18,7 +19,7 @@ function BackupButton(props) {
 
   return (
     <div>
-      <button onClick={handleClick}>{message}</button>
+      <Button onClick={handleClick}>{message}</Button>
       {backupID && <p>{backupID}</p>}
     </div>
   );
