@@ -1,11 +1,11 @@
-import BackupButton from "./BackupButton.jsx";
-import BuildButton from "./BuildButton.jsx";
+import BackupControl from "./BackupControl.jsx";
+import BuildControl from "./BuildControl.jsx";
 
 function ControlCenter(props) {
   return (
     <div>
-      <BuildButton />
-      <BackupButton />
+      <BuildControl />
+      <BackupControl />
     </div>
   );
 }
