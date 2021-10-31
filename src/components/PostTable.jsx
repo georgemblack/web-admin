@@ -8,7 +8,7 @@ import Time from "./Time.jsx";
 function PostTable(props) {
   const { posts, deletePost, getPosts } = useContext(GlobalContext);
 
-  const draftTag = <span className="tag-yellow">Draft</span>;
+  const draftTag = <span>Draft</span>;
 
   const handleDelete = (post) => {
     deletePost(post.id);
@@ -21,7 +21,7 @@ function PostTable(props) {
   return (
     <>
       <h2>Posts</h2>
-      <div className="table-wrapper">
+      <div>
         <table>
           <thead>
             <tr>

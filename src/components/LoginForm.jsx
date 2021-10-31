@@ -20,7 +20,7 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="login">
+    <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

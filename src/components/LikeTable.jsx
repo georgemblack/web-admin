@@ -19,7 +19,7 @@ function LikeTable(props) {
   return (
     <>
       <h2>Likes</h2>
-      <div className="table-wrapper">
+      <div>
         <table>
           <thead>
             <tr>

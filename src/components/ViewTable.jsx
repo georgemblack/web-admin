@@ -42,7 +42,7 @@ function ViewTable(props) {
         <h2>Views: {views.length}</h2>
         <button onClick={() => getViews()}>Refresh</button>
       </div>
-      <div className="table-wrapper">
+      <div>
         <table>
           <thead>
             <tr>

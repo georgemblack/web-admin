@@ -18,7 +18,7 @@ function BuildButton(props) {
 
   return (
     <div>
-      <button className="button-orange" onClick={handleClick}>
+      <button onClick={handleClick}>
         {message}
       </button>
       {buildID && <p>{buildID}</p>}

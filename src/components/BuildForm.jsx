@@ -2,7 +2,7 @@ import BuildButton from "./BuildButton.jsx";
 
 function BuildForm(props) {
   return (
-    <div className="build-form">
+    <div>
       <h2>Build</h2>
       <form>
         <BuildButton />

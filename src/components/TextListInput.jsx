@@ -25,7 +25,6 @@ function TextListInput(props) {
   const display = list.map((item, index) => {
     return (
       <span
-        className="interactive-list-item"
         key={index}
         onClick={removeItemFromList}
       >
@@ -35,7 +34,7 @@ function TextListInput(props) {
   });
 
   return (
-    <div className="text-list-input">
+    <div>
       <input
         type="text"
         value={activeItem}
@@ -45,7 +44,7 @@ function TextListInput(props) {
       <button type="button" name="text-list-add" onClick={addActiveItemToList}>
         ▶️
       </button>
-      <div className="display">{list.length != 0 && <p>{display}</p>}</div>
+      <div>{list.length != 0 && <p>{display}</p>}</div>
     </div>
   );
 }

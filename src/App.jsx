@@ -38,7 +38,7 @@ function App(props) {
     <GlobalContext.Provider value={context}>
       {context.userIsAuthenticated && (
         <header>
-          <nav>
+          <nav class="text-xl space-x-3">
             <Link to="/">Home</Link>
             <Link to="/views">Views</Link>
             <Link to="/bin">Bin</Link>

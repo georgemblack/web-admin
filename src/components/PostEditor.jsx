@@ -73,10 +73,10 @@ function PostEditor(props) {
   };
 
   return (
-    <div className="post-editor">
+    <div>
       <h2>{post ? "Edit Post" : "Create Post"}</h2>
       <form onSubmit={handleSubmit}>
-        <div className="meta-controls">
+        <div>
           <button
             type="button"
             name="draft"
@@ -95,7 +95,7 @@ function PostEditor(props) {
           </button>
           <label htmlFor="date">{formState.published.toLocaleString()}</label>
         </div>
-        <div className="title-controls">
+        <div>
           <input
             type="text"
             value={formState.metadata.title}
@@ -105,8 +105,8 @@ function PostEditor(props) {
             }
           ></input>
         </div>
-        <div className="slug-controls">
-          <div className="slug">
+        <div>
+          <div>
             <input
               type="text"
               value={formState.metadata.slug}
@@ -128,27 +128,27 @@ function PostEditor(props) {
             🐌
           </button>
         </div>
-        <div className="tag-controls">
+        <div>
           <TextListInput
             value={formState.metadata.tags}
             placeholder="Tags"
             onChange={(tags) => formDispatch({ metadata: { tags } })}
           ></TextListInput>
         </div>
-        <div className="location-controls">
+        <div>
           <LocationInput
             value={formState.metadata.location}
             onChange={(location) => formDispatch({ metadata: { location } })}
           ></LocationInput>
         </div>
-        <div className="content">
+        <div>
           <textarea
             type="text"
             value={formState.content}
             onChange={(event) => formDispatch({ content: event.target.value })}
           ></textarea>
         </div>
-        <div className="actions">
+        <div>
           <div>
             <button type="submit">
               {post ? "Update Post" : "Submit Post"}

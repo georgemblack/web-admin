@@ -39,7 +39,7 @@ function LocationInput(props) {
   };
 
   return (
-    <div className="location-input">
+    <div>
       <input
         type="text"
         value={latitude}

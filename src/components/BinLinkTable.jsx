@@ -13,7 +13,7 @@ function BinLinkTable(props) {
   return (
     <>
       <h2>Links</h2>
-      <div className="table-wrapper">
+      <div>
         <table>
           <thead>
             <tr>

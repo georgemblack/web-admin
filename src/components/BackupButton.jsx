@@ -18,7 +18,7 @@ function BackupButton(props) {
 
   return (
     <div>
-      <button className="button-blue" onClick={handleClick}>
+      <button onClick={handleClick}>
         {message}
       </button>
       {backupID && <p>{backupID}</p>}

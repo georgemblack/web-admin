@@ -2,7 +2,7 @@ import BackupButton from "./BackupButton.jsx";
 
 function BackupForm(props) {
   return (
-    <div className="backup-form">
+    <div>
       <h2>Backup</h2>
       <form>
         <BackupButton />
