@@ -3,7 +3,7 @@ import BuildControl from "./BuildControl.jsx";
 
 function ControlCenter(props) {
   return (
-    <div>
+    <div className={"mt-4 flex space-x-1"}>
       <BuildControl />
       <BackupControl />
     </div>

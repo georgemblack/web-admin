@@ -20,7 +20,7 @@ function LikeForm(props) {
   };
 
   return (
-    <div>
+    <div className={"mt-4"}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -32,11 +32,13 @@ function LikeForm(props) {
         <input
           type="text"
           placeholder="url"
-          class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+          className={"mt-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"}
           value={url}
           onChange={(event) => setUrl(event.target.value)}
         />
-        <Button>Post</Button>
+        <div className={"mt-1"}>
+          <Button>Post</Button>
+        </div>
       </form>
     </div>
   );
