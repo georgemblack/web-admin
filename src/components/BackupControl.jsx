@@ -18,7 +18,7 @@ function BackupButton(props) {
   };
 
   return (
-    <div>
+    <div className={"inline-block"}>
       <Button onClick={handleClick}>{message}</Button>
       {backupID && <p>{backupID}</p>}
     </div>
