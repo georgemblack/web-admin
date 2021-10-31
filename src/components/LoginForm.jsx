@@ -21,7 +21,6 @@ function LoginForm(props) {
 
   return (
     <div className="login">
-      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
