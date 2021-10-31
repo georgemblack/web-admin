@@ -24,10 +24,7 @@ function TextListInput(props) {
 
   const display = list.map((item, index) => {
     return (
-      <span
-        key={index}
-        onClick={removeItemFromList}
-      >
+      <span key={index} onClick={removeItemFromList}>
         {item}
       </span>
     );

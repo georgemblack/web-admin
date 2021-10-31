@@ -1,4 +1,5 @@
 import BuildButton from "./BuildButton.jsx";
+import Button from "./Button.jsx";
 
 function BuildForm(props) {
   return (

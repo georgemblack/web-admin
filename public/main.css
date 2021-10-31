@@ -77,13 +77,3 @@ tbody tr:nth-child(odd) {
 form {
   margin-top: 1em;
 }
-
-input,
-button,
-textarea {
-  font-size: 1em;
-  font-family: var(--primary-font);
-  padding: 0.25em 0.5em;
-  border-radius: 0.25em;
-  box-sizing: border-box;
-}

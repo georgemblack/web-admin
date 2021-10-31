@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { postBuildAPI } from "../data/Api";
+import Button from "./Button.jsx";
 
 function BuildButton(props) {
   const [buildID, setBuildID] = useState("");
@@ -18,9 +19,7 @@ function BuildButton(props) {
 
   return (
     <div>
-      <button onClick={handleClick}>
-        {message}
-      </button>
+      <Button onClick={handleClick}>{message}</Button>
       {buildID && <p>{buildID}</p>}
     </div>
   );
