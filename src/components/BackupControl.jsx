@@ -4,23 +4,19 @@ import { postBackupAPI } from "../data/Api";
 import Button from "./Button.jsx";
 
 function BackupButton(props) {
-  const [backupID, setBackupID] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const message = loading ? "Creating backup..." : "Start Backup";
+  const [message, setMessage] = useState("Start Backup");
 
   const handleClick = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    setMessage("Backing up ⚙️");
     const response = await postBackupAPI();
-    setBackupID(response.backupPrefix);
-    setLoading(false);
+    if (response.backupPrefix) setMessage("Backup Succeeded ✅");
+    else setMessage("Backup Failed ❌");
   };
 
   return (
     <div className="inline-block">
       <Button onClick={handleClick}>{message}</Button>
-      {backupID && <p>{backupID}</p>}
     </div>
   );
 }
