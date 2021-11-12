@@ -1,10 +1,10 @@
 function Button(props) {
   return (
     <button
-      className={"bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full"}
+      className="px-4 py-2 bg-blue-500 rounded-full hover:bg-blue-700"
       onClick={props.onClick}
     >
-      <span className={"text-gray-50"}>{props.children}</span>
+      <span className="text-gray-50">{props.children}</span>
     </button>
   );
 }

@@ -18,7 +18,7 @@ function BuildButton(props) {
   };
 
   return (
-    <div className={"inline-block"}>
+    <div className="inline-block">
       <Button onClick={handleClick}>{message}</Button>
       {buildID && <p>{buildID}</p>}
     </div>
