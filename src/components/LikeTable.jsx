@@ -18,37 +18,22 @@ function LikeTable(props) {
 
   return (
     <>
-      <h2>Likes</h2>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Domain</th>
-              <th>Date</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {likes.map((like) => (
-              <tr key={like.id}>
-                <td>{like.title}</td>
-                <td>
-                  <DomainName url={like.url} />
-                </td>
-                <td>
-                  <Time timestamp={like.timestamp._seconds} />
-                </td>
-                <td>
-                  <DeleteWithConfirmationButton
-                    handleDelete={() => handleDelete(like)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <h2 className="mt-4 text-2xl">Likes</h2>
+      {likes.map((like) => (
+        <div className="flex flex-col justify-between px-3 py-2 mt-2 bg-gray-800 rounded lg:flex-row">
+          <p className="text-white">{like.title}</p>
+          <div className="flex items-end justify-between">
+            <div className="inline-block text-white opacity-25 lg:mr-4 lg:opacity-100">
+              <Time timestamp={like.timestamp._seconds} />
+            </div>
+            <div className="inline-block">
+              <DeleteWithConfirmationButton
+                handleDelete={() => handleDelete(like)}
+              />
+            </div>
+          </div>
+        </div>
+      ))}
     </>
   );
 }
