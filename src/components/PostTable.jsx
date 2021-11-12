@@ -9,7 +9,7 @@ function PostTable() {
   const { posts, deletePost, getPosts } = useContext(GlobalContext);
 
   const draftTag = (
-    <span className="px-1 py-px ml-1 text-xs bg-yellow-500 rounded">Draft</span>
+    <span className="px-2 py-px ml-1 text-xs bg-green-600 rounded-full">Draft</span>
   );
 
   const handleDelete = (post) => {
