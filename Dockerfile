@@ -6,4 +6,4 @@ RUN yarn && yarn build:prod
 FROM nginx:1.21-alpine
 WORKDIR /app
 COPY --from=build-env ./build/public /app/public
-COPY ./image/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./image/nginx.conf /etc/nginx/nginx.conf
