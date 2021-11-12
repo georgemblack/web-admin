@@ -29,7 +29,7 @@ function PostTable() {
             <p className="text-white">
               {post.metadata.title} {post.metadata.draft ? draftTag : ""}
             </p>
-            <div className="flex justify-between">
+            <div className="flex items-end justify-between">
               <div className="inline-block text-white opacity-25 lg:mr-4 lg:opacity-100">
                 <Time timestamp={post.published._seconds} />
               </div>
