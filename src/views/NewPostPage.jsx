@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import PostEditor from "../components/PostEditor.jsx";
 
 function NewPostPage(props) {

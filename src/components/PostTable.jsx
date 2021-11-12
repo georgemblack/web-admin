@@ -5,10 +5,12 @@ import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import EditPostButton from "./EditPostButton.jsx";
 import Time from "./Time.jsx";
 
-function PostTable(props) {
+function PostTable() {
   const { posts, deletePost, getPosts } = useContext(GlobalContext);
 
-  const draftTag = <span>Draft</span>;
+  const draftTag = (
+    <span className="text-xs bg-yellow-500 px-1 py-px ml-1 rounded">Draft</span>
+  );
 
   const handleDelete = (post) => {
     deletePost(post.id);
@@ -22,33 +24,24 @@ function PostTable(props) {
     <>
       <h2>Posts</h2>
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Published</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {posts.map((post) => (
-              <tr key={post.id}>
-                <td>{post.metadata.title}</td>
-                <td>
-                  <Time timestamp={post.published._seconds} />
-                </td>
-                <td>{post.metadata.draft ? draftTag : ""}</td>
-                <td>
-                  <EditPostButton id={post.id} />
-                  <DeleteWithConfirmationButton
-                    handleDelete={() => handleDelete(post)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {posts.map((post) => (
+          <div className="mt-2 px-3 py-2 flex flex-col lg:flex-row justify-between bg-gray-700 rounded">
+            <p className="text-white">
+              {post.metadata.title} {post.metadata.draft ? draftTag : ""}
+            </p>
+            <div className="flex justify-between">
+              <div className="inline-block lg:mr-4 text-white opacity-25 lg:opacity-100">
+                <Time timestamp={post.published._seconds} />
+              </div>
+              <div className="inline-block">
+                <EditPostButton id={post.id} />
+                <DeleteWithConfirmationButton
+                  handleDelete={() => handleDelete(post)}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
