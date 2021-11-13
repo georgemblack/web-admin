@@ -12,7 +12,7 @@ function DeleteWithConfirmationButton(props) {
   return (
     <span
       onClick={handleClick}
-      className="inline-block p-2 mx-1 text-sm bg-gray-600 rounded-full cursor-pointer lg:p-0 lg:m-0 lg:text-base lg:bg-transparent"
+      className="inline-block p-2 ml-1 text-sm bg-gray-600 rounded-full cursor-pointer lg:p-0 lg:m-0 lg:text-base lg:bg-transparent"
     >
       {message}
     </span>
