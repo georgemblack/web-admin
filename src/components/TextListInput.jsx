@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import EmojiButton from "./EmojiButton.jsx";
+import Input from "./Input.jsx";
+
 function TextListInput(props) {
   const list = props.value ? props.value : [];
   const [activeItem, setActiveItem] = useState("");
@@ -24,7 +27,11 @@ function TextListInput(props) {
 
   const display = list.map((item, index) => {
     return (
-      <span key={index} onClick={removeItemFromList}>
+      <span
+        className="mr-2 text-gray-500"
+        key={index}
+        onClick={removeItemFromList}
+      >
         {item}
       </span>
     );
@@ -32,16 +39,27 @@ function TextListInput(props) {
 
   return (
     <div>
-      <input
-        type="text"
-        value={activeItem}
-        placeholder={props.placeholder}
-        onChange={(event) => setActiveItem(event.target.value)}
-      ></input>
-      <button type="button" name="text-list-add" onClick={addActiveItemToList}>
-        ▶️
-      </button>
-      <div>{list.length != 0 && <p>{display}</p>}</div>
+      <div className="flex items-center gap-2">
+        <Input
+          type="text"
+          value={activeItem}
+          placeholder={props.placeholder}
+          onChange={(event) => setActiveItem(event.target.value)}
+        ></Input>
+        <EmojiButton
+          type="button"
+          name="text-list-add"
+          onClick={addActiveItemToList}
+        >
+          ▶️
+        </EmojiButton>
+      </div>
+      <div className="px-4">
+        {list.length != 0 && display}
+        {list.length == 0 && (
+          <span className="mr-2 text-gray-500">No tags</span>
+        )}
+      </div>
     </div>
   );
 }

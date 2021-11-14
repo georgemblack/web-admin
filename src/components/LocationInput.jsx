@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+import EmojiButton from "./EmojiButton.jsx";
+import Input from "./Input.jsx";
+
 function LocationInput(props) {
   const latitude = props.value ? props.value[0] : "";
   const longitude = props.value ? props.value[1] : "";
@@ -39,22 +42,22 @@ function LocationInput(props) {
   };
 
   return (
-    <div>
-      <input
+    <div className="flex items-center gap-2">
+      <Input
         type="text"
         value={latitude}
         placeholder="Latitude"
         onChange={handleLatitudeChange}
-      ></input>
-      <input
+      ></Input>
+      <Input
         type="text"
         value={longitude}
         placeholder="Longitude"
         onChange={handleLongitudeChange}
-      ></input>
-      <button type="button" onClick={getCurrentLocation}>
+      ></Input>
+      <EmojiButton type="button" onClick={getCurrentLocation}>
         {loading ? "🌀" : "🌎"}
-      </button>
+      </EmojiButton>
     </div>
   );
 }

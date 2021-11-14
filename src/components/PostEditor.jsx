@@ -8,6 +8,10 @@ import { slugify } from "../utils";
 import GlobalContext from "../context/GlobalContext.js";
 import TextListInput from "./TextListInput.jsx";
 import LocationInput from "./LocationInput.jsx";
+import EmojiButton from "./EmojiButton.jsx";
+import Button from "./Button.jsx";
+import Input from "./Input.jsx";
+import TextArea from "./TextArea.jsx";
 
 function mergeCustomizer(objValue, srcValue) {
   // Don't merge the values in two arrays.
@@ -74,10 +78,10 @@ function PostEditor(props) {
 
   return (
     <div>
-      <h2>{post ? "Edit Post" : "Create Post"}</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <button
+      <h2 className="mt-4 text-2xl">{post ? "Edit Post" : "Create Post"}</h2>
+      <form className="max-w-lg mt-2" onSubmit={handleSubmit}>
+        <div className="flex items-center gap-2">
+          <Button
             type="button"
             name="draft"
             onClick={() =>
@@ -85,38 +89,36 @@ function PostEditor(props) {
             }
           >
             {formState.metadata.draft ? "Draft" : "Published"}
-          </button>
-          <button
+          </Button>
+          <EmojiButton
             type="button"
             name="date"
             onClick={() => formDispatch({ published: new Date() })}
           >
             ⏱
-          </button>
-          <label htmlFor="date">{formState.published.toLocaleString()}</label>
+          </EmojiButton>
+          <p className="inline-block">{formState.published.toLocaleString()}</p>
         </div>
-        <div>
-          <input
+        <div className="mt-4">
+          <Input
             type="text"
             value={formState.metadata.title}
             placeholder="Title"
             onChange={(event) =>
               formDispatch({ metadata: { title: event.target.value } })
             }
-          ></input>
+          ></Input>
         </div>
-        <div>
-          <div>
-            <input
-              type="text"
-              value={formState.metadata.slug}
-              placeholder="Slug"
-              onChange={(event) =>
-                formDispatch({ metadata: { slug: event.target.value } })
-              }
-            ></input>
-          </div>
-          <button
+        <div className="flex items-center gap-2 mt-2">
+          <Input
+            type="text"
+            value={formState.metadata.slug}
+            placeholder="Slug"
+            onChange={(event) =>
+              formDispatch({ metadata: { slug: event.target.value } })
+            }
+          ></Input>
+          <EmojiButton
             type="button"
             name="slug-suggest"
             onClick={() =>
@@ -126,37 +128,33 @@ function PostEditor(props) {
             }
           >
             🐌
-          </button>
+          </EmojiButton>
         </div>
-        <div>
+        <div className="mt-2">
+          <LocationInput
+            value={formState.metadata.location}
+            onChange={(location) => formDispatch({ metadata: { location } })}
+          ></LocationInput>
+        </div>
+        <div className="mt-4">
           <TextListInput
             value={formState.metadata.tags}
             placeholder="Tags"
             onChange={(tags) => formDispatch({ metadata: { tags } })}
           ></TextListInput>
         </div>
-        <div>
-          <LocationInput
-            value={formState.metadata.location}
-            onChange={(location) => formDispatch({ metadata: { location } })}
-          ></LocationInput>
-        </div>
-        <div>
-          <textarea
+        <div className="mt-4">
+          <TextArea
             type="text"
             value={formState.content}
             onChange={(event) => formDispatch({ content: event.target.value })}
-          ></textarea>
+          ></TextArea>
         </div>
-        <div>
-          <div>
-            <button type="submit">
-              {post ? "Update Post" : "Submit Post"}
-            </button>
-          </div>
+        <div className="mt-2">
+          <Button type="submit">{post ? "Update Post" : "Submit Post"}</Button>
         </div>
       </form>
-      <pre>
+      <pre className="mt-4">
         <code>
           {"<!--more-->\n"}
           {'{{- image webp="image" -}}\n'}
