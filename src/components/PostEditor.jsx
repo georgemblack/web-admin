@@ -130,13 +130,13 @@ function PostEditor(props) {
             🐌
           </EmojiButton>
         </div>
-        <div className="mt-2">
+        <div className="mt-4">
           <LocationInput
             value={formState.metadata.location}
             onChange={(location) => formDispatch({ metadata: { location } })}
           ></LocationInput>
         </div>
-        <div className="mt-4">
+        <div className="mt-2">
           <TextListInput
             value={formState.metadata.tags}
             placeholder="Tags"
