@@ -40,8 +40,8 @@ function App(props) {
         <header>
           <nav className="space-x-3 text-xl">
             <Link to="/">Home</Link>
-            <Link to="/views">Views</Link>
-            <Link to="/bin">Bin</Link>
+            {/* <Link to="/views">Views</Link>
+            <Link to="/bin">Bin</Link> */}
             <Link to="/posts/new">New Post</Link>
           </nav>
         </header>

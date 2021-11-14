@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 
 import GlobalContext from "../context/GlobalContext";
+import Button from "./Button.jsx";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
 import Time from "./Time.jsx";
 
@@ -32,15 +33,9 @@ function ViewTable(props) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-        }}
-      >
-        <h2>Views: {views.length}</h2>
-        <button onClick={() => getViews()}>Refresh</button>
+      <div className="flex justify-between">
+        <h2 className="mt-4 text-2xl">Views: {views.length}</h2>
+        <Button onClick={() => getViews()}>Refresh</Button>
       </div>
       <div>
         <table>
