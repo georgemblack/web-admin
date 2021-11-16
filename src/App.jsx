@@ -6,7 +6,6 @@ import GlobalContext from "./context/GlobalContext.js";
 import useGlobalContext from "./context/GlobalContextHook.js";
 import HomePage from "./views/HomePage.jsx";
 import LoginPage from "./views/LoginPage.jsx";
-import ViewTable from "./components/ViewTable.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
 import EditPostPage from "./views/EditPostPage.jsx";
 import BinPage from "./views/BinPage.jsx";
@@ -40,7 +39,6 @@ function App(props) {
         <header>
           <nav className="space-x-3 text-xl">
             <Link to="/">Home</Link>
-            <Link to="/views">Views</Link>
             {/* <Link to="/bin">Bin</Link> */}
             <Link to="/posts/new">New Post</Link>
           </nav>
@@ -57,9 +55,6 @@ function App(props) {
           </Route>
           <Route exact path="/login">
             <LoginPage />
-          </Route>
-          <Route path="/views">
-            <ViewTable />
           </Route>
           <Route path="/bin">
             <BinPage />

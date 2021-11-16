@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 import {
-  getViewsAPI,
-  deleteViewAPI,
   getLikesAPI,
   postLikeAPI,
   deleteLikeAPI,
@@ -71,21 +69,6 @@ export default function useGlobalContext() {
   };
 
   /**
-   * Web views
-   */
-  const [views, setViews] = useState([]);
-
-  const getViews = async () => {
-    const response = await getViewsAPI();
-    setViews(response.views);
-  };
-
-  const deleteView = async (id) => {
-    await deleteViewAPI(id);
-    await getViews();
-  };
-
-  /**
    * Bin links
    */
   const [binLinks, setBinLinks] = useState([]);
@@ -113,9 +96,6 @@ export default function useGlobalContext() {
     getLikes,
     postLike,
     deleteLike,
-    views,
-    getViews,
-    deleteView,
     binLinks,
     getBinLinks,
     deleteBinLink,

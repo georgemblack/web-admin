@@ -120,28 +120,6 @@ export async function deleteLikeAPI(id) {
   });
 }
 
-export async function getViewsAPI() {
-  const authToken = getAuthToken();
-  let response = await fetch(`${API_URL}/stats/views`, {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
-  return response.json();
-}
-
-export async function deleteViewAPI(id) {
-  const authToken = getAuthToken();
-  await fetch(`${API_URL}/stats/views/${id}`, {
-    method: "DELETE",
-    mode: "cors",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
-    },
-  });
-}
-
 export async function getBinLinksAPI() {
   const authToken = getAuthToken();
   let response = await fetch(`${API_URL}/bin/links`, {
