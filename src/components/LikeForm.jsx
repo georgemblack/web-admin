@@ -41,7 +41,7 @@ function LikeForm(props) {
           value={url}
           onChange={(event) => setUrl(event.target.value)}
         />
-        <Button>Post</Button>
+        <Button onClick={handleSubmit}>Post</Button>
       </form>
     </div>
   );
