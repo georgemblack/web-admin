@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  max-width: 80rem;
+  margin: 1em auto;
+  padding: 0 1em;
+  font-family: system-ui;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+code {
+  color: #f7f7f7;
+}
+
+a {
+  color: #f7f7f7;
+  text-decoration: none;
+}
