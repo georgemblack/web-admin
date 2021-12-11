@@ -16,8 +16,6 @@ Run:
 yarn && yarn start
 ```
 
-This will start the `webpack-dev-server` on `9001` (configurable in `webpack.config.js`).
-
 ## Infrastructure
 
 The Web Admin is hosted as a service on Google Cloud Run.
