@@ -4,7 +4,7 @@ function EmojiButton(props) {
       type={props.type || "button"}
       name={props.name || "emoji-button"}
       onClick={props.onClick}
-      className="inline-block p-2 bg-gray-600 rounded-full cursor-pointer lg:p-0 lg:m-0 lg:text-base lg:bg-transparent"
+      className="inline-block cursor-pointer rounded-full bg-gray-600 p-2 lg:m-0 lg:bg-transparent lg:p-0 lg:text-base"
     >
       {props.children}
     </button>

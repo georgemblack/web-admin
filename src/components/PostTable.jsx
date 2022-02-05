@@ -9,7 +9,7 @@ function PostTable() {
   const { posts, deletePost, getPosts } = useContext(GlobalContext);
 
   const draftTag = (
-    <span className="px-2 py-px ml-1 text-xs bg-green-600 rounded-full">
+    <span className="ml-1 rounded-full bg-green-600 px-2 py-px text-xs">
       Draft
     </span>
   );
@@ -27,11 +27,11 @@ function PostTable() {
       <h2 className="text-2xl">Posts</h2>
       <div>
         {posts.map((post) => (
-          <div className="flex flex-col justify-between px-3 py-2 mt-2 bg-gray-800 rounded lg:flex-row">
+          <div className="mt-2 flex flex-col justify-between rounded bg-gray-800 px-3 py-2 lg:flex-row">
             <p className="text-white">
               {post.metadata.title} {post.metadata.draft ? draftTag : ""}
             </p>
-            <div className="flex items-end justify-between mt-1 lg:m-0">
+            <div className="mt-1 flex items-end justify-between lg:m-0">
               <div className="inline-block text-white opacity-25 lg:mr-4 lg:opacity-100">
                 <Time timestamp={post.published._seconds} />
               </div>
