@@ -156,8 +156,10 @@ function PostEditor(props) {
       </form>
       <pre className="mt-4">
         <code>
-          {"<!--more-->\n"}
-          {'{{- image webp="image" -}}\n'}
+          {"{% border /%}\n"}
+          {'{% image urls=["/2023/something.jpg"] alt="Something" %}\n'}
+          {"Some caption\n"}
+          {"{% /image %}\n"}
           {"“Hello? That’s it.”"}
         </code>
       </pre>
