@@ -79,69 +79,73 @@ function PostEditor(props) {
   return (
     <div>
       <h2 className="mt-4 text-2xl">{post ? "Edit Post" : "Create Post"}</h2>
-      <form className="mt-2 max-w-lg" onSubmit={handleSubmit}>
-        <div className="flex items-center gap-2">
-          <Button
-            type="button"
-            name="draft"
-            onClick={() =>
-              formDispatch({ metadata: { draft: !formState.metadata.draft } })
-            }
-          >
-            {formState.metadata.draft ? "Draft" : "Published"}
-          </Button>
-          <EmojiButton
-            type="button"
-            name="date"
-            onClick={() => formDispatch({ published: new Date() })}
-          >
-            ⏱
-          </EmojiButton>
-          <p className="inline-block">{formState.published.toLocaleString()}</p>
-        </div>
-        <div className="mt-4">
-          <Input
-            type="text"
-            value={formState.metadata.title}
-            placeholder="Title"
-            onChange={(event) =>
-              formDispatch({ metadata: { title: event.target.value } })
-            }
-          ></Input>
-        </div>
-        <div className="mt-2 flex items-center gap-2">
-          <Input
-            type="text"
-            value={formState.metadata.slug}
-            placeholder="Slug"
-            onChange={(event) =>
-              formDispatch({ metadata: { slug: event.target.value } })
-            }
-          ></Input>
-          <EmojiButton
-            type="button"
-            name="slug-suggest"
-            onClick={() =>
-              formDispatch({
-                metadata: { slug: slugify(formState.metadata.title) },
-              })
-            }
-          >
-            🐌
-          </EmojiButton>
-        </div>
-        <div className="mt-4">
-          <LocationInput
-            value={formState.metadata.location}
-            onChange={(location) => formDispatch({ metadata: { location } })}
-          ></LocationInput>
-        </div>
-        <div className="mt-2">
-          <TextListInput
-            value={formState.metadata.tags}
-            placeholder="Tags"
-            onChange={(tags) => formDispatch({ metadata: { tags } })}
-          ></TextListInput>
+      <form onSubmit={handleSubmit}>
+        <div className="mt-2 max-w-lg">
+          <div className="flex items-center gap-2">
+            <Button
+              type="button"
+              name="draft"
+              onClick={() =>
+                formDispatch({ metadata: { draft: !formState.metadata.draft } })
+              }
+            >
+              {formState.metadata.draft ? "Draft" : "Published"}
+            </Button>
+            <EmojiButton
+              type="button"
+              name="date"
+              onClick={() => formDispatch({ published: new Date() })}
+            >
+              ⌚️
+            </EmojiButton>
+            <p className="inline-block">
+              {formState.published.toLocaleString()}
+            </p>
+          </div>
+          <div className="mt-4">
+            <Input
+              type="text"
+              value={formState.metadata.title}
+              placeholder="Title"
+              onChange={(event) =>
+                formDispatch({ metadata: { title: event.target.value } })
+              }
+            ></Input>
+          </div>
+          <div className="mt-2 flex items-center gap-2">
+            <Input
+              type="text"
+              value={formState.metadata.slug}
+              placeholder="Slug"
+              onChange={(event) =>
+                formDispatch({ metadata: { slug: event.target.value } })
+              }
+            ></Input>
+            <EmojiButton
+              type="button"
+              name="slug-suggest"
+              onClick={() =>
+                formDispatch({
+                  metadata: { slug: slugify(formState.metadata.title) },
+                })
+              }
+            >
+              🐌
+            </EmojiButton>
+          </div>
+          <div className="mt-4">
+            <LocationInput
+              value={formState.metadata.location}
+              onChange={(location) => formDispatch({ metadata: { location } })}
+            ></LocationInput>
+          </div>
+          <div className="mt-2">
+            <TextListInput
+              value={formState.metadata.tags}
+              placeholder="Tags"
+              onChange={(tags) => formDispatch({ metadata: { tags } })}
+            ></TextListInput>
+          </div>
         </div>
         <div className="mt-4">
           <TextArea
