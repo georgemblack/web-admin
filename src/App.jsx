@@ -8,7 +8,6 @@ import HomePage from "./views/HomePage.jsx";
 import LoginPage from "./views/LoginPage.jsx";
 import NewPostPage from "./views/NewPostPage.jsx";
 import EditPostPage from "./views/EditPostPage.jsx";
-import BinPage from "./views/BinPage.jsx";
 
 function App(props) {
   const context = useGlobalContext();
@@ -39,7 +38,6 @@ function App(props) {
         <header>
           <nav className="space-x-3 text-xl">
             <Link to="/">Home</Link>
-            {/* <Link to="/bin">Bin</Link> */}
             <Link to="/posts/new">New Post</Link>
           </nav>
         </header>
@@ -55,9 +53,6 @@ function App(props) {
           </Route>
           <Route exact path="/login">
             <LoginPage />
-          </Route>
-          <Route path="/bin">
-            <BinPage />
           </Route>
           <Route path="/posts/new">
             <NewPostPage />
