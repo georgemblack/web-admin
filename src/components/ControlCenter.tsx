@@ -1,6 +1,6 @@
 import BuildControl from "./BuildControl";
 
-function ControlCenter(props) {
+function ControlCenter() {
   return (
     <div className="mt-4">
       <h2 className="text-2xl">Control Center</h2>

@@ -3,10 +3,10 @@ import { useState } from "react";
 import { postBuildAPI } from "../data/Api";
 import Button from "./Button";
 
-function BuildButton(props) {
+function BuildButton() {
   const [message, setMessage] = useState("Start Build");
 
-  const handleClick = async (event) => {
+  const handleClick = async (event: MouseEvent) => {
     event.preventDefault();
     setMessage("Building ⚙️");
     const response = await postBuildAPI();

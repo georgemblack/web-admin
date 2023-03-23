@@ -4,7 +4,7 @@ import GlobalContext from "../context/GlobalContext";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
 import Time from "./Time";
 
-function LikeTable(props) {
+function LikeTable() {
   const { likes, getLikes, deleteLike } = useContext(GlobalContext);
 
   const handleDelete = (like) => {

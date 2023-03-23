@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-function EditPostButton(props) {
+function EditPostButton(props: { id: string }) {
   let history = useHistory();
 
   const handleClick = () => {

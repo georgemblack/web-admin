@@ -110,31 +110,9 @@ export async function postLikeAPI(payload) {
   });
 }
 
-export async function deleteLikeAPI(id) {
+export async function deleteLikeAPI(id: string) {
   const authToken = getAuthToken();
   await fetch(`${API_URL}/likes/${id}`, {
-    method: "DELETE",
-    mode: "cors",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
-    },
-  });
-}
-
-export async function getBinLinksAPI() {
-  const authToken = getAuthToken();
-  let response = await fetch(`${API_URL}/bin/links`, {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
-  return await response.json();
-}
-
-export async function deleteBinLinkAPI(id) {
-  const authToken = getAuthToken();
-  await fetch(`${API_URL}/bin/links/${id}`, {
     method: "DELETE",
     mode: "cors",
     headers: {

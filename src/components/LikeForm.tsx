@@ -4,7 +4,7 @@ import GlobalContext from "../context/GlobalContext";
 import Button from "./Button";
 import Input from "./Input";
 
-function LikeForm(props) {
+function LikeForm() {
   const { postLike } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
