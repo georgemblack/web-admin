@@ -18,6 +18,7 @@
   "devDependencies": {
     "@parcel/transformer-webmanifest": "^2.0.1",
     "@parcel/transformer-xml": "^2.0.1",
+    "@types/react": "^18.0.28",
     "autoprefixer": "^10.4.0",
     "parcel": "^2.2.1",
     "postcss": "^8.4.6",
