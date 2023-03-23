@@ -75,7 +75,7 @@ export async function putPostAPI(id, payload) {
   });
 }
 
-export async function deletePostAPI(id) {
+export async function deletePostAPI(id: string) {
   const authToken = getAuthToken();
   await fetch(`${API_URL}/posts/${id}`, {
     method: "DELETE",

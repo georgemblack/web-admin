@@ -8,8 +8,6 @@ import {
   postPostAPI,
   deletePostAPI,
   putPostAPI,
-  getBinLinksAPI,
-  deleteBinLinkAPI,
 } from "../data/Api";
 
 export default function useGlobalContext() {
@@ -19,7 +17,7 @@ export default function useGlobalContext() {
   const [authToken, setAuthToken] = useState("");
   const userIsAuthenticated = authToken !== "";
 
-  const authenticateUser = (authToken) => {
+  const authenticateUser = (authToken: string) => {
     setAuthToken(authToken);
   };
 
@@ -43,7 +41,7 @@ export default function useGlobalContext() {
     await getPosts();
   };
 
-  const deletePost = async (id) => {
+  const deletePost = async (id: string) => {
     await deletePostAPI(id);
     await getPosts();
   };
@@ -63,24 +61,9 @@ export default function useGlobalContext() {
     await getLikes();
   };
 
-  const deleteLike = async (id) => {
+  const deleteLike = async (id: string) => {
     await deleteLikeAPI(id);
     await getLikes();
-  };
-
-  /**
-   * Bin links
-   */
-  const [binLinks, setBinLinks] = useState([]);
-
-  const getBinLinks = async () => {
-    const response = await getBinLinksAPI();
-    setBinLinks(response.links);
-  };
-
-  const deleteBinLink = async (id) => {
-    await deleteBinLinkAPI(id);
-    await getBinLinks();
   };
 
   return {
@@ -96,8 +79,5 @@ export default function useGlobalContext() {
     getLikes,
     postLike,
     deleteLike,
-    binLinks,
-    getBinLinks,
-    deleteBinLink,
   };
 }
