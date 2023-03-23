@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import PostEditor from "../components/PostEditor.jsx";
-import GlobalContext from "../context/GlobalContext.js";
+import PostEditor from "../components/PostEditor";
+import GlobalContext from "../context/GlobalContext";
 
 function EditPostPage(props) {
   const { posts } = useContext(GlobalContext);

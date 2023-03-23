@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import EmojiButton from "./EmojiButton.jsx";
-import Input from "./Input.jsx";
+import EmojiButton from "./EmojiButton";
+import Input from "./Input";
 
 function LocationInput(props) {
   const latitude = props.value ? props.value[0] : "";

@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
-import GlobalContext from "../context/GlobalContext.js";
+import GlobalContext from "../context/GlobalContext";
 
-import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
-import EditPostButton from "./EditPostButton.jsx";
-import Time from "./Time.jsx";
+import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
+import EditPostButton from "./EditPostButton";
+import Time from "./Time";
 
 function PostTable() {
   const { posts, deletePost, getPosts } = useContext(GlobalContext);

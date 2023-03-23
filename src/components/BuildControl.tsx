@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { postBuildAPI } from "../data/Api";
-import Button from "./Button.jsx";
+import Button from "./Button";
 
 function BuildButton(props) {
   const [message, setMessage] = useState("Start Build");

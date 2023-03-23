@@ -1,9 +1,8 @@
 import { useContext, useEffect } from "react";
 
 import GlobalContext from "../context/GlobalContext";
-import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton.jsx";
-import DomainName from "./DomainName.jsx";
-import Time from "./Time.jsx";
+import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
+import Time from "./Time";
 
 function LikeTable(props) {
   const { likes, getLikes, deleteLike } = useContext(GlobalContext);

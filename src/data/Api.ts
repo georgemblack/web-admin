@@ -2,7 +2,7 @@ import { getAuthToken } from "../utils";
 
 let { API_URL } = process.env;
 
-export async function postAuthTokenAPI(username, password) {
+export async function postAuthTokenAPI(username: string, password: string) {
   const userPassEncoded = btoa(`${username.trim()}:${password.trim()}`);
   const response = await fetch(`${API_URL}/auth`, {
     method: "POST",

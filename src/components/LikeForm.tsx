@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 
 import GlobalContext from "../context/GlobalContext";
-import Button from "./Button.jsx";
-import Input from "./Input.jsx";
+import Button from "./Button";
+import Input from "./Input";
 
 function LikeForm(props) {
   const { postLike } = useContext(GlobalContext);

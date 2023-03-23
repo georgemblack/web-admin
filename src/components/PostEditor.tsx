@@ -5,13 +5,13 @@ import mergeWith from "lodash.mergewith";
 import has from "lodash.has";
 
 import { slugify } from "../utils";
-import GlobalContext from "../context/GlobalContext.js";
-import TextListInput from "./TextListInput.jsx";
-import LocationInput from "./LocationInput.jsx";
-import EmojiButton from "./EmojiButton.jsx";
-import Button from "./Button.jsx";
-import Input from "./Input.jsx";
-import TextArea from "./TextArea.jsx";
+import GlobalContext from "../context/GlobalContext";
+import TextListInput from "./TextListInput";
+import LocationInput from "./LocationInput";
+import EmojiButton from "./EmojiButton";
+import Button from "./Button";
+import Input from "./Input";
+import TextArea from "./TextArea";
 
 function mergeCustomizer(objValue, srcValue) {
   // Don't merge the values in two arrays.

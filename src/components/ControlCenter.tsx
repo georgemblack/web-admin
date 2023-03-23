@@ -1,4 +1,4 @@
-import BuildControl from "./BuildControl.jsx";
+import BuildControl from "./BuildControl";
 
 function ControlCenter(props) {
   return (

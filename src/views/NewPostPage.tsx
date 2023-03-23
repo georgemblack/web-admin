@@ -1,4 +1,4 @@
-import PostEditor from "../components/PostEditor.jsx";
+import PostEditor from "../components/PostEditor";
 
 function NewPostPage(props) {
   return <PostEditor />;

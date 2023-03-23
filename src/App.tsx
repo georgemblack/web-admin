@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
 import decode from "jwt-decode";
 
-import GlobalContext from "./context/GlobalContext.js";
-import useGlobalContext from "./context/GlobalContextHook.js";
-import HomePage from "./views/HomePage.jsx";
-import LoginPage from "./views/LoginPage.jsx";
-import NewPostPage from "./views/NewPostPage.jsx";
-import EditPostPage from "./views/EditPostPage.jsx";
+import GlobalContext from "./context/GlobalContext";
+import useGlobalContext from "./context/GlobalContextHook";
+import HomePage from "./views/HomePage";
+import LoginPage from "./views/LoginPage";
+import NewPostPage from "./views/NewPostPage";
+import EditPostPage from "./views/EditPostPage";
 
 function App(props) {
   const context = useGlobalContext();
