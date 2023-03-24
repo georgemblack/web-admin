@@ -4,11 +4,11 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "format": "prettier --write ./src",
-    "type-check": "tsc --noEmit"
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "date-fns": "^2.28.0",
-    "jwt-decode": "^2.2.0",
+    "date-fns": "^2.29.3",
+    "jwt-decode": "^3.1.2",
     "lodash.has": "^4.5.2",
     "lodash.merge": "^4.6.2",
     "lodash.mergewith": "^4.6.2",
