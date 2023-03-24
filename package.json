@@ -12,24 +12,23 @@
     "lodash.has": "^4.5.2",
     "lodash.merge": "^4.6.2",
     "lodash.mergewith": "^4.6.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
     "@parcel/transformer-webmanifest": "^2.0.1",
     "@parcel/transformer-xml": "^2.0.1",
-    "@types/jwt-decode": "^3.1.0",
     "@types/node": "^18.15.5",
     "@types/react": "^18.0.28",
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.0",
-    "parcel": "^2.2.1",
-    "postcss": "^8.4.6",
-    "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.5",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
     "process": "^0.11.10",
-    "tailwindcss": "^3.0.18",
+    "tailwindcss": "^3.2.7",
     "typescript": "^5.0.2"
   }
 }
