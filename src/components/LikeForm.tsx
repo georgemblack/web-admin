@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 
+import IGlobalContext from "../context/IGlobalContext";
 import GlobalContext from "../context/GlobalContext";
 import Button from "./Button";
 import Input from "./Input";
 
 function LikeForm() {
-  const { postLike } = useContext(GlobalContext);
+  const { postLike } = useContext(GlobalContext) as IGlobalContext;
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
 

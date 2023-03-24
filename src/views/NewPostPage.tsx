@@ -1,6 +1,6 @@
 import PostEditor from "../components/PostEditor";
 
-function NewPostPage(props) {
+function NewPostPage() {
   return <PostEditor />;
 }
 

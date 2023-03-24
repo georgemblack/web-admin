@@ -9,12 +9,13 @@ import {
   deletePostAPI,
   putPostAPI,
 } from "../data/Api";
+import { Like, Post } from "../data/Types";
 
 export default function useGlobalContext() {
   /**
    * User authentication
    */
-  const [authToken, setAuthToken] = useState("");
+  const [authToken, setAuthToken] = useState<string>("");
   const userIsAuthenticated = authToken !== "";
 
   const authenticateUser = (authToken: string) => {
@@ -24,11 +25,11 @@ export default function useGlobalContext() {
   /**
    * Web posts
    */
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const getPosts = async () => {
     const response = await getPostsAPI();
-    setPosts(response.posts);
+    setPosts(response);
   };
 
   const postPost = async (payload) => {
@@ -49,11 +50,11 @@ export default function useGlobalContext() {
   /**
    * Web likes
    */
-  const [likes, setLikes] = useState([]);
+  const [likes, setLikes] = useState<Like[]>([]);
 
   const getLikes = async () => {
     const response = await getLikesAPI();
-    setLikes(response.likes);
+    setLikes(response);
   };
 
   const postLike = async (payload) => {

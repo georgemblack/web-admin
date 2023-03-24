@@ -3,7 +3,7 @@ import LikeTable from "../components/LikeTable";
 import PostTable from "../components/PostTable";
 import ControlCenter from "../components/ControlCenter";
 
-function HomePage(props) {
+function HomePage() {
   return (
     <>
       <ControlCenter />

@@ -9,7 +9,7 @@ import LoginPage from "./views/LoginPage";
 import NewPostPage from "./views/NewPostPage";
 import EditPostPage from "./views/EditPostPage";
 
-function App(props) {
+function App() {
   const context = useGlobalContext();
   let history = useHistory();
 

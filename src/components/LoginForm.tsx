@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
 
-import GlobalContext from "../context/GlobalContext";
 import { postAuthTokenAPI } from "../data/Api";
+import GlobalContext from "../context/GlobalContext";
+import IGlobalContext from "../context/IGlobalContext";
 
-function LoginForm(props) {
-  const context = useContext(GlobalContext);
+function LoginForm() {
+  const context = useContext(GlobalContext) as IGlobalContext;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     const response = await postAuthTokenAPI(username, password);
 

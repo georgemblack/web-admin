@@ -1,12 +1,15 @@
 import { useContext, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
+import IGlobalContext from "../context/IGlobalContext";
 
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
 import EditPostButton from "./EditPostButton";
 import Time from "./Time";
 
 function PostTable() {
-  const { posts, deletePost, getPosts } = useContext(GlobalContext);
+  const { posts, deletePost, getPosts } = useContext(
+    GlobalContext
+  ) as IGlobalContext;
 
   const draftTag = (
     <span className="ml-1 rounded-full bg-green-600 px-2 py-px text-xs">

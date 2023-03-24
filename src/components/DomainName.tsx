@@ -1,4 +1,4 @@
-function DomainName(props: { url: string }}) {
+function DomainName(props: { url: string }) {
   const time = props.url
     .replace("http://", "")
     .replace("https://", "")

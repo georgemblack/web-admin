@@ -12,6 +12,7 @@ import EmojiButton from "./EmojiButton";
 import Button from "./Button";
 import Input from "./Input";
 import TextArea from "./TextArea";
+import IGlobalContext from "../context/IGlobalContext";
 
 function mergeCustomizer(objValue, srcValue) {
   // Don't merge the values in two arrays.
@@ -42,7 +43,7 @@ function reducer(state, data) {
 }
 
 function PostEditor(props) {
-  const { putPost, postPost } = useContext(GlobalContext);
+  const { putPost, postPost } = useContext(GlobalContext) as IGlobalContext;
   const post = props.post;
 
   let initialState = {
@@ -149,7 +150,6 @@ function PostEditor(props) {
         </div>
         <div className="mt-4">
           <TextArea
-            type="text"
             value={formState.content}
             onChange={(event) => formDispatch({ content: event.target.value })}
           ></TextArea>

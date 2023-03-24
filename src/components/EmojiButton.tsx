@@ -1,4 +1,9 @@
-function EmojiButton(props) {
+function EmojiButton(props: {
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  name?: string;
+  onClick: any;
+  children: any;
+}) {
   return (
     <button
       type={props.type || "button"}
