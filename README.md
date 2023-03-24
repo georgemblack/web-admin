@@ -1,8 +1,5 @@
 # Web Admin
 
-* Front-end uses React, Redux, React-Redux, Redux-Thunk.
-* Build is performed by wepack, with two configurations (for local & prod)
-
 ## Running Locally
 
 Assuming you have:
@@ -10,12 +7,20 @@ Assuming you have:
 * A recent version of `node`
 * `yarn` package manager
 
-Run:
+First, start the mock API to develop against:
+
+```
+cd mock && yarn && yarn start
+```
+
+Then, in a new terminal, start the dev server:
 
 ```
 yarn && yarn start
 ```
 
+That's it!
+
 ## Infrastructure
 
-The Web Admin is hosted as a service on Google Cloud Run.
+The Web Admin UI is hosted on Cloudflare Pages.
