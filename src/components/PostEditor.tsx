@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
 
 import { slugify } from "../utils";
+import { Post } from "../data/Types";
 import GlobalContext from "../context/GlobalContext";
 import TextListInput from "./TextListInput";
 import LocationInput from "./LocationInput";
@@ -11,7 +12,6 @@ import Button from "./Button";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import IGlobalContext from "../context/IGlobalContext";
-import { Post } from "../data/Types";
 
 interface FormAction {
   field: keyof FormState;
@@ -68,9 +68,9 @@ function PostEditor(props: { post?: Post }) {
 
   if (post) {
     initialState = {
-      title: post.metadata.title,
-      slug: post.metadata.slug,
-      draft: post.metadata.draft,
+      title: post.title,
+      slug: post.slug,
+      draft: post.draft,
       content: post.content,
       published: fromUnixTime(post.published._seconds),
     };
@@ -84,11 +84,9 @@ function PostEditor(props: { post?: Post }) {
 
     // Format form data to 'NewPost' type
     const newPost = {
-      metadata: {
-        title: formState.title,
-        slug: formState.slug,
-        draft: formState.draft,
-      },
+      title: formState.title,
+      slug: formState.slug,
+      draft: formState.draft,
       content: formState.content,
       published: formState.published,
     };

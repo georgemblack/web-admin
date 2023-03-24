@@ -6,12 +6,6 @@ interface Build {
   buildID: string;
 }
 
-interface PostMetadata {
-  title: string;
-  slug: string;
-  draft: boolean;
-}
-
 interface Timestamp {
   _seconds: number;
   _nanoseconds: number;
@@ -19,7 +13,9 @@ interface Timestamp {
 
 interface Post {
   id: string;
-  metadata: PostMetadata;
+  title: string;
+  slug: string;
+  draft: boolean;
   published: Timestamp;
   content: string;
   contentHtml: string;
@@ -27,7 +23,9 @@ interface Post {
 }
 
 interface NewPost {
-  metadata: PostMetadata;
+  title: string;
+  slug: string;
+  draft: boolean;
   content: string;
   published: Date;
 }
