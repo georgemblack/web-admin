@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 
+import { Like } from "../data/Types";
 import GlobalContext from "../context/GlobalContext";
 import IGlobalContext from "../context/IGlobalContext";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
@@ -10,7 +11,7 @@ function LikeTable() {
     GlobalContext
   ) as IGlobalContext;
 
-  const handleDelete = (like) => {
+  const handleDelete = (like: Like) => {
     deleteLike(like.id);
   };
 

@@ -1,7 +1,8 @@
 import { useContext, useEffect } from "react";
+
+import { Post } from "../data/Types";
 import GlobalContext from "../context/GlobalContext";
 import IGlobalContext from "../context/IGlobalContext";
-
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
 import EditPostButton from "./EditPostButton";
 import Time from "./Time";
@@ -17,7 +18,7 @@ function PostTable() {
     </span>
   );
 
-  const handleDelete = (post) => {
+  const handleDelete = (post: Post) => {
     deletePost(post.id);
   };
 

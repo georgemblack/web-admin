@@ -1,4 +1,9 @@
-function Input(props) {
+function Input(props: {
+  type: React.HTMLInputTypeAttribute;
+  placeholder: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}) {
   return (
     <input
       type={props.type || "text"}

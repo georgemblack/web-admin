@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DeleteWithConfirmationButton(props) {
+function DeleteWithConfirmationButton(props: { handleDelete: () => void }) {
   const [activated, setActivated] = useState(false);
   const message = activated ? "🔥" : "🗑";
 

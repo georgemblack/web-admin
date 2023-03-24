@@ -1,7 +1,7 @@
 function TextArea(props: {
   placeholder?: string;
   value: string;
-  onChange: any;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }) {
   return (
     <textarea

@@ -9,6 +9,10 @@ import LoginPage from "./views/LoginPage";
 import NewPostPage from "./views/NewPostPage";
 import EditPostPage from "./views/EditPostPage";
 
+interface Token {
+  exp: number;
+}
+
 function App() {
   const context = useGlobalContext();
   let history = useHistory();
@@ -18,7 +22,7 @@ function App() {
     if (!token) {
       return;
     }
-    const decoded = decode(token);
+    const decoded = decode<Token>(token);
     if (decoded.exp > Date.now() / 1000) {
       context.authenticateUser(token);
     } else {

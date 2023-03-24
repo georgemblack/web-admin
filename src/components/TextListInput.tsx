@@ -3,7 +3,11 @@ import { useState } from "react";
 import EmojiButton from "./EmojiButton";
 import Input from "./Input";
 
-function TextListInput(props) {
+function TextListInput(props: {
+  value?: string[];
+  placeholder: string;
+  onChange: (value: string[]) => void;
+}) {
   const list = props.value ? props.value : [];
   const [activeItem, setActiveItem] = useState("");
 
@@ -17,15 +21,16 @@ function TextListInput(props) {
     setActiveItem("");
   };
 
-  const removeItemFromList = (event) => {
+  const removeItemFromList = (event: React.MouseEvent<HTMLSpanElement>) => {
     if (props.onChange) {
       let newList = [...list];
-      newList.splice(list.indexOf(event.target.innerText), 1);
+      const target = event.target as HTMLElement;
+      newList.splice(list.indexOf(target.innerText), 1);
       props.onChange(newList);
     }
   };
 
-  const display = list.map((item, index) => {
+  const display = list.map((item: string, index: number) => {
     return (
       <span
         className="mr-2 text-gray-500"

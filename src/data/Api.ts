@@ -1,5 +1,5 @@
 import { getAuthToken } from "../utils";
-import { AuthToken, Build, Post, Like } from "./Types";
+import { AuthToken, Build, Post, NewPost, Like, NewLike } from "./Types";
 
 let { API_URL } = process.env;
 
@@ -42,7 +42,7 @@ export async function getPostsAPI(): Promise<Post[]> {
   return responseBody.posts as Post[];
 }
 
-export async function postPostAPI(payload): Promise<void> {
+export async function postPostAPI(payload: NewPost): Promise<void> {
   const authToken = getAuthToken();
   await fetch(`${API_URL}/posts`, {
     method: "POST",
@@ -55,7 +55,7 @@ export async function postPostAPI(payload): Promise<void> {
   });
 }
 
-export async function putPostAPI(id, payload): Promise<void> {
+export async function putPostAPI(id: string, payload: NewPost): Promise<void> {
   const authToken = getAuthToken();
   await fetch(`${API_URL}/posts/${id}`, {
     method: "PUT",
@@ -91,7 +91,7 @@ export async function getLikesAPI(): Promise<Like[]> {
   return responseBody.likes as Like[];
 }
 
-export async function postLikeAPI(payload: { title: string; url: string }) {
+export async function postLikeAPI(payload: NewLike) {
   const authToken = getAuthToken();
   await fetch(`${API_URL}/likes`, {
     method: "POST",

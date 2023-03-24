@@ -1,8 +1,6 @@
 import { useContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
-import mergeWith from "lodash.mergewith";
-import has from "lodash.has";
 
 import { slugify } from "../utils";
 import GlobalContext from "../context/GlobalContext";
@@ -13,52 +11,66 @@ import Button from "./Button";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import IGlobalContext from "../context/IGlobalContext";
+import { Post } from "../data/Types";
 
-function mergeCustomizer(objValue, srcValue) {
-  // Don't merge the values in two arrays.
-  // Instead, let the new one overwrite the old one.
-  if (Array.isArray(objValue) && Array.isArray(srcValue)) {
-    return srcValue;
-  }
+interface FormAction {
+  field: keyof FormState;
+  value: string | boolean | string[] | Date;
 }
 
-function reducer(state, data) {
-  let merged = mergeWith({}, state, data, mergeCustomizer);
+interface FormState {
+  title: string;
+  slug: string;
+  draft: boolean;
+  content: string;
+  published: Date;
+  location?: string[];
+  tags?: string[];
+}
 
-  // Delete location if empty
-  if (has(merged, "metadata.location")) {
-    if (merged.metadata.location.every((item) => item === "")) {
-      delete merged.metadata.location;
-    }
+function reducer(state: FormState, action: FormAction): FormState {
+  const merged = Object.assign({}, state);
+  if (action.field === "title" && typeof action.value === "string") {
+    merged.title = action.value;
   }
-
-  // Delete tags if empty
-  if (has(merged, "metadata.tags")) {
-    if (merged.metadata.tags.length === 0) {
-      delete merged.metadata.tags;
-    }
+  if (action.field === "slug" && typeof action.value === "string") {
+    merged.slug = action.value;
   }
-
+  if (action.field === "draft" && typeof action.value === "boolean") {
+    merged.draft = action.value;
+  }
+  if (action.field === "content" && typeof action.value === "string") {
+    merged.content = action.value;
+  }
+  if (action.field === "published" && action.value instanceof Date) {
+    merged.published = action.value;
+  }
+  if (action.field === "location" && Array.isArray(action.value)) {
+    merged.location = action.value;
+  }
+  if (action.field === "tags" && Array.isArray(action.value)) {
+    merged.tags = action.value;
+  }
   return merged;
 }
 
-function PostEditor(props) {
+function PostEditor(props: { post?: Post }) {
   const { putPost, postPost } = useContext(GlobalContext) as IGlobalContext;
   const post = props.post;
 
   let initialState = {
-    metadata: {
-      title: "",
-      slug: "",
-      draft: true,
-    },
+    title: "",
+    slug: "",
+    draft: true,
     content: "",
     published: new Date(),
   };
 
   if (post) {
     initialState = {
-      metadata: post.metadata,
+      title: post.metadata.title,
+      slug: post.metadata.slug,
+      draft: post.metadata.draft,
       content: post.content,
       published: fromUnixTime(post.published._seconds),
     };
@@ -67,12 +79,25 @@ function PostEditor(props) {
   const history = useHistory();
   const [formState, formDispatch] = useReducer(reducer, initialState);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Format form data to 'NewPost' type
+    const newPost = {
+      metadata: {
+        title: formState.title,
+        slug: formState.slug,
+        draft: formState.draft,
+      },
+      content: formState.content,
+      published: formState.published,
+    };
+
+    // Perform PUT or POST depending on whether post previously existed
     if (post) {
-      await putPost(post.id, formState);
+      await putPost(post.id, newPost);
     } else {
-      await postPost(formState);
+      await postPost(newPost);
     }
     history.push("/");
   };
@@ -87,15 +112,17 @@ function PostEditor(props) {
               type="button"
               name="draft"
               onClick={() =>
-                formDispatch({ metadata: { draft: !formState.metadata.draft } })
+                formDispatch({ field: "draft", value: !formState.draft })
               }
             >
-              {formState.metadata.draft ? "Draft" : "Published"}
+              {formState.draft ? "Draft" : "Published"}
             </Button>
             <EmojiButton
               type="button"
               name="date"
-              onClick={() => formDispatch({ published: new Date() })}
+              onClick={() =>
+                formDispatch({ field: "published", value: new Date() })
+              }
             >
               ⌚️
             </EmojiButton>
@@ -106,29 +133,27 @@ function PostEditor(props) {
           <div className="mt-4">
             <Input
               type="text"
-              value={formState.metadata.title}
+              value={formState.title}
               placeholder="Title"
               onChange={(event) =>
-                formDispatch({ metadata: { title: event.target.value } })
+                formDispatch({ field: "title", value: event.target.value })
               }
             ></Input>
           </div>
           <div className="mt-2 flex items-center gap-2">
             <Input
               type="text"
-              value={formState.metadata.slug}
+              value={formState.slug}
               placeholder="Slug"
               onChange={(event) =>
-                formDispatch({ metadata: { slug: event.target.value } })
+                formDispatch({ field: "slug", value: event.target.value })
               }
             ></Input>
             <EmojiButton
               type="button"
               name="slug-suggest"
               onClick={() =>
-                formDispatch({
-                  metadata: { slug: slugify(formState.metadata.title) },
-                })
+                formDispatch({ field: "slug", value: slugify(formState.title) })
               }
             >
               🐌
@@ -136,22 +161,26 @@ function PostEditor(props) {
           </div>
           <div className="mt-4">
             <LocationInput
-              value={formState.metadata.location}
-              onChange={(location) => formDispatch({ metadata: { location } })}
+              value={formState.location}
+              onChange={(location) =>
+                formDispatch({ field: "location", value: location })
+              }
             ></LocationInput>
           </div>
           <div className="mt-2">
             <TextListInput
-              value={formState.metadata.tags}
+              value={formState.tags}
               placeholder="Tags"
-              onChange={(tags) => formDispatch({ metadata: { tags } })}
+              onChange={(tags) => formDispatch({ field: "tags", value: tags })}
             ></TextListInput>
           </div>
         </div>
         <div className="mt-4">
           <TextArea
             value={formState.content}
-            onChange={(event) => formDispatch({ content: event.target.value })}
+            onChange={(event) =>
+              formDispatch({ field: "content", value: event.target.value })
+            }
           ></TextArea>
         </div>
         <div className="mt-2">

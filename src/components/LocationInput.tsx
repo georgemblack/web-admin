@@ -3,27 +3,32 @@ import { useState } from "react";
 import EmojiButton from "./EmojiButton";
 import Input from "./Input";
 
-function LocationInput(props) {
+function LocationInput(props: {
+  value?: string[];
+  onChange: (value: string[]) => void;
+}) {
   const latitude = props.value ? props.value[0] : "";
   const longitude = props.value ? props.value[1] : "";
 
   const [loading, setLoading] = useState(false);
 
-  const handleLatitudeChange = (event) => {
+  const handleLatitudeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newLatitude = event.target.value;
     if (props.onChange) {
       props.onChange([newLatitude, longitude]);
     }
   };
 
-  const handleLongitudeChange = (event) => {
+  const handleLongitudeChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newLongitude = event.target.value;
     if (props.onChange) {
       props.onChange([latitude, newLongitude]);
     }
   };
 
-  const getCurrentLocation = (event) => {
+  const getCurrentLocation = () => {
     setLoading(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {

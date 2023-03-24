@@ -9,7 +9,7 @@ import {
   deletePostAPI,
   putPostAPI,
 } from "../data/Api";
-import { Like, Post } from "../data/Types";
+import { Like, NewLike, NewPost, Post } from "../data/Types";
 
 export default function useGlobalContext() {
   /**
@@ -32,12 +32,12 @@ export default function useGlobalContext() {
     setPosts(response);
   };
 
-  const postPost = async (payload) => {
+  const postPost = async (payload: NewPost) => {
     await postPostAPI(payload);
     await getPosts();
   };
 
-  const putPost = async (id, payload) => {
+  const putPost = async (id: string, payload: NewPost) => {
     await putPostAPI(id, payload);
     await getPosts();
   };
@@ -57,7 +57,7 @@ export default function useGlobalContext() {
     setLikes(response);
   };
 
-  const postLike = async (payload) => {
+  const postLike = async (payload: NewLike) => {
     await postLikeAPI(payload);
     await getLikes();
   };

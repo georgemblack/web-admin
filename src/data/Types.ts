@@ -7,9 +7,9 @@ interface Build {
 }
 
 interface PostMetadata {
-  draft: boolean;
   title: string;
   slug: string;
+  draft: boolean;
 }
 
 interface Timestamp {
@@ -28,8 +28,8 @@ interface Post {
 
 interface NewPost {
   metadata: PostMetadata;
-  published: Date;
   content: string;
+  published: Date;
 }
 
 interface Like {

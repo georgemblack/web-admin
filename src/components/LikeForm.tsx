@@ -15,7 +15,7 @@ function LikeForm() {
     setUrl("");
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await postLike({ title, url });
     clearInputs();
@@ -31,18 +31,16 @@ function LikeForm() {
         <Input
           type="text"
           placeholder="title"
-          class="appearance-none rounded-full border-2 border-gray-200 bg-gray-200 py-2 px-4 leading-tight text-gray-700 focus:border-blue-500 focus:bg-white focus:outline-none"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <Input
           type="text"
           placeholder="url"
-          className="mt-1 appearance-none rounded-full border-2 border-gray-200 bg-gray-200 px-4 py-2 leading-tight text-gray-700 focus:border-blue-500 focus:bg-white focus:outline-none"
           value={url}
           onChange={(event) => setUrl(event.target.value)}
         />
-        <Button onClick={handleSubmit}>Post</Button>
+        <Button type="submit">Post</Button>
       </form>
     </div>
   );
