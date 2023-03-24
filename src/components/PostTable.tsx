@@ -31,7 +31,10 @@ function PostTable() {
       <h2 className="text-2xl">Posts</h2>
       <div>
         {posts.map((post) => (
-          <div className="mt-2 flex flex-col justify-between rounded bg-gray-800 px-3 py-2 lg:flex-row">
+          <div
+            key={post.id}
+            className="mt-2 flex flex-col justify-between rounded bg-gray-800 px-3 py-2 lg:flex-row"
+          >
             <p className="text-white">
               {post.metadata.title} {post.metadata.draft ? draftTag : ""}
             </p>
