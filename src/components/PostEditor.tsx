@@ -1,5 +1,5 @@
 import { useContext, useReducer } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fromUnixTime } from "date-fns";
 
 import { slugify } from "../utils";
@@ -55,6 +55,8 @@ function reducer(state: FormState, action: FormAction): FormState {
 }
 
 function PostEditor(props: { post?: Post }) {
+  let navigate = useNavigate();
+
   const { putPost, postPost } = useContext(GlobalContext) as IGlobalContext;
   const post = props.post;
 
@@ -76,7 +78,6 @@ function PostEditor(props: { post?: Post }) {
     };
   }
 
-  const history = useHistory();
   const [formState, formDispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -97,7 +98,7 @@ function PostEditor(props: { post?: Post }) {
     } else {
       await postPost(newPost);
     }
-    history.push("/");
+    navigate("/");
   };
 
   return (

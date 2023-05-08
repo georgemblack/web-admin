@@ -1,10 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EditPostButton(props: { id: string }) {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const handleClick = () => {
-    history.push(`/posts/${props.id}/edit`);
+    navigate(`/posts/${props.id}/edit`);
   };
 
   return (

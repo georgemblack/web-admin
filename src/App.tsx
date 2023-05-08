@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
 
 import GlobalContext from "./context/GlobalContext";
@@ -15,7 +15,7 @@ interface Token {
 
 function App() {
   const context = useGlobalContext();
-  let history = useHistory();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -31,9 +31,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (context.userIsAuthenticated) {
-      history.push("/");
-    }
+    if (context.userIsAuthenticated) navigate("/");
+    else navigate("/login");
   }, [context.userIsAuthenticated]);
 
   return (
@@ -47,24 +46,12 @@ function App() {
         </header>
       )}
       <main>
-        <Switch>
-          <Route exact path="/">
-            {context.userIsAuthenticated ? (
-              <HomePage />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/posts/new">
-            <NewPostPage />
-          </Route>
-          <Route path="/posts/:id/edit">
-            <EditPostPage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/posts/new" element={<NewPostPage />} />
+          <Route path="/posts/:id/edit" element={<EditPostPage />} />
+        </Routes>
       </main>
     </GlobalContext.Provider>
   );
