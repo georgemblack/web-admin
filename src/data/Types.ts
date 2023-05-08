@@ -16,6 +16,7 @@ interface Post {
   title: string;
   slug: string;
   draft: boolean;
+  listed: boolean;
   published: Timestamp;
   content: string;
   contentHtml: string;
@@ -26,6 +27,7 @@ interface NewPost {
   title: string;
   slug: string;
   draft: boolean;
+  listed: boolean;
   content: string;
   published: Date;
 }

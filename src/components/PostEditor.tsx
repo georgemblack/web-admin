@@ -22,6 +22,7 @@ interface FormState {
   title: string;
   slug: string;
   draft: boolean;
+  listed: boolean;
   content: string;
   published: Date;
   location?: string[];
@@ -38,6 +39,9 @@ function reducer(state: FormState, action: FormAction): FormState {
   }
   if (action.field === "draft" && typeof action.value === "boolean") {
     merged.draft = action.value;
+  }
+  if (action.field === "listed" && typeof action.value === "boolean") {
+    merged.listed = action.value;
   }
   if (action.field === "content" && typeof action.value === "string") {
     merged.content = action.value;
@@ -64,6 +68,7 @@ function PostEditor(props: { post?: Post }) {
     title: "",
     slug: "",
     draft: true,
+    listed: true,
     content: "",
     published: new Date(),
   };
@@ -73,6 +78,7 @@ function PostEditor(props: { post?: Post }) {
       title: post.title,
       slug: post.slug,
       draft: post.draft,
+      listed: post.listed,
       content: post.content,
       published: fromUnixTime(post.published._seconds),
     };
@@ -88,6 +94,7 @@ function PostEditor(props: { post?: Post }) {
       title: formState.title,
       slug: formState.slug,
       draft: formState.draft,
+      listed: formState.listed,
       content: formState.content,
       published: formState.published,
     };
@@ -115,6 +122,15 @@ function PostEditor(props: { post?: Post }) {
               }
             >
               {formState.draft ? "Draft" : "Published"}
+            </Button>
+            <Button
+              type="button"
+              name="listed"
+              onClick={() =>
+                formDispatch({ field: "listed", value: !formState.listed })
+              }
+            >
+              {formState.listed ? "✅" : "🪬"}
             </Button>
             <EmojiButton
               type="button"
