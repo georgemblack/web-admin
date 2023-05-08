@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 
-import { postAuthTokenAPI } from "../data/Api";
 import GlobalContext from "../context/GlobalContext";
 import IGlobalContext from "../context/IGlobalContext";
+import { postAuthTokenAPI } from "../data/Api";
 
 function LoginForm() {
   const context = useContext(GlobalContext) as IGlobalContext;

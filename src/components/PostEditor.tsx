@@ -1,17 +1,17 @@
+import { fromUnixTime } from "date-fns";
 import { useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import { fromUnixTime } from "date-fns";
 
-import { slugify } from "../utils";
-import { Post } from "../data/Types";
 import GlobalContext from "../context/GlobalContext";
-import TextListInput from "./TextListInput";
-import LocationInput from "./LocationInput";
-import EmojiButton from "./EmojiButton";
-import Button from "./Button";
-import Input from "./Input";
-import TextArea from "./TextArea";
 import IGlobalContext from "../context/IGlobalContext";
+import { Post } from "../data/Types";
+import { slugify } from "../utils";
+import Button from "./Button";
+import EmojiButton from "./EmojiButton";
+import Input from "./Input";
+import LocationInput from "./LocationInput";
+import TextArea from "./TextArea";
+import TextListInput from "./TextListInput";
 
 interface FormAction {
   field: keyof FormState;

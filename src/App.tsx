@@ -1,13 +1,13 @@
+import decode from "jwt-decode";
 import { useEffect } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import decode from "jwt-decode";
 
 import GlobalContext from "./context/GlobalContext";
 import useGlobalContext from "./context/GlobalContextHook";
+import EditPostPage from "./views/EditPostPage";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
 import NewPostPage from "./views/NewPostPage";
-import EditPostPage from "./views/EditPostPage";
 
 interface Token {
   exp: number;

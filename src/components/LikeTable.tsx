@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 
-import { Like } from "../data/Types";
 import GlobalContext from "../context/GlobalContext";
 import IGlobalContext from "../context/IGlobalContext";
+import { Like } from "../data/Types";
 import DeleteWithConfirmationButton from "./DeleteWithConfirmationButton";
 import Time from "./Time";
 

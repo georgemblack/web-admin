@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 
-import IGlobalContext from "../context/IGlobalContext";
 import GlobalContext from "../context/GlobalContext";
+import IGlobalContext from "../context/IGlobalContext";
 import Button from "./Button";
 import Input from "./Input";
 
