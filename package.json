@@ -4,7 +4,8 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "format": "prettier --write ./src",
-    "tsc": "tsc --noEmit"
+    "format-check": "prettier ./src",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
