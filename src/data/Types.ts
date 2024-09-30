@@ -6,18 +6,13 @@ interface Build {
   buildID: string;
 }
 
-interface Timestamp {
-  _seconds: number;
-  _nanoseconds: number;
-}
-
 interface Post {
   id: string;
   title: string;
   slug: string;
   draft: boolean;
   listed: boolean;
-  published: Timestamp;
+  published: string;
   content: string;
   contentHtml: string;
   contentHtmlPreview: string;
@@ -36,7 +31,7 @@ interface Like {
   id: string;
   title: string;
   url: string;
-  timestamp: Timestamp;
+  timestamp: string;
 }
 
 interface NewLike {
@@ -44,4 +39,4 @@ interface NewLike {
   url: string;
 }
 
-export { AuthToken, Build, Post, NewPost, Like, NewLike, Timestamp };
+export { AuthToken, Build, Post, NewPost, Like, NewLike };

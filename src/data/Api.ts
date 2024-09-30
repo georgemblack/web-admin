@@ -1,5 +1,5 @@
 import { getAuthToken } from "../utils";
-import { AuthToken, Build, Post, NewPost, Like, NewLike } from "./Types";
+import { AuthToken, Post, NewPost, Like, NewLike } from "./Types";
 
 let { API_URL } = process.env;
 
@@ -17,18 +17,6 @@ export async function postAuthTokenAPI(
     },
   });
   return (await response.json()) as AuthToken;
-}
-
-export async function postBuildAPI(): Promise<Build> {
-  const authToken = getAuthToken();
-  let response = await fetch(`${API_URL}/builds`, {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
-  return (await response.json()) as Build;
 }
 
 export async function getPostsAPI(): Promise<Post[]> {
