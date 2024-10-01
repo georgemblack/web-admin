@@ -1,10 +1,11 @@
-import { fromUnixTime } from "date-fns";
+import { fromUnixTime, parseISO } from "date-fns";
 import { useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 
 import GlobalContext from "../context/GlobalContext";
 import IGlobalContext from "../context/IGlobalContext";
 import { Post } from "../data/Types";
+import generate from "../markdoc";
 import { slugify } from "../utils";
 import Button from "./Button";
 import EmojiButton from "./EmojiButton";
@@ -80,7 +81,7 @@ function PostEditor(props: { post?: Post }) {
       draft: post.draft,
       listed: post.listed,
       content: post.content,
-      published: fromUnixTime(post.published._seconds),
+      published: parseISO(post.published),
     };
   }
 
@@ -90,12 +91,15 @@ function PostEditor(props: { post?: Post }) {
     event.preventDefault();
 
     // Format form data to 'NewPost' type
+    const { html, htmlPreview } = generate(formState.content);
     const newPost = {
       title: formState.title,
       slug: formState.slug,
       draft: formState.draft,
       listed: formState.listed,
       content: formState.content,
+      contentHtml: html,
+      contentHtmlPreview: htmlPreview,
       published: formState.published,
     };
 
@@ -112,7 +116,7 @@ function PostEditor(props: { post?: Post }) {
     <div>
       <h2 className="mt-4 text-2xl">{post ? "Edit Post" : "Create Post"}</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mt-2 max-w-lg">
+        <div className="max-w-lg mt-2">
           <div className="flex items-center gap-2">
             <Button
               type="button"
@@ -155,7 +159,7 @@ function PostEditor(props: { post?: Post }) {
               }
             ></Input>
           </div>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-2">
             <Input
               type="text"
               value={formState.slug}

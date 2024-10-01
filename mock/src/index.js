@@ -10,7 +10,12 @@ const port = process.env.PORT || 9000;
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods", "*");
   next();
+});
+
+app.options("*", (req, res) => {
+  res.send();
 });
 
 app.post("/auth", (req, res) => {
